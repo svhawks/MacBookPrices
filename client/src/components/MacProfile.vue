@@ -4,31 +4,38 @@
   <div class="Mytable" v-if="mac != undefined">
     <table class="tg">
       <tr>
-        <th class="tg-l98b">Name</th>
-        <th class="tg-mlsn">{{mac.name}}</th>
+        <td class="tg-l98b">Name</td>
+        <th>:</th>
+        <td class="tg-mlsn">{{mac.name}}</td>
       </tr>
       <tr>
         <td class="tg-ijl4">Model Identifier</td>
+        <th>:</th>
         <td class="tg-ijl4">{{mac.model_identifier}}</td>
       </tr>
       <tr>
         <td class="tg-em9h">Processor</td>
+        <th>:</th>
         <td class="tg-em9h">{{mac.processor}}</td>
       </tr>
       <tr>
         <td class="tg-ijl4">Processor Frequency</td>
+        <th>:</th>
         <td class="tg-ijl4">{{mac.processor_freq}}</td>
       </tr>
       <tr>
         <td class="tg-em9h">Processors</td>
+        <th>:</th>
         <td class="tg-em9h">{{mac.processor_count}}</td>
       </tr>
       <tr>
         <td class="tg-ijl4">Processor Cores</td>
+        <th>:</th>
         <td class="tg-ijl4">{{mac.processor_cores}}</td>
       </tr>
       <tr>
         <td class="tg-em9h">Processor Threads</td>
+        <th>:</th>
         <td class="tg-em9h">{{mac.processor_threads}}</td>
       </tr>
     </table>
@@ -66,7 +73,7 @@ export default {
   }
 }
 </script>
-<style>
+<style scoped>
 /* eslint-disable */
 h1,
 h2 {
@@ -88,13 +95,15 @@ a {
 }
 
 .Mytable {
-  margin-left: 22%;
+  margin-left: 25%;
 }
 
 th, td {
   border-bottom: 1px solid #ddd;
-  text-align: left;
   font-size: 200%;
-  width: 30%;
+}
+td {
+  text-align: left;
+  width: 25%;
 }
 </style>
