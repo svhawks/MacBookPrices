@@ -36,4 +36,10 @@ module.exports = db.sequelize.define(
     fp: {
       type: Sequelize.FLOAT
     },
+    single_score: {
+      type: Sequelize.INTEGER
+    },
+    multi_score: {
+      type: Sequelize.INTEGER
+    }
 })
