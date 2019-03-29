@@ -1,31 +1,43 @@
 <template>
   <div class="macs-containter">
-    <h1>hello</h1>
-    <div v-for="mac in macs">
-      <MacItem :mac = mac ></MacItem>
+    <h1>Mac Scores</h1>
+    <div v-if="loading">
+      <div  v-for="mac in macs" :key="mac.id">
+        <macItem :mac=mac>{{mac.id}}</macItem> 
+      </div>
     </div>
+    <h1 v-else>
+      Loading...
+    </h1>
   </div>
 </template>
 
 <script>
+/* eslint-disable */
 import MacItem from '@/components/macItem.vue'
 import MacService from '@/services/MacService.js'
 export default {
   name: 'Home',
   data () {
     return {
-      macs: []
+      macs: [],
+      loading: true
     }
   },
   created () {
     this.getMacs()
+    this.loading = true
   },
   components: {
     MacItem,
     MacService
   },
+  watch: {
+    '$route': 'getMacs'
+  },
   methods: {
     async getMacs () {
+      this.loading = false
       const response = await MacService.fetchMacs()
       this.macs = response.data
     }
@@ -35,7 +47,8 @@ export default {
 
 <!-- Add 'scoped' attribute to limit CSS to this component only -->
 
-<style scoped>
+<style>
+/* eslint-disable */
 h1,
 h2 {
   font-weight: normal;

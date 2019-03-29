@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Home from '@/components/Home'
 import MacProfile from '@/components/MacProfile'
 Vue.use(Router)
-
+Vue.config.productionTip = false
 export default new Router({
   routes: [
     {

@@ -3,8 +3,10 @@ import Api from './Api'
 export default {
   fetchMacs () {
     return Api().get('/api')
+  },
+  fetchMacById (params) {
+    return Api().get(`/api/macs/${params}`)
   }
-
   // addPost (params) {
   //   return Api().post('add_post', params)
   // },
