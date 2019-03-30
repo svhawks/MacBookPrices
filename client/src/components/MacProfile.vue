@@ -4,6 +4,16 @@
   <div class="Mytable" v-if="mac != undefined">
     <table class="tg">
       <tr>
+        <td class="tg-em9h">Single-Core Score</td>
+        <th>:</th>
+        <td class="tg-em9h">{{mac.single_score}}</td>
+      </tr>
+      <tr>
+        <td class="tg-em9h">Multi-Core Score</td>
+        <th>:</th>
+        <td class="tg-em9h">{{mac.multi_score}}</td>
+      </tr>
+      <tr>
         <td class="tg-l98b">Name</td>
         <th>:</th>
         <td class="tg-mlsn">{{mac.name}}</td>
@@ -21,7 +31,7 @@
       <tr>
         <td class="tg-ijl4">Processor Frequency</td>
         <th>:</th>
-        <td class="tg-ijl4">{{mac.processor_freq}}</td>
+        <td class="tg-ijl4">{{mac.processor_freq}} Mhz</td>
       </tr>
       <tr>
         <td class="tg-em9h">Processors</td>
@@ -37,6 +47,16 @@
         <td class="tg-em9h">Processor Threads</td>
         <th>:</th>
         <td class="tg-em9h">{{mac.processor_threads}}</td>
+      </tr>
+      <tr>
+        <td class="tg-em9h">Prize</td>
+        <th>:</th>
+        <td class="tg-em9h">{{mac.price}} $ </td>
+      </tr>
+      <tr>
+        <td class="tg-em9h">Avarage</td>
+        <th>:</th>
+        <td class="tg-em9h">{{parseFloat(mac.multi_score / mac.price).toFixed(2)}}</td>
       </tr>
     </table>
   </div>
@@ -91,6 +111,8 @@ li {
 }
 
 a {
+  font-size: xx-large;
+  font-weight: 900;
   color: #42b983;
 }
 

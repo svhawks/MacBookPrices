@@ -33,7 +33,7 @@ module.exports = db.sequelize.define(
     processor_count: {
       type: Sequelize.INTEGER
     },
-    fp: {
+    price: {
       type: Sequelize.FLOAT
     },
     single_score: {

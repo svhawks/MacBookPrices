@@ -1,4 +1,6 @@
 const Sequelize = require("sequelize");
+const Op = Sequelize.Op;
+
 const db = {};
 const sequelize = new Sequelize("MacWorld", "root", "root", {
   host: "localhost",
@@ -14,7 +16,8 @@ const sequelize = new Sequelize("MacWorld", "root", "root", {
   },
   define: {
     timestamps: false
-  }
+  },
+  $between: Op.between
 })
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;

@@ -2,11 +2,33 @@
   <div class="macs-containter">
     <h1>Mac Scores</h1>
     <div class="myTable" v-if="loading">
+      <b-row>
+        <b-col md="10" class="my-1">
+          <b-form-group label-cols-sm="3" label="Filter" class="mb-0">
+            <b-input-group>
+              <b-form-input v-model="filter" placeholder="Type to Search"></b-form-input>
+            </b-input-group>
+          </b-form-group>
+        <b-form-group label-cols-sm="3" label="Score" class="mb-0">
+          <b-input-group>
+            <b-form-input v-model="minScore" placeholder="Min"></b-form-input>
+            <b-form-input v-model="maxScore" placeholder="Max"></b-form-input>
+          </b-input-group>
+        </b-form-group>
+        </b-col>
+      <b-col md="2">
+        <b-button :disabled="!minScore && !maxScore" @click="filterRotuer" class="btn">Filter</b-button>
+        <br>
+        <b-button :disabled="!filter && !minScore && !maxScore" @click="clear" class="btn">Clear</b-button>
+      </b-col>
+      </b-row>
+      
       <b-table 
         outlined
         hover
         :items="items" 
         :fields="fields"
+        :filter="filter"
       >
         <template slot="name" slot-scope="data" >
           <a @click='go(data.value)'>{{ data.value }}</a>
@@ -35,13 +57,20 @@ export default {
           sortable: false
         },
         {
-          key: 'score',
+          key: 'SingleScore',
+          sortable: true
+        },
+        {
+          key: 'MultiScore',
           sortable: true
         }
       ],
-      macs: [],
       items: [],
-      loading: true
+      loading: true,
+      filter: null,
+      minScore: null,
+      maxScore: null,
+      getbtn: false
     }
   },
   created () {
@@ -52,21 +81,21 @@ export default {
     MacService
   },
   watch: {
-    '$route': 'getMacs'
+    'getBtn': 'singleFilter'
   },
   methods: {
     async getMacs () {
       this.loading = false
-      const response = await MacService.fetchMacs()
-      this.macs = response.data
-      this.fillTable()
+      const response = await MacService.fetchMacs('/')
+      this.fillTable(response.data)
     },
-    fillTable () {
-      this.macs.forEach(mac => {
+    fillTable (macs) {
+      macs.forEach(mac => {
         this.items.push(
           {
             name: mac.name,
-            score: mac.single_score,
+            SingleScore: mac.single_score,
+            MultiScore: mac.multi_score,
             description: mac.processor + ' @ ' + parseFloat(mac.processor_freq / 1000).toFixed(1) + ' Ghz (' + mac.processor_cores + ' cores) '
           })
       })
@@ -76,10 +105,25 @@ export default {
       this.macs.forEach(mac => {
         id++
         if (mac.name === name) {
-          console.log(name)
           this.$router.push(`/macs/${id}`)
         }
       })
+    },
+    clear () {
+      this.minScore = ''
+      this.maxScore = ''
+      this.filter = ''
+    },
+    async singleFilter () {
+      this.items = []
+      this.loading = false
+      const response = await MacService.fetchMacs(`/?min=${this.minScore}&max=${this.maxScore}`)
+      this.fillTable(response.data)
+      this.loading = true
+    },
+    filterRotuer () {
+      this.getbtn = true
+      this.$router.push(`/?min=${this.minScore}&max=${this.maxScore}`)
     }
   }
 }
@@ -89,7 +133,7 @@ export default {
 /* eslint-disable */
 h1,
 h2 {
-  font-weight: normal;
+  font-weight: 900;
   font-size: 400%;
   color:slateblue;
 }
@@ -104,9 +148,7 @@ li {
   margin: 0 10px;
 }
 
-a {
-  color: #42b983;
-}
+
 .myTable {
   font-weight: 800;
   width: 50%;
@@ -124,5 +166,22 @@ th, td{
   font-size: 150%;
   text-decoration: none;
 }
+
+a:not([href]):not([tabindex]) {
+  color: #42b983;
+  cursor: pointer;
+}
+a:not([href]):not([tabindex]):hover {
+  text-decoration-line: underline;
+    color: #42b983;
+}
+.btn {
+  background-color: #42b983;
+  border: transparent;
+  width: 100px;
+  margin-top: 2px;
+  padding: 8px;
+}
+
 </style>
 
