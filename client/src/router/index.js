@@ -12,6 +12,11 @@ export default new Router({
       component: Home
     },
     {
+      path: '/filtered/',
+      name: 'filtered',
+      component: Home
+    },
+    {
       path: '/macs/:id',
       name: 'mac',
       component: MacProfile

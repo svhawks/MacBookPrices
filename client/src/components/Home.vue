@@ -1,7 +1,9 @@
 <template>
-  <div class="macs-containter">
-    <h1>Mac Scores</h1>
-    <div class="myTable" v-if="loading">
+  <div class="row">
+    <div class="col"></div>
+    
+    <div class="myTable col-8" v-if="loading">
+      <h1>Mac Scores</h1>
       <b-row>
         <b-col md="10" class="my-1">
           <b-form-group label-cols-sm="3" label="Filter" class="mb-0">
@@ -9,17 +11,29 @@
               <b-form-input v-model="filter" placeholder="Type to Search"></b-form-input>
             </b-input-group>
           </b-form-group>
-        <b-form-group label-cols-sm="3" label="Score" class="mb-0">
+        <b-form-group label-cols-sm="3" label="Single Score" class="mb-0">
           <b-input-group>
-            <b-form-input v-model="minScore" placeholder="Min"></b-form-input>
-            <b-form-input v-model="maxScore" placeholder="Max"></b-form-input>
+            <b-form-input v-model="filters.minScore" placeholder="Min"></b-form-input>
+            <b-form-input v-model="filters.maxScore" placeholder="Max"></b-form-input>
+          </b-input-group>
+        </b-form-group>
+        <b-form-group label-cols-sm="3" label="Multi Score" class="mb-0">
+          <b-input-group>
+            <b-form-input v-model="filters.minMScore" placeholder="Min"></b-form-input>
+            <b-form-input v-model="filters.maxMScore" placeholder="Max"></b-form-input>
+          </b-input-group>
+        </b-form-group>
+        <b-form-group label-cols-sm="3" label="Price" class="mb-0">
+          <b-input-group>
+            <b-form-input v-model="filters.minPrice" placeholder="Min"></b-form-input>
+            <b-form-input v-model="filters.maxPrice" placeholder="Max"></b-form-input>
           </b-input-group>
         </b-form-group>
         </b-col>
       <b-col md="2">
-        <b-button :disabled="!minScore && !maxScore" @click="filterRotuer" class="btn">Filter</b-button>
-        <br>
-        <b-button :disabled="!filter && !minScore && !maxScore" @click="clear" class="btn">Clear</b-button>
+        <b-button @click="filterRotuer" class="btn">Filter</b-button>
+        
+        <b-button @click="clear" class="btn2">Clear</b-button>
       </b-col>
       </b-row>
       
@@ -38,6 +52,7 @@
     <h1 v-else>
       Loading...
     </h1>
+    <div class="col"></div>
   </div>
 </template>
 
@@ -57,20 +72,35 @@ export default {
           sortable: false
         },
         {
-          key: 'SingleScore',
+          key: 'Single-Core Score',
           sortable: true
         },
         {
-          key: 'MultiScore',
+          key: 'Multi-Core Score',
+          sortable: true
+        },
+        {
+          key: 'Price',
+          sortable: true
+        },
+        {
+          key: 'Avarage',
           sortable: true
         }
       ],
       items: [],
       loading: true,
       filter: null,
-      minScore: null,
-      maxScore: null,
-      getbtn: false
+      filters: {
+        minScore: '',
+        maxScore: '',
+        minPrice: '',
+        maxPrice: '',
+        minMScore: '',
+        maxMScore: ''
+      },
+      btns: false,
+      macs: []
     }
   },
   created () {
@@ -81,22 +111,26 @@ export default {
     MacService
   },
   watch: {
-    'getBtn': 'singleFilter'
+    '$route': 'singleFilter',
+    'clear': 'getMacs'
   },
   methods: {
     async getMacs () {
       this.loading = false
       const response = await MacService.fetchMacs('/')
       this.fillTable(response.data)
+      this.macs = response.data
     },
     fillTable (macs) {
       macs.forEach(mac => {
         this.items.push(
           {
             name: mac.name,
-            SingleScore: mac.single_score,
-            MultiScore: mac.multi_score,
-            description: mac.processor + ' @ ' + parseFloat(mac.processor_freq / 1000).toFixed(1) + ' Ghz (' + mac.processor_cores + ' cores) '
+            'Single-Core Score': mac.single_score,
+            'Multi-Core Score': mac.multi_score,
+            description: mac.processor + ' @ ' + parseFloat(mac.processor_freq / 1000).toFixed(1) + ' Ghz (' + mac.processor_cores + ' cores) ',
+            Price: mac.price + '$',
+            Avarage: parseFloat(mac.multi_score / mac.price).toFixed(2)
           })
       })
     },
@@ -110,27 +144,35 @@ export default {
       })
     },
     clear () {
-      this.minScore = ''
-      this.maxScore = ''
       this.filter = ''
+      Object.keys(this.filters)
+        .map(i => { this.filters[i] = '' })
+      this.items = []
+      this.fillTable(this.macs)
     },
     async singleFilter () {
       this.items = []
       this.loading = false
-      const response = await MacService.fetchMacs(`/?min=${this.minScore}&max=${this.maxScore}`)
+      const response = await MacService.filterMacs(this.filterUrlBuilder())
       this.fillTable(response.data)
       this.loading = true
     },
     filterRotuer () {
-      this.getbtn = true
-      this.$router.push(`/?min=${this.minScore}&max=${this.maxScore}`)
+      this.$router.push(this.filterUrlBuilder())
+    },
+    filterUrlBuilder () {
+      let url = '/filtered/?'
+      let esc = encodeURIComponent
+      url += Object.keys(this.filters)
+        .map(i => esc(i) + '=' + esc(this.filters[i]))
+        .join('&')
+      return url
     }
   }
 }
 </script>
 
 <style>
-/* eslint-disable */
 h1,
 h2 {
   font-weight: 900;
@@ -151,19 +193,17 @@ li {
 
 .myTable {
   font-weight: 800;
-  width: 50%;
-  margin-left: 25%;
-  margin-top: 5%;
 }
 
 thead {
   background-color: slateblue; 
   color: aliceblue;
+  text-align: center;
 }
 
 th, td{
   height: 20%;
-  font-size: 150%;
+  font-size: 130%;
   text-decoration: none;
 }
 
@@ -175,12 +215,17 @@ a:not([href]):not([tabindex]):hover {
   text-decoration-line: underline;
     color: #42b983;
 }
-.btn {
+.btn, .btn2 {
   background-color: #42b983;
   border: transparent;
   width: 100px;
-  margin-top: 2px;
-  padding: 8px;
+  margin-top: 10px;
+  padding-left: 30px;
+  display: flex;
+  text-align: center;
+}
+.form-row {
+  padding-top: 4px;
 }
 
 </style>

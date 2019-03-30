@@ -5,27 +5,22 @@ const Mac = require("../models/Mac")
 const Op = Sequelize.Op
 let qs = require('qs');
 let assert = require('assert');
+
 //Get All Macs
 router.get("/", (req, res) => {
-  let obj = qs.parse(req.params.query)
-  let str = qs.stringify(obj);
-  console.log("\n\n="+str+"=\n\n")
-    Mac.findAll({
-      where: {
-      }
-    })
-    .then(macs => {     
-      res.json(macs)
-    })
-    .catch(err => {
-      res.send("error: " + err)
-    })
+  console.log('Get All Macs')
+  Mac.findAll({order: Sequelize.col('single_score','DESC')})
+  .then(macs => {     
+    res.json(macs)
+  })
+  .catch(err => {
+    res.send("error: " + err)
+  })
 })
 //Get Mac With Id
 router.get("/macs/:id", (req, res) => {
   Mac.findOne({ where: {id: req.params.id} })
   .then(mac => {     
-    console.log(mac)
     res.json(mac)
   })
   .catch(err => {
@@ -33,13 +28,40 @@ router.get("/macs/:id", (req, res) => {
   })
 })
 router.get("/filtered/", (req, res) => {
-  console.log(req.params.query)
+  let obj = qs.parse(req.query)
+  let str = qs.stringify(obj);
+  let temp = str.split('&')
+  let singleMin = temp[0].split('=')[1] ==='' ? 0 : temp[0].split('=')[1]
+  let singleMax = temp[1].split('=')[1] ==='' ? Number.MAX_SAFE_INTEGER : temp[1].split('=')[1]
+  let priceMin = temp[2].split('=')[1] ==='' ? 0 : temp[2].split('=')[1]
+  let priceMax = temp[3].split('=')[1] ==='' ? Number.MAX_SAFE_INTEGER : temp[3].split('=')[1]
+  let multiMin = temp[4].split('=')[1] ==='' ? 0 : temp[4].split('=')[1]
+  let multiMax = temp[5].split('=')[1] ==='' ? Number.MAX_SAFE_INTEGER : temp[5].split('=')[1]
   Mac.findAll({
     where: {
-      [Op.between]: [{single_score: req.query.min}, {single_score: req.query.max}]
+      single_score: {
+        [Op.and]:{
+          [Op.gte]: singleMin,
+          [Op.lte]: singleMax
+        }
+      },
+      multi_score: {
+        [Op.and]:{
+          [Op.gte]: multiMin,
+          [Op.lte]: multiMax
+        }
+      },
+      price: {
+        [Op.and]:{
+          [Op.gte]: priceMin,
+          [Op.lte]: priceMax
+        }
+      }
+      // [Op.between]: [{single_score: singleMin}, {single_score: singleMax}],
+      // [Op.between]: [{price: priceMin},{price: priceMax}]
     }
   })
-  .then(macs => {     
+  .then(macs => {   
     console.log(macs)
     res.json(macs)
   })
