@@ -7,7 +7,7 @@ A skeleton generated with MEVN stack technologies which can be used as a boilerp
 ## How To Use
 1. Clone the repo 
 ```
-git clone git@github.com:batineryilmaz/MacWorld.git
+git clone git@github.com:batineryilmaz/MacScores.git
 ```
 
 2. Open project file 
