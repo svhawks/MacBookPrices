@@ -2,7 +2,7 @@ const Sequelize = require("sequelize");
 const Op = Sequelize.Op;
 
 const db = {};
-const sequelize = new Sequelize("MacWorld", "root", "root", {
+const sequelize = new Sequelize("MacScores", "root", "root", {
   host: "localhost",
   port: "3306",
   dialect: "mysql",

@@ -39,7 +39,6 @@
       
       <b-table 
         outlined
-        hover
         :items="items" 
         :fields="fields"
         :filter="filter"
@@ -175,8 +174,8 @@ export default {
 <style>
 h1,
 h2 {
-  font-weight: 900;
-  font-size: 400%;
+  font-weight: 600;
+  font-size: 350%;
   color:slateblue;
 }
 
@@ -200,9 +199,12 @@ thead {
   color: aliceblue;
   text-align: center;
 }
-
+tr:hover {
+  background-color: slateblue; 
+  color: aliceblue;
+}
 th, td{
-  height: 20%;
+  height: 15%;
   font-size: 130%;
   text-decoration: none;
 }
