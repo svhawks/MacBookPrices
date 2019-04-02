@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col"></div>
     
-    <div class="myTable col-8" v-if="loading">
+    <div class="myTable col-8" v-show="!loading">
       <h1>Mac Scores</h1>
       <b-row>
         <b-col md="10" class="my-1">
@@ -36,7 +36,6 @@
         <b-button @click="clear" class="btn2">Clear</b-button>
       </b-col>
       </b-row>
-      
       <b-table 
         outlined
         :items="items" 
@@ -48,9 +47,7 @@
         </template>
       </b-table>
     </div>
-    <h1 v-else>
-      Loading...
-    </h1>
+    <h1 v-show="loading">Macs Are Loading...</h1>
     <div class="col"></div>
   </div>
 </template>
@@ -71,12 +68,14 @@ export default {
           sortable: false
         },
         {
-          key: 'Single-Core Score',
-          sortable: true
+          key: 'sS',
+          sortable: true,
+          label: 'Multi-Core Score'
         },
         {
-          key: 'Multi-Core Score',
-          sortable: true
+          key: 'mS',
+          sortable: true,
+          label: 'Single-Core Score'
         },
         {
           key: 'Price',
@@ -88,7 +87,7 @@ export default {
         }
       ],
       items: [],
-      loading: true,
+      loading: false,
       filter: null,
       filters: {
         minScore: '',
@@ -104,18 +103,17 @@ export default {
   },
   created () {
     this.getMacs()
-    this.loading = true
+    this.loading = false
   },
   components: {
     MacService
   },
   watch: {
-    '$route': 'singleFilter',
-    'clear': 'getMacs'
+    '$route': 'singleFilter'
   },
   methods: {
     async getMacs () {
-      this.loading = false
+      this.loading = true
       const response = await MacService.fetchMacs('/')
       this.fillTable(response.data)
       this.macs = response.data
@@ -125,39 +123,43 @@ export default {
         this.items.push(
           {
             name: mac.name,
-            'Single-Core Score': mac.single_score,
-            'Multi-Core Score': mac.multi_score,
+            sS: mac.single_score,
+            mS: mac.multi_score,
             description: mac.processor + ' @ ' + parseFloat(mac.processor_freq / 1000).toFixed(1) + ' Ghz (' + mac.processor_cores + ' cores) ',
             Price: mac.price + '$',
-            Avarage: parseFloat(mac.multi_score / mac.price).toFixed(2)
+            Avarage: parseFloat(mac.single_score / mac.price).toFixed(2)
           })
       })
+      this.items.sort((a, b) => (a.sS < b.sS) ? 1 : -1)
     },
     go (name) {
-      let id = 0
       this.macs.forEach(mac => {
-        id++
         if (mac.name === name) {
-          this.$router.push(`/macs/${id}`)
+          this.$router.push(`/macs/${mac.id}`)
         }
       })
     },
     clear () {
+      this.loading = true
       this.filter = ''
+      this.$router.push('/')
       Object.keys(this.filters)
         .map(i => { this.filters[i] = '' })
       this.items = []
       this.fillTable(this.macs)
+      this.loading = false
     },
     async singleFilter () {
       this.items = []
-      this.loading = false
+      this.loading = true
       const response = await MacService.filterMacs(this.filterUrlBuilder())
       this.fillTable(response.data)
-      this.loading = true
+      this.loading = false
     },
     filterRotuer () {
+      this.loading = true
       this.$router.push(this.filterUrlBuilder())
+      this.loading = false
     },
     filterUrlBuilder () {
       let url = '/filtered/?'
@@ -175,7 +177,7 @@ export default {
 h1,
 h2 {
   font-weight: 600;
-  font-size: 350%;
+  font-size: 200%;
   color:slateblue;
 }
 
@@ -205,7 +207,7 @@ tr:hover {
 }
 th, td{
   height: 15%;
-  font-size: 130%;
+  font-size: 100%;
   text-decoration: none;
 }
 
@@ -227,8 +229,21 @@ a:not([href]):not([tabindex]):hover {
   text-align: center;
 }
 .form-row {
-  padding-top: 4px;
+  padding-top: 2px;
 }
+
+.fade-enter-active,
+.fade-leave-active {
+  transition-duration: 0.3s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0
+}
+
 
 </style>
 

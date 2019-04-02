@@ -8,7 +8,6 @@ let assert = require('assert');
 
 //Get All Macs
 router.get("/", (req, res) => {
-  console.log('Get All Macs')
   Mac.findAll({order: Sequelize.col('single_score','DESC')})
   .then(macs => {     
     res.json(macs)
@@ -17,6 +16,7 @@ router.get("/", (req, res) => {
     res.send("error: " + err)
   })
 })
+
 //Get Mac With Id
 router.get("/macs/:id", (req, res) => {
   Mac.findOne({ where: {id: req.params.id} })
@@ -27,6 +27,8 @@ router.get("/macs/:id", (req, res) => {
     res.send("error: " + err)
   })
 })
+
+// Get Filtered Macs
 router.get("/filtered/", (req, res) => {
   let obj = qs.parse(req.query)
   let str = qs.stringify(obj);
@@ -57,8 +59,6 @@ router.get("/filtered/", (req, res) => {
           [Op.lte]: priceMax
         }
       }
-      // [Op.between]: [{single_score: singleMin}, {single_score: singleMax}],
-      // [Op.between]: [{price: priceMin},{price: priceMax}]
     }
   })
   .then(macs => {   

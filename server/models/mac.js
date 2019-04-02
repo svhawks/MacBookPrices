@@ -15,9 +15,6 @@ module.exports = db.sequelize.define(
     model_identifier: {
       type: Sequelize.STRING
     },
-    release_date: {
-      type: Sequelize.STRING
-    },
     processor: {
       type: Sequelize.STRING
     },

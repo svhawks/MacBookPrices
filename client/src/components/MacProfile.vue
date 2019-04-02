@@ -142,7 +142,7 @@ th {
 th, td {
   border-bottom: 2px solid #ddd;
   border-top: 2px solid #ddd;
-  font-size: 200%;
+  font-size: 125%;
 }
 td {
   text-align: left;
