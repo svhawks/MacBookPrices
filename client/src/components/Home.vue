@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col"></div>
     
-    <div class="myTable col-8" v-show="!loading">
+    <div class="myTable col-8">
       <h1>Mac Scores</h1>
       <b-row>
         <b-col md="10" class="my-1">
@@ -11,13 +11,13 @@
               <b-form-input v-model="filter" placeholder="Type to Search"></b-form-input>
             </b-input-group>
           </b-form-group>
-        <b-form-group label-cols-sm="3" label="Single Score" class="mb-0">
+        <b-form-group label-cols-sm="3" label="Multi Score" class="mb-0">
           <b-input-group>
             <b-form-input v-model="filters.minScore" placeholder="Min"></b-form-input>
             <b-form-input v-model="filters.maxScore" placeholder="Max"></b-form-input>
           </b-input-group>
         </b-form-group>
-        <b-form-group label-cols-sm="3" label="Multi Score" class="mb-0">
+        <b-form-group label-cols-sm="3" label="Single Score" class="mb-0">
           <b-input-group>
             <b-form-input v-model="filters.minMScore" placeholder="Min"></b-form-input>
             <b-form-input v-model="filters.maxMScore" placeholder="Max"></b-form-input>
@@ -41,13 +41,13 @@
         :items="items" 
         :fields="fields"
         :filter="filter"
+        :busy='loading'
       >
         <template slot="name" slot-scope="data" >
-          <a @click='go(data.value)'>{{ data.value }}</a>
+          <a @click='go(data.item.description)'>{{ data.value }}</a>
         </template>
       </b-table>
     </div>
-    <h1 v-show="loading">Macs Are Loading...</h1>
     <div class="col"></div>
   </div>
 </template>
@@ -102,6 +102,7 @@ export default {
     }
   },
   created () {
+    this.loading = true
     this.getMacs()
     this.loading = false
   },
@@ -119,6 +120,7 @@ export default {
       this.macs = response.data
     },
     fillTable (macs) {
+      this.loading = true
       macs.forEach(mac => {
         this.items.push(
           {
@@ -131,10 +133,13 @@ export default {
           })
       })
       this.items.sort((a, b) => (a.sS < b.sS) ? 1 : -1)
+      this.loading = false
     },
-    go (name) {
+    go (description) {
       this.macs.forEach(mac => {
-        if (mac.name === name) {
+        let desc = mac.processor + ' @ ' + parseFloat(mac.processor_freq / 1000).toFixed(1) + ' Ghz (' + mac.processor_cores + ' cores) '
+        if (desc === description) {
+          console.log('asdasa')
           this.$router.push(`/macs/${mac.id}`)
         }
       })
