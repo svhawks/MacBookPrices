@@ -61,7 +61,7 @@
         <tr>
           <td class="tg-em9h">Price</td>
           <th>:</th>
-          <th class="tg-em9h">{{mac.price}} $ </th>
+          <th class="tg-em9h"> ${{mac.price}} </th>
         </tr>
         <tr>
           <td class="tg-em9h">Avarage</td>

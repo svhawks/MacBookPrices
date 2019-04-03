@@ -128,7 +128,7 @@ export default {
             sS: mac.single_score,
             mS: mac.multi_score,
             description: mac.processor + ' @ ' + parseFloat(mac.processor_freq / 1000).toFixed(1) + ' Ghz (' + mac.processor_cores + ' cores) ',
-            Price: mac.price + '$',
+            Price: '$' + mac.price,
             Avarage: parseFloat(mac.single_score / mac.price).toFixed(2)
           })
       })
