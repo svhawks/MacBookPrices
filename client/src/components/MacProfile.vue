@@ -102,8 +102,8 @@ export default {
   },
   methods: {
     async getMac () {
-      const response = await MacService.fetchMacById(this.$route.params.id)
-      this.mac = response.data
+      const response = await MacService.fetchMacById(this.$route.params.id)    
+      this.mac = response
     },
     homeLink () {
       this.$router.push({name: 'home'})

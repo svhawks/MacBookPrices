@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
 import MacProfile from '@/components/MacProfile'
+
 Vue.use(Router)
 Vue.config.productionTip = false
 export default new Router({
@@ -9,11 +10,6 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home
-    },
-    {
-      path: '/filtered/',
-      name: 'filtered',
       component: Home
     },
     {

@@ -31,7 +31,7 @@
         </b-form-group>
         </b-col>
       <b-col md="2">
-        <b-button @click="filterRotuer" class="btn">Filter</b-button>
+        <b-button @click="singleFilter" class="btn">Filter</b-button>
         
         <b-button @click="clear" class="btn2">Clear</b-button>
       </b-col>
@@ -54,6 +54,7 @@
 
 <script>
 import MacService from '@/services/MacService.js'
+import { log } from 'util';
 export default {
   name: 'Home',
   data () {
@@ -70,12 +71,12 @@ export default {
         {
           key: 'sS',
           sortable: true,
-          label: 'Multi-Core Score'
+          label: 'Single-Core Score'
         },
         {
           key: 'mS',
           sortable: true,
-          label: 'Single-Core Score'
+          label: 'Multi-Core Score'
         },
         {
           key: 'Price',
@@ -98,7 +99,8 @@ export default {
         maxMScore: ''
       },
       btns: false,
-      macs: []
+      macs: [],
+      filledFilters: []
     }
   },
   created () {
@@ -109,19 +111,15 @@ export default {
   components: {
     MacService
   },
-  watch: {
-    '$route': 'singleFilter'
-  },
   methods: {
     async getMacs () {
-      this.loading = true
-      const response = await MacService.fetchMacs('/')
-      this.fillTable(response.data)
-      this.macs = response.data
+      const response = await MacService.fetchMacs()
+      this.fillTable(response.rows)
+      this.macs = response.rows
     },
     fillTable (macs) {
-      this.loading = true
       macs.forEach(mac => {
+        mac = mac.doc
         this.items.push(
           {
             name: mac.name,
@@ -133,46 +131,46 @@ export default {
           })
       })
       this.items.sort((a, b) => (a.sS < b.sS) ? 1 : -1)
-      this.loading = false
     },
     go (description) {
       this.macs.forEach(mac => {
+        mac = mac.doc     
         let desc = mac.processor + ' @ ' + parseFloat(mac.processor_freq / 1000).toFixed(1) + ' Ghz (' + mac.processor_cores + ' cores) '
         if (desc === description) {
-          console.log('asdasa')
-          this.$router.push(`/macs/${mac.id}`)
+          this.$router.push(`/macs/${mac._id}`)
         }
       })
     },
     clear () {
       this.loading = true
       this.filter = ''
-      this.$router.push('/')
       Object.keys(this.filters)
         .map(i => { this.filters[i] = '' })
       this.items = []
       this.fillTable(this.macs)
       this.loading = false
     },
-    async singleFilter () {
-      this.items = []
+    singleFilter () {
       this.loading = true
-      const response = await MacService.filterMacs(this.filterUrlBuilder())
-      this.fillTable(response.data)
+      Object.keys(this.filters)
+        .map(i => { 
+          if(this.filters[i].includes('min') && this.filters[i] === ''){
+            this.filters[i] = 0
+          } 
+          if(this.filters[i].includes('max') && this.filters[i] === ''){
+            this.filters[i] = Number.MAX_SAFE_INTEGER
+          }
+        })
+      for (let i = 0; i < this.items.length; i++) {
+        const item = this.items[i]
+        if(item.sS <= this.filters.maxScore && item.mS <= this.filters.maxMScore && item.Price <= this.filters.maxPrice) {
+          this.items.pop(item)
+        }
+        if(item.sS >= this.filters.minScore && item.mS >= this.filters.minMScore && item.Price >= this.filters.minPrice) {
+          this.items.pop(item)
+        }
+     }
       this.loading = false
-    },
-    filterRotuer () {
-      this.loading = true
-      this.$router.push(this.filterUrlBuilder())
-      this.loading = false
-    },
-    filterUrlBuilder () {
-      let url = '/filtered/?'
-      let esc = encodeURIComponent
-      url += Object.keys(this.filters)
-        .map(i => esc(i) + '=' + esc(this.filters[i]))
-        .join('&')
-      return url
     }
   }
 }
