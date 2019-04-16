@@ -104,7 +104,6 @@ export default {
     }
   },
   created () {
-    this.$pouch.sync('mac_scores', 'https://github.com/batin/MacScores/tree/master/client/mac_scores');
     this.loading = true
     this.getMacs()
     this.loading = false
@@ -115,8 +114,7 @@ export default {
   methods: {
     async getMacs () {
       const response = await MacService.fetchMacs()
-      //const response = await MacService.deleteDocs() //for delete docs 
-      //const response = await MacService.create() // for create docs
+      //const response = await MacService.updateDB()
       this.fillTable(response.rows)
       this.macs = response.rows
     },
