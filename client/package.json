@@ -16,9 +16,11 @@
   "dependencies": {
     "axios": "^0.16.2",
     "bootstrap-vue": "^2.0.0-rc.16",
+    "pouch-vue": "^0.1.37",
     "pouchdb": "^7.0.0",
     "pouchdb-find": "^7.0.0",
     "vue": "^2.4.2",
+    "vue-pouch": "0.0.23",
     "vue-router": "^2.7.0",
     "vue-sweetalert2": "^1.0.7"
   },

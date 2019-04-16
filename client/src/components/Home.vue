@@ -11,13 +11,13 @@
               <b-form-input v-model="filter" placeholder="Type to Search"></b-form-input>
             </b-input-group>
           </b-form-group>
-        <b-form-group label-cols-sm="3" label="Multi Score" class="mb-0">
+        <b-form-group label-cols-sm="3" label="Single Score" class="mb-0">
           <b-input-group>
             <b-form-input v-model="filters.minScore" placeholder="Min"></b-form-input>
             <b-form-input v-model="filters.maxScore" placeholder="Max"></b-form-input>
           </b-input-group>
         </b-form-group>
-        <b-form-group label-cols-sm="3" label="Single Score" class="mb-0">
+        <b-form-group label-cols-sm="3" label="Multi Score" class="mb-0">
           <b-input-group>
             <b-form-input v-model="filters.minMScore" placeholder="Min"></b-form-input>
             <b-form-input v-model="filters.maxMScore" placeholder="Max"></b-form-input>
@@ -84,7 +84,8 @@ export default {
         },
         {
           key: 'Avarage',
-          sortable: true
+          sortable: true,
+          label: 'Scores per $'
         }
       ],
       items: [],
@@ -99,11 +100,11 @@ export default {
         maxMScore: ''
       },
       btns: false,
-      macs: [],
-      filledFilters: []
+      macs: []
     }
   },
   created () {
+    this.$pouch.sync('mac_scores', 'https://github.com/batin/MacScores/tree/master/client/mac_scores');
     this.loading = true
     this.getMacs()
     this.loading = false
@@ -114,6 +115,8 @@ export default {
   methods: {
     async getMacs () {
       const response = await MacService.fetchMacs()
+      //const response = await MacService.deleteDocs() //for delete docs 
+      //const response = await MacService.create() // for create docs
       this.fillTable(response.rows)
       this.macs = response.rows
     },
@@ -127,10 +130,10 @@ export default {
             mS: mac.multi_score,
             description: mac.processor + ' @ ' + parseFloat(mac.processor_freq / 1000).toFixed(1) + ' Ghz (' + mac.processor_cores + ' cores) ',
             Price: '$' + mac.price,
-            Avarage: parseFloat(mac.single_score / mac.price).toFixed(2)
+            Avarage: mac.multi_score === 0 ? 0 : parseFloat(mac.multi_score / mac.price).toFixed(2)
           })
       })
-      this.items.sort((a, b) => (a.sS < b.sS) ? 1 : -1)
+      this.items.sort((a, b) => (a.mS < b.mS) ? 1 : -1)
     },
     go (description) {
       this.macs.forEach(mac => {
@@ -152,24 +155,14 @@ export default {
     },
     singleFilter () {
       this.loading = true
-      Object.keys(this.filters)
-        .map(i => { 
-          if(this.filters[i].includes('min') && this.filters[i] === ''){
-            this.filters[i] = 0
-          } 
-          if(this.filters[i].includes('max') && this.filters[i] === ''){
-            this.filters[i] = Number.MAX_SAFE_INTEGER
-          }
-        })
-      for (let i = 0; i < this.items.length; i++) {
-        const item = this.items[i]
-        if(item.sS <= this.filters.maxScore && item.mS <= this.filters.maxMScore && item.Price <= this.filters.maxPrice) {
-          this.items.pop(item)
-        }
-        if(item.sS >= this.filters.minScore && item.mS >= this.filters.minMScore && item.Price >= this.filters.minPrice) {
-          this.items.pop(item)
-        }
-     }
+      this.items = this.items.filter(item =>{
+        return (this.filters.maxScore !== '' && item.sS <= this.filters.maxScore) ||
+               (this.filters.maxMScore !== '' && item.mS <= this.filters.maxMScore) ||
+               (this.filters.maxPrice !== '' && item.Price <= this.filters.maxPrice) ||
+               (this.filters.minScore !== '' && item.sS >= this.filters.minScore) ||
+               (this.filters.minMScore !== '' && item.mS >= this.filters.minMScore) ||
+               (this.filters.minPrice !== '' && item.Price >= this.filters.minPrice)    
+      })
       this.loading = false
     }
   }

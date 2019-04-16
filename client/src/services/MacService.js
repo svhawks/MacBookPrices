@@ -1,45 +1,33 @@
 import PouchDB from 'pouchdb'
-import find from "pouchdb-find"
-PouchDB.plugin(find)
 const db = new PouchDB('mac_scores')
-
+const datas = require('./db.json')
 
 export default {
+  create() { //puts all docs to db
+    db.bulkDocs(datas.macs, function (err, response) {
+      if (err) {
+        return console.log(err);
+      } else {
+        console.log("Documents created Successfully");
+      }
+    })
+  },
+  deleteDocs () { // removes all docs from db 
+    datas.macs.forEach(mac => {
+      db.get(mac._id, function (err, doc) {
+        if (err) { 
+        return console.log(err) }
+        db.remove(doc, function (err, response) {
+          if (err) { return console.log(err) }
+        })
+      })
+    })
+
+  },
   fetchMacs () {
     return db.allDocs({ include_docs: true })
   },
   fetchMacById (id) {
     return db.get(`${id}`) 
-  },
-  filterMacs(filters) {
-    console.log(filters);
-    
-    return db.createIndex({
-      index: {
-        fields: ['single_score', 'multi_score','price'] }
-    }).then( () => {
-      return db.find({
-        selector: {
-          single_score: {
-            $gte: filters.minScore
-          },
-          single_score: {
-            $lte: filters.maxScore
-          },
-          multi_score: {
-            $gte: filters.minMScore
-          },
-          multi_score: {
-            $lte: filters.maxMScore
-          },
-          price: {
-            $gte: filters.minPrice
-          },
-          price: {
-            $lte: filters.maxPrice
-          }
-        }
-      })
-    })
   }
 }
