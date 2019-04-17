@@ -8,39 +8,34 @@
         <b-col md="10" class="my-1">
           <b-form-group label-cols-sm="3" label="Filter" class="mb-0">
             <b-input-group>
-              <b-form-input v-model="filter" placeholder="Type to Search"></b-form-input>
+              <b-form-input v-model="nameFilter" placeholder="Type to Search"></b-form-input>
             </b-input-group>
           </b-form-group>
         <b-form-group label-cols-sm="3" label="Single Score" class="mb-0">
           <b-input-group>
-            <b-form-input v-model="filters.minScore" placeholder="Min"></b-form-input>
-            <b-form-input v-model="filters.maxScore" placeholder="Max"></b-form-input>
+            <b-form-input  type="number" v-model="singleMinScore" placeholder="Min"></b-form-input>
+            <b-form-input type="number" v-model="singleMaxScore" placeholder="Max"></b-form-input>
           </b-input-group>
         </b-form-group>
         <b-form-group label-cols-sm="3" label="Multi Score" class="mb-0">
           <b-input-group>
-            <b-form-input v-model="filters.minMScore" placeholder="Min"></b-form-input>
-            <b-form-input v-model="filters.maxMScore" placeholder="Max"></b-form-input>
+            <b-form-input type="number"  v-model="multiMinScore" placeholder="Min"></b-form-input>
+            <b-form-input type="number"  v-model="multiMaxScore" placeholder="Max"></b-form-input>
           </b-input-group>
         </b-form-group>
         <b-form-group label-cols-sm="3" label="Price" class="mb-0">
           <b-input-group>
-            <b-form-input v-model="filters.minPrice" placeholder="Min"></b-form-input>
-            <b-form-input v-model="filters.maxPrice" placeholder="Max"></b-form-input>
+            <b-form-input type="number"  v-model="minPrice" placeholder="Min"></b-form-input>
+            <b-form-input type="number"  v-model="maxPrice" placeholder="Max"></b-form-input>
           </b-input-group>
         </b-form-group>
-        </b-col>
-      <b-col md="2">
-        <b-button @click="singleFilter" class="btn">Filter</b-button>
-        
-        <b-button @click="clear" class="btn2">Clear</b-button>
+        <b-button @click="clear" class="btn2">Clear</b-button>        
       </b-col>
       </b-row>
       <b-table 
         outlined
         :items="items" 
         :fields="fields"
-        :filter="filter"
         :busy='loading'
       >
         <template slot="name" slot-scope="data" >
@@ -54,11 +49,14 @@
 
 <script>
 import MacService from '@/services/MacService.js'
-import { log } from 'util';
 export default {
   name: 'Home',
   data () {
     return {
+      types: [
+          'text',
+          'number'
+        ],
       fields: [
         {
           key: 'name',
@@ -90,18 +88,27 @@ export default {
       ],
       items: [],
       loading: false,
-      filter: null,
-      filters: {
-        minScore: '',
-        maxScore: '',
-        minPrice: '',
-        maxPrice: '',
-        minMScore: '',
-        maxMScore: ''
-      },
+      nameFilter: '',
+      singleMinScore: '',
+      singleMaxScore: '',
+      minPrice: '',
+      maxPrice: '',
+      multiMinScore: '',
+      multiMaxScore: '',
       btns: false,
-      macs: []
+      macs: [],
+      filteredMacs: [],
+      selectedFilters: []
     }
+  },
+  watch: {
+    'nameFilter': 'filterFunc',
+    'singleMinScore': 'filterFunc',
+    'singleMaxScore': 'filterFunc',
+    'minPrice': 'filterFunc',
+    'maxPrice': 'filterFunc',
+    'multiMinScore': 'filterFunc',
+    'multiMaxScore': 'filterFunc'
   },
   created () {
     this.loading = true
@@ -120,7 +127,7 @@ export default {
     },
     fillTable (macs) {
       macs.forEach(mac => {
-        mac = mac.doc
+        mac = mac.doc == null ? mac : mac.doc
         this.items.push(
           {
             name: mac.name,
@@ -131,7 +138,7 @@ export default {
             Avarage: mac.multi_score === 0 ? 0 : parseFloat(mac.multi_score / mac.price).toFixed(2)
           })
       })
-      this.items.sort((a, b) => (a.mS < b.mS) ? 1 : -1)
+      this.items.sort((a, b) => (a.Avarage < b.Avarage) ? 1 : -1)
     },
     go (description) {
       this.macs.forEach(mac => {
@@ -144,26 +151,71 @@ export default {
     },
     clear () {
       this.loading = true
-      this.filter = ''
-      Object.keys(this.filters)
-        .map(i => { this.filters[i] = '' })
+      this.nameFilter = ''
+      this.singleMinScore = ''
+      this.singleMaxScore = ''
+      this.multiMaxScore = ''
+      this.multiMinScore = ''
+      this.minPrice = ''
+      this.maxPrice = ''
       this.items = []
       this.fillTable(this.macs)
       this.loading = false
     },
-    singleFilter () {
+    filterFunc () {
       this.loading = true
-      this.items = this.items.filter(item =>{
-        return (this.filters.maxScore !== '' && item.sS <= this.filters.maxScore) ||
-               (this.filters.maxMScore !== '' && item.mS <= this.filters.maxMScore) ||
-               (this.filters.maxPrice !== '' && item.Price <= this.filters.maxPrice) ||
-               (this.filters.minScore !== '' && item.sS >= this.filters.minScore) ||
-               (this.filters.minMScore !== '' && item.mS >= this.filters.minMScore) ||
-               (this.filters.minPrice !== '' && item.Price >= this.filters.minPrice)    
-      })
+      let tempMacArray = this.macs
+      if (this.nameFilter !== '') {
+         this.filteredMacs =  this.macs.filter(mac => {           
+          return mac.doc.name.toLowerCase().includes(this.nameFilter.toLowerCase())
+        }) 
+      tempMacArray = this.findCommonItems (tempMacArray,this.filteredMacs)
+      }
+      if (this.singleMinScore != '') {
+        this.filteredMacs = this.macs.filter(mac => {  
+          return mac.doc.single_score >= this.singleMinScore
+        })
+        tempMacArray = this.findCommonItems (tempMacArray,this.filteredMacs)
+      }
+      if (this.singleMaxScore != '') {
+        this.filteredMacs = this.macs.filter(mac => {  
+          return mac.doc.single_score <= this.singleMaxScore
+        })
+      tempMacArray = this.findCommonItems (tempMacArray,this.filteredMacs)
+      }
+      if (this.minPrice != '') {
+        this.filteredMacs = this.macs.filter(mac => {  
+          return mac.doc.price >= this.minPrice
+        })
+      tempMacArray = this.findCommonItems (tempMacArray,this.filteredMacs)
+      }
+      if (this.maxPrice != '') {
+        this.filteredMacs = this.macs.filter(mac => {  
+          return mac.doc.price <= this.maxPrice
+        })
+      tempMacArray = this.findCommonItems (tempMacArray,this.filteredMacs)
+      }
+      if (this.multiMinScore != '') {
+        this.filteredMacs = this.macs.filter(mac => {  
+          return mac.doc.multi_score >= this.multiMinScore
+        })
+      tempMacArray = this.findCommonItems (tempMacArray,this.filteredMacs)
+      }
+      if (this.multiMaxScore != '') {
+        this.filteredMacs = this.macs.filter(mac => {  
+          return mac.doc.multi_score <= this.multiMaxScore
+        })
+      tempMacArray = this.findCommonItems (tempMacArray,this.filteredMacs)  
+      }
+      this.items = []            
+      this.fillTable(tempMacArray)
       this.loading = false
+    },
+    findCommonItems (array1,array2) {
+     return array1.filter(x => array2.includes(x))
+     
     }
-  }
+  }  
 }
 </script>
 
@@ -171,7 +223,7 @@ export default {
 h1,
 h2 {
   font-weight: 600;
-  font-size: 200%;
+  font-size: 300%;
   color:slateblue;
 }
 
@@ -213,14 +265,13 @@ a:not([href]):not([tabindex]):hover {
   text-decoration-line: underline;
     color: #42b983;
 }
-.btn, .btn2 {
+.btn2 {
   background-color: #42b983;
   border: transparent;
-  width: 100px;
+  width: 75%;
   margin-top: 10px;
-  padding-left: 30px;
-  display: flex;
-  text-align: center;
+  margin-bottom: 10px;
+  margin-left: 25%
 }
 .form-row {
   padding-top: 2px;

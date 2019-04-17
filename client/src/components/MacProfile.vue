@@ -72,7 +72,6 @@
     </div>
     <div class="col">
     </div>
-    
   </div>
   <div class="row">
     <div class="col"></div>
@@ -118,6 +117,7 @@ export default {
 h1,
 h2 {
   font-weight: normal;
+  font-size: 200%;
 }
 
 ul {
