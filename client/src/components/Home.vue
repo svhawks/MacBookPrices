@@ -83,7 +83,7 @@ export default {
         {
           key: 'Avarage',
           sortable: true,
-          label: 'Scores per $'
+          label: 'Multi-score per $'
         }
       ],
       items: [],
