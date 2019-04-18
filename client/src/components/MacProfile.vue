@@ -86,6 +86,7 @@
 
 <script>
 import MacService from '@/services/MacService.js'
+import  { Table, TableBody, TableCel, TableHead, TableRow } from './btn'
 export default {
   name: 'MacProfile',
   data () {
