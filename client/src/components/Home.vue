@@ -179,10 +179,10 @@ export default {
 
 <style>
 #table {
-border: 3px solid palevioletred;
+border: 3px solid cornflowerblue;
 width: 80%;
 margin: auto;
-
+background-color: white;
 }
 .t-row {
   text-align: -webkit-match-parent;
