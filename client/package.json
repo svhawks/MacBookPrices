@@ -16,6 +16,9 @@
   "dependencies": {
     "axios": "^0.16.2",
     "bootstrap-vue": "^2.0.0-rc.16",
+    "growl": "^1.10.5",
+    "https-proxy-agent": "^2.2.1",
+    "parsejson": "^0.0.3",
     "pouch-vue": "^0.1.37",
     "pouchdb": "^7.0.0",
     "pouchdb-find": "^7.0.0",
