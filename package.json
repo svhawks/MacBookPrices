@@ -1,5 +1,5 @@
 {
-  "name": "mac_world",
+  "name": "macscores",
   "version": "1.0.0",
   "description": "A Vue.js project",
   "author": "batineryilmaz <batineryilmaz@icloud.com>",
@@ -15,18 +15,12 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
-    "bootstrap-vue": "^2.0.0-rc.16",
     "growl": "^1.10.5",
     "https-proxy-agent": "^2.2.1",
     "parsejson": "^0.0.3",
-    "pouch-vue": "^0.1.37",
-    "pouchdb": "^7.0.0",
-    "pouchdb-find": "^7.0.0",
     "tabler-ui": "0.0.34",
     "vue": "^2.4.2",
-    "vue-pouch": "0.0.23",
-    "vue-router": "^2.7.0",
-    "vue-sweetalert2": "^1.0.7"
+    "vue-router": "^2.7.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -95,8 +89,8 @@
     "webpack-merge": "^4.1.0"
   },
   "engines": {
-    "node": ">= 4.0.0",
-    "npm": ">= 3.0.0"
+    "node": "11.13.0",
+    "yarn": "1.15.2"
   },
   "browserslist": [
     "> 1%",
