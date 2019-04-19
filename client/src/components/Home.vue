@@ -45,7 +45,7 @@
           <table-cel colspan="2" class="unselectable"  header>Name</table-cel>
           <table-cel colspan="2" class="unselectable"  header>Description</table-cel>
           <table-cel class="sorting" colspan="1" header> <span class="unselectable" @click="sortSingle"> Single-Core Score </span></table-cel>
-          <table-cel class="sorting" colspan="1" header> <span class="unselectable" @click="sortMulti"> Multi-Core Score </span></table-cel>
+          <span class="unselectable" @click="sortMulti"><table-cel class="sorting" colspan="1" header>  Multi-Core Score </table-cel></span>
           <table-cel class="sorting" colspan="1" header> <span class="unselectable" @click="sortPrice"> Price </span></table-cel>
           <table-cel class="sorting" colspan="1" header> <span class="unselectable" @click="sortPerDollar"> Multi-score per $ </span></table-cel>
         </table-row>
