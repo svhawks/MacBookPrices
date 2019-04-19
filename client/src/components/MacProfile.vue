@@ -64,9 +64,9 @@
           <th class="tg-em9h"> ${{mac.price}} </th>
         </tr>
         <tr>
-          <td class="tg-em9h">Avarage</td>
+          <td class="tg-em9h">Multi-score per $</td>
           <th>:</th>
-          <th class="tg-em9h">{{parseFloat(mac.multi_score / mac.price).toFixed(2)}}</th>
+          <th class="tg-em9h">{{(mac.multi_score/(mac.price) == 0 ? 1 : mac.price ).toFixed(2)}}</th>
         </tr>
       </table>
     </div>
@@ -86,7 +86,7 @@
 
 <script>
 import MacService from '@/services/MacService.js'
-import  { Table, TableBody, TableCel, TableHead, TableRow } from './btn'
+import  { Table, TableBody, TableCel, TableHead, TableRow } from './index.js'
 export default {
   name: 'MacProfile',
   data () {

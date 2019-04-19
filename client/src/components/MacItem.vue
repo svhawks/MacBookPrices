@@ -29,6 +29,6 @@ export default {
 
 <style scoped >
 .score {
-    padding-left: 5em;
+    padding-left: 6em;
 }
 </style>
