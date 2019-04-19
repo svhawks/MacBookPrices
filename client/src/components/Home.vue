@@ -1,12 +1,13 @@
 <template>
 <div>
-  <button type="button" class="btn btn-github"><i class="fe fe-github"></i> Github</button>
+  <button type="button" class="leftbar btn btn-github"><i class="fe fe-github"></i> Github</button>
   <div class="row">
     <div class="col-2"></div>
-    <div class="col-8">
+    <div class="inputs col-8">
        <div class="form-group search">
+         <p>Search</p>
         <div class="input-icon">
-          <input type="text" class="form-control" placeholder="Search for...">
+          <input type="text" class="form-control" v-model="nameFilter" placeholder="Search for...">
             <span class="input-icon-addon">
               <i class="fe fe-search"></i>
             </span>
@@ -15,24 +16,25 @@
       <div class="row">
       <div class="col-4">
       <p>Single-Score</p>
-      <input type="text" class="form-control" placeholder="Min">
-      <input type="text" class="form-control" placeholder="Max">
+      <input type="text" class="form-control" v-model="singleMinScore" placeholder="Min">
+      <input type="text" class="form-control" v-model="singleMaxScore" placeholder="Max">
       </div>
       <div class="col-4">
         <p>Multi-Score</p>
-        <input type="text" class="form-control" placeholder="Min">
-        <input type="text" class="form-control" placeholder="Max">
+        <input type="text" class="form-control" v-model="multiMinScore" placeholder="Min">
+        <input type="text" class="form-control" v-model="multiMaxScore" placeholder="Max">
       </div>
       <div class="col-4">
         <p>Price</p>
-        <input type="text" class="form-control" placeholder="Min">
-        <input type="text" class="form-control" placeholder="Max">
+        <input type="text" class="form-control" v-model="minPrice" placeholder="Min">
+        <input type="text" class="form-control" v-model="maxPrice" placeholder="Max">
+        <button type="button" @click="clear" class="clear btn btn-icon btn-primary btn-danger"> Clear </button>
       </div>
       </div>
       </div>
       <div class="col-2"></div>
     </div>
-      <button type="button" class="btn btn-icon btn-primary btn-danger"><i class="fe fe-trash"></i></button>
+      
     <t-table 
     cards 
     vertical-align="center"
@@ -48,7 +50,7 @@
           <table-cel colspan="1" header>Multi-score per $</table-cel>
         </table-row>
       </table-head>
-    <table-body v-for="mac in macs" :key="mac.id">
+    <table-body v-for="mac in tableItems" :key="mac.id">
         <MacItem :mac=mac ></MacItem>
       </table-body>
     </t-table>
@@ -64,18 +66,17 @@ export default {
   name: 'Home',
   data () {
     return {
-      items: [],
       loading: false,
+      tableItems: [],
+      macs: [],
+      filteredMacs: [],
       nameFilter: '',
       singleMinScore: '',
       singleMaxScore: '',
       minPrice: '',
       maxPrice: '',
       multiMinScore: '',
-      multiMaxScore: '',
-      btns: false,
-      macs: [],
-      filteredMacs: []
+      multiMaxScore: ''
     }
   },
   watch: {
@@ -106,6 +107,10 @@ export default {
       const response = await MacService.fetchMacs()
       //const response = await MacService.updateDB()
       this.macs = response.rows
+      this.fillTable (response.rows)
+    },
+    fillTable (macs) {
+      this.tableItems = macs
     },
     clear () {
       this.loading = true
@@ -116,8 +121,6 @@ export default {
       this.multiMinScore = ''
       this.minPrice = ''
       this.maxPrice = ''
-      this.items = []
-      this.fillTable(this.macs)
       this.loading = false
     },
     filterFunc () {
@@ -165,7 +168,7 @@ export default {
         })
       tempMacArray = this.findCommonItems (tempMacArray,this.filteredMacs)  
       }
-      this.items = []            
+      this.tableItems = []            
       this.fillTable(tempMacArray)
       this.loading = false
     },
@@ -187,8 +190,19 @@ background-color: white;
 .t-row {
   text-align: -webkit-match-parent;
 }
-.search {
-  left: 10%;
-  margin-left: -10px;
+.leftbar {
+  left: 0;
+  margin: 1%;
+  position: fixed;
+}
+.clear {
+  position: absolute;
+  right: 0.9em;
+  margin-top: 0.2em;
+
+}
+.inputs {
+margin-top: 2%;
+margin-bottom: 4%;
 }
 </style>
