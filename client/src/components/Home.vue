@@ -1,93 +1,76 @@
 <template>
+<div>
+  <a href="https://github.com/batin/MacScores"><button type="button" class="leftbar btn btn-github"><i class="fe fe-github"></i> Github</button></a>
   <div class="row">
-    <div class="col"></div>
-    
-    <div class="myTable col-8">
-      <h1>Mac Scores</h1>
-      <b-row>
-        <b-col md="10" class="my-1">
-          <b-form-group label-cols-sm="3" label="Filter" class="mb-0">
-            <b-input-group>
-              <b-form-input v-model="nameFilter" placeholder="Type to Search"></b-form-input>
-            </b-input-group>
-          </b-form-group>
-        <b-form-group label-cols-sm="3" label="Single Score" class="mb-0">
-          <b-input-group>
-            <b-form-input  type="number" v-model="singleMinScore" placeholder="Min"></b-form-input>
-            <b-form-input type="number" v-model="singleMaxScore" placeholder="Max"></b-form-input>
-          </b-input-group>
-        </b-form-group>
-        <b-form-group label-cols-sm="3" label="Multi Score" class="mb-0">
-          <b-input-group>
-            <b-form-input type="number"  v-model="multiMinScore" placeholder="Min"></b-form-input>
-            <b-form-input type="number"  v-model="multiMaxScore" placeholder="Max"></b-form-input>
-          </b-input-group>
-        </b-form-group>
-        <b-form-group label-cols-sm="3" label="Price" class="mb-0">
-          <b-input-group>
-            <b-form-input type="number"  v-model="minPrice" placeholder="Min"></b-form-input>
-            <b-form-input type="number"  v-model="maxPrice" placeholder="Max"></b-form-input>
-          </b-input-group>
-        </b-form-group>
-        <b-button @click="clear" class="btn2">Clear</b-button>        
-      </b-col>
-      </b-row>
-      <b-table 
-        outlined
-        :items="items" 
-        :fields="fields"
-        :busy='loading'
-      >
-        <template slot="name" slot-scope="data" >
-          <a @click='go(data.item.description)'>{{ data.value }}</a>
-        </template>
-      </b-table>
+    <div class="col-2"></div>
+    <div class="inputs col-8">
+      <p class="title">Mac Scores</p>
+       <div class="form-group search">
+         <p>Search</p>
+        <div class="input-icon">
+          <input type="text" class="form-control" v-model="nameFilter" placeholder="Search for...">
+            <span class="input-icon-addon">
+              <i class="fe fe-search"></i>
+            </span>
+        </div>
     </div>
-    <div class="col"></div>
+      <div class="row">
+      <div class="col-4">
+      <p>Single-Score</p>
+      <input type="number" class="form-control" v-model="singleMinScore" placeholder="Min">
+      <input type="number" class="form-control" v-model="singleMaxScore" placeholder="Max">
+      </div>
+      <div class="col-4">
+        <p>Multi-Score</p>
+        <input type="number" class="form-control" v-model="multiMinScore" placeholder="Min">
+        <input type="number" class="form-control" v-model="multiMaxScore" placeholder="Max">
+      </div>
+      <div class="col-4">
+        <p>Price</p>
+        <input type="number" class="form-control" v-model="minPrice" placeholder="Min">
+        <input type="number" class="form-control" v-model="maxPrice" placeholder="Max">
+        <button type="button" @click="clear" class="clear btn btn-icon btn-primary btn-yellow"> Clear </button>
+      </div>
+      </div>
+      </div>
+      <div class="col-2"></div>
+    </div>
+    <t-table
+    cards
+    vertical-align="center"
+    class="table-outline table-hover"
+    id="table">
+      <table-head class="table card-table table-vcenter text-nowrap datatable dataTable no-footer">
+        <table-row class="t-row">
+          <table-cel colspan="2" class="unselectable"  header>Name</table-cel>
+          <table-cel colspan="2" class="unselectable"  header>Description</table-cel>
+          <table-cel class="sorting" colspan="1" header> <span class="unselectable" @click="sortSingle"> Single-Core Score </span></table-cel>
+          <table-cel class="sorting" colspan="1" header> <span class="unselectable" @click="sortMulti"> Multi-Core Score </span></table-cel>
+          <table-cel class="sorting" colspan="1" header> <span class="unselectable" @click="sortPrice"> Price </span></table-cel>
+          <table-cel class="sorting" colspan="1" header> <span class="unselectable" @click="sortPerDollar"> Multi-score per $ </span></table-cel>
+        </table-row>
+      </table-head>
+    <table-body v-for="mac in tableItems" :key="mac.id">
+        <MacItem :mac=mac ></MacItem>
+      </table-body>
+    </t-table>
+    </div>
   </div>
 </template>
 
 <script>
 import MacService from '@/services/MacService.js'
+import  { Table, TableBody, TableCel, TableHead, TableRow } from './index.js'
+import MacItem from './MacItem.vue'
+
 export default {
   name: 'Home',
   data () {
     return {
-      types: [
-          'text',
-          'number'
-        ],
-      fields: [
-        {
-          key: 'name',
-          sortable: false
-        },
-        {
-          key: 'description',
-          sortable: false
-        },
-        {
-          key: 'sS',
-          sortable: true,
-          label: 'Single-Core Score'
-        },
-        {
-          key: 'mS',
-          sortable: true,
-          label: 'Multi-Core Score'
-        },
-        {
-          key: 'Price',
-          sortable: true
-        },
-        {
-          key: 'Avarage',
-          sortable: true,
-          label: 'Multi-score per $'
-        }
-      ],
-      items: [],
       loading: false,
+      tableItems: [],
+      macs: [],
+      filteredMacs: [],
       nameFilter: '',
       singleMinScore: '',
       singleMaxScore: '',
@@ -95,10 +78,10 @@ export default {
       maxPrice: '',
       multiMinScore: '',
       multiMaxScore: '',
-      btns: false,
-      macs: [],
-      filteredMacs: [],
-      selectedFilters: []
+      singleFlag: true,  
+      multiFlag: true,  
+      priceFlag: true,  
+      perDFlag: true,  
     }
   },
   watch: {
@@ -116,38 +99,23 @@ export default {
     this.loading = false
   },
   components: {
-    MacService
+    MacService,
+    Table,
+    TableBody,
+    TableCel,
+    TableHead,
+    TableRow,
+    MacItem
   },
   methods: {
     async getMacs () {
       const response = await MacService.fetchMacs()
       //const response = await MacService.updateDB()
-      this.fillTable(response.rows)
       this.macs = response.rows
+      this.fillTable (response.rows)
     },
     fillTable (macs) {
-      macs.forEach(mac => {
-        mac = mac.doc == null ? mac : mac.doc
-        this.items.push(
-          {
-            name: mac.name,
-            sS: mac.single_score,
-            mS: mac.multi_score,
-            description: mac.processor + ' @ ' + parseFloat(mac.processor_freq / 1000).toFixed(1) + ' Ghz (' + mac.processor_cores + ' cores) ',
-            Price: '$' + mac.price,
-            Avarage: mac.multi_score === 0 ? 0 : parseFloat(mac.multi_score / mac.price).toFixed(2)
-          })
-      })
-      this.items.sort((a, b) => (a.Avarage < b.Avarage) ? 1 : -1)
-    },
-    go (description) {
-      this.macs.forEach(mac => {
-        mac = mac.doc     
-        let desc = mac.processor + ' @ ' + parseFloat(mac.processor_freq / 1000).toFixed(1) + ' Ghz (' + mac.processor_cores + ' cores) '
-        if (desc === description) {
-          this.$router.push(`/macs/${mac._id}`)
-        }
-      })
+      this.tableItems = macs
     },
     clear () {
       this.loading = true
@@ -158,8 +126,6 @@ export default {
       this.multiMinScore = ''
       this.minPrice = ''
       this.maxPrice = ''
-      this.items = []
-      this.fillTable(this.macs)
       this.loading = false
     },
     filterFunc () {
@@ -206,89 +172,139 @@ export default {
           return mac.doc.multi_score <= this.multiMaxScore
         })
       tempMacArray = this.findCommonItems (tempMacArray,this.filteredMacs)  
-      }
-      this.items = []            
+      }          
       this.fillTable(tempMacArray)
       this.loading = false
     },
     findCommonItems (array1,array2) {
      return array1.filter(x => array2.includes(x))
-     
+    },
+    sortSingle () {     
+      let sorted
+      if (this.singleFlag) {
+        sorted =  this.tableItems.sort((a, b) => {return (a.doc.single_score < b.doc.single_score) ? 1 : -1})
+        this.singleFlag = false
+      } else {
+        sorted =  this.tableItems.reverse()
+        this.singleFlag = true
+      }
+      this.fillTable(sorted)
+    },
+    sortMulti () {
+      let sorted
+      if (this.multiFlag) {
+        sorted =  this.tableItems.sort((a, b) => {return (a.doc.multi_score < b.doc.multi_score) ? 1 : -1})
+        this.multiFlag = false
+      } else {
+        sorted =  this.tableItems.reverse()
+        this.multiFlag = true
+      } 
+      this.fillTable(sorted)
+    },
+    sortPrice () {  
+      let sorted
+      if (this.priceFlag) {   
+        sorted =  this.tableItems.sort((a, b) => {return (a.doc.price < b.doc.price) ? 1 : -1})
+        this.priceFlag = false
+      } else {
+        sorted = this.tableItems.reverse()
+        this.priceFlag = true
+      }
+      this.fillTable(sorted)
+    },
+    sortPerDollar () {
+      let sorted =  this.tableItems.sort((a, b) => {
+        let ratio1 = (a.doc.multi_score/(a.doc.price) == 0 ? 1 : a.doc.price ).toFixed(2)
+        let ratio2 = (b.doc.multi_score/(b.doc.price) == 0 ? 1 : b.doc.price ).toFixed(2)
+        if (this.perDFlag) {  
+          this.perDFlag = false
+          return (ratio1 < ratio2) ? 1 : -1
+        } else {
+          this.perDFlag = true
+          return (ratio1 > ratio2) ? 1 : -1
+        }
+        })
+      this.fillTable(sorted)
     }
   }  
 }
 </script>
 
 <style>
-h1,
-h2 {
-  font-weight: 600;
-  font-size: 300%;
-  color:slateblue;
+#table {
+border: 3px solid cornflowerblue;
+width: 80%;
+margin: auto;
+background-color: white;
+display: table;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
+.t-row {
+  text-align: -webkit-match-parent;
 }
 
-li {
-  display: inline-block;
-  margin: 0 10px;
+.leftbar {
+  left: 0;
+  margin: 1%;
+  position: fixed;
+  z-index: 999;
 }
 
+.clear {
+  position: absolute;
+  right: 0.9em;
+  margin-top: 0.5em;
+}
 
-.myTable {
-  font-weight: 800;
+.inputs {
+margin-top: 2%;
+margin-bottom: 4%;
 }
 
 thead {
-  background-color: slateblue; 
-  color: aliceblue;
-  text-align: center;
-}
-tr:hover {
-  background-color: slateblue; 
-  color: aliceblue;
-}
-th, td{
-  height: 15%;
-  font-size: 100%;
-  text-decoration: none;
-}
-
-a:not([href]):not([tabindex]) {
-  color: #42b983;
+  display: table-header-group;
+  vertical-align: middle;
+  border-color: inherit;
   cursor: pointer;
 }
-a:not([href]):not([tabindex]):hover {
-  text-decoration-line: underline;
-    color: #42b983;
-}
-.btn2 {
-  background-color: #42b983;
-  border: transparent;
-  width: 75%;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 25%
-}
-.form-row {
-  padding-top: 2px;
+
+.sorting:after {
+  
+  bottom: 5px;
+  content: "\e92d";
+  font-family: 'feather' !important;
 }
 
-.fade-enter-active,
-.fade-leave-active {
-  transition-duration: 0.3s;
-  transition-property: opacity;
-  transition-timing-function: ease;
+.sorting:before {
+  
+  top: 5px;
+  content: "\e930";
+  font-family: 'feather' !important;
+}
+.thead-light {
+  color: #495057;
+  background-color: #e9ecef;
+  border-color: rgba(0, 40, 100, 0.12);
 }
 
-.fade-enter,
-.fade-leave-active {
-  opacity: 0
+.sorting_desc {
+  position: relative;
+}
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
-
+.title {
+  font-family:monospace;
+  font-style: oblique;
+  font-stretch:extra-expanded;
+  font-size: 4em;
+  text-align: center;
+  color:  cornflowerblue;
+  }
 </style>
-

@@ -23,15 +23,15 @@ export default {
   //       console.log(err)
   //     })
   // },
-  // load (macs) { //puts all docs to db
-  //   db.bulkDocs(macs, function (err, response) {
-  //     if (err) {
-  //       return console.log(err)
-  //     } else {
-  //       console.log("Documents created Successfully")
-  //     }
-  //   })
-  // },
+  load () { //puts all docs to db
+    db.bulkDocs(datas.macs, function (err, response) {
+      if (err) {
+        return console.log(err)
+      } else {
+        console.log("Documents created Successfully")
+      }
+    })
+  },
   // deleteDocs (macs) { // removes all docs from db 
   //   macs.forEach(mac => {
   //     db.get(mac._id, function (err, doc) {
@@ -44,6 +44,7 @@ export default {
   //   })
   // },
   fetchMacs () {
+    this.load()
     return db.allDocs({ include_docs: true })
   },
   fetchMacById (id) {
