@@ -41,7 +41,7 @@ function __vue_normalize__(template, style, script$$1, scope, functional, module
   const component = (typeof script$$1 === 'function' ? script$$1.options : script$$1) || {};
 
   {
-    component.__file = "/Users/batin/Desktop/tabler-vue/src/components/Alert/Alert.vue";
+    component.__file = "/components/Alert/Alert.vue";
   }
 
   if (!component.render) {
@@ -251,7 +251,7 @@ function __vue_normalize__$1(template, style, script, scope, functional, moduleI
   const component = (typeof script === 'function' ? script.options : script) || {};
 
   {
-    component.__file = "/Users/batin/Desktop/tabler-vue/src/components/Dropdown/DropdownMenu.vue";
+    component.__file = "/components/Dropdown/DropdownMenu.vue";
   }
 
   if (!component.render) {
@@ -408,7 +408,7 @@ function __vue_normalize__$2(template, style, script, scope, functional, moduleI
   const component = (typeof script === 'function' ? script.options : script) || {};
 
   {
-    component.__file = "/Users/batin/Desktop/tabler-vue/src/components/Dropdown/Dropdown.vue";
+    component.__file = "/components/Dropdown/Dropdown.vue";
   }
 
   if (!component.render) {
@@ -566,7 +566,7 @@ function __vue_normalize__$3(template, style, script, scope, functional, moduleI
   const component = (typeof script === 'function' ? script.options : script) || {};
 
   {
-    component.__file = "/Users/batin/Desktop/tabler-vue/src/components/Dropdown/DropdownMenuItem.vue";
+    component.__file = "/components/Dropdown/DropdownMenuItem.vue";
   }
 
   if (!component.render) {
@@ -718,7 +718,7 @@ function __vue_normalize__$4(template, style, script, scope, functional, moduleI
   const component = (typeof script === 'function' ? script.options : script) || {};
 
   {
-    component.__file = "/Users/batin/Desktop/tabler-vue/src/components/AccountDropdown.vue";
+    component.__file = "/components/AccountDropdown.vue";
   }
 
   if (!component.render) {
@@ -919,7 +919,7 @@ function __vue_normalize__$5(template, style, script, scope, functional, moduleI
   const component = (typeof script === 'function' ? script.options : script) || {};
 
   {
-    component.__file = "/Users/batin/Desktop/tabler-vue/src/components/Card/CardHeader.vue";
+    component.__file = "/components/Card/CardHeader.vue";
   }
 
   if (!component.render) {
@@ -1054,7 +1054,7 @@ function __vue_normalize__$6(template, style, script, scope, functional, moduleI
   const component = (typeof script === 'function' ? script.options : script) || {};
 
   {
-    component.__file = "/Users/batin/Desktop/tabler-vue/src/components/Card/CardFooter.vue";
+    component.__file = "/components/Card/CardFooter.vue";
   }
 
   if (!component.render) {
@@ -1189,7 +1189,7 @@ function __vue_normalize__$7(template, style, script, scope, functional, moduleI
   const component = (typeof script === 'function' ? script.options : script) || {};
 
   {
-    component.__file = "/Users/batin/Desktop/tabler-vue/src/components/Card/CardBody.vue";
+    component.__file = "/components/Card/CardBody.vue";
   }
 
   if (!component.render) {
@@ -1329,7 +1329,7 @@ function __vue_normalize__$8(template, style, script, scope, functional, moduleI
   const component = (typeof script === 'function' ? script.options : script) || {};
 
   {
-    component.__file = "/Users/batin/Desktop/tabler-vue/src/components/Card/Card.vue";
+    component.__file = "/components/Card/Card.vue";
   }
 
   if (!component.render) {
@@ -1555,7 +1555,7 @@ function __vue_normalize__$9(template, style, script, scope, functional, moduleI
   const component = (typeof script === 'function' ? script.options : script) || {};
 
   {
-    component.__file = "/Users/batin/Desktop/tabler-vue/src/components/Nav/Nav.vue";
+    component.__file = "/components/Nav/Nav.vue";
   }
 
   if (!component.render) {
@@ -1763,7 +1763,7 @@ function __vue_normalize__$a(template, style, script, scope, functional, moduleI
   const component = (typeof script === 'function' ? script.options : script) || {};
 
   {
-    component.__file = "/Users/batin/Desktop/tabler-vue/src/components/Nav/NavItem.vue";
+    component.__file = "/components/Nav/NavItem.vue";
   }
 
   if (!component.render) {
@@ -1914,7 +1914,7 @@ function __vue_normalize__$b(template, style, script, scope, functional, moduleI
   const component = (typeof script === 'function' ? script.options : script) || {};
 
   {
-    component.__file = "/Users/batin/Desktop/tabler-vue/src/components/Notifications.vue";
+    component.__file = "/components/Notifications.vue";
   }
 
   if (!component.render) {
@@ -2051,7 +2051,7 @@ function __vue_normalize__$c(template, style, script, scope, functional, moduleI
   const component = (typeof script === 'function' ? script.options : script) || {};
 
   {
-    component.__file = "/Users/batin/Desktop/tabler-vue/src/components/Page/PageWrapper.vue";
+    component.__file = "/components/Page/PageWrapper.vue";
   }
 
   if (!component.render) {
@@ -2189,7 +2189,7 @@ function __vue_normalize__$d(template, style, script, scope, functional, moduleI
   const component = (typeof script === 'function' ? script.options : script) || {};
 
   {
-    component.__file = "/Users/batin/Desktop/tabler-vue/src/components/Page/PageHeader.vue";
+    component.__file = "/components/Page/PageHeader.vue";
   }
 
   if (!component.render) {
@@ -2326,7 +2326,7 @@ function __vue_normalize__$e(template, style, script, scope, functional, moduleI
   const component = (typeof script === 'function' ? script.options : script) || {};
 
   {
-    component.__file = "/Users/batin/Desktop/tabler-vue/src/components/Page/Page.vue";
+    component.__file = "/components/Page/Page.vue";
   }
 
   if (!component.render) {
@@ -2522,7 +2522,7 @@ function __vue_normalize__$f(template, style, script, scope, functional, moduleI
   const component = (typeof script === 'function' ? script.options : script) || {};
 
   {
-    component.__file = "/Users/batin/Desktop/tabler-vue/src/components/ProgressCard.vue";
+    component.__file = "/components/ProgressCard.vue";
   }
 
   if (!component.render) {
@@ -2692,7 +2692,7 @@ function __vue_normalize__$g(template, style, script, scope, functional, moduleI
   const component = (typeof script === 'function' ? script.options : script) || {};
 
   {
-    component.__file = "/Users/batin/Desktop/tabler-vue/src/components/Site/SiteHeader.vue";
+    component.__file = "/components/Site/SiteHeader.vue";
   }
 
   if (!component.render) {
@@ -2829,7 +2829,7 @@ function __vue_normalize__$h(template, style, script, scope, functional, moduleI
   const component = (typeof script === 'function' ? script.options : script) || {};
 
   {
-    component.__file = "/Users/batin/Desktop/tabler-vue/src/components/Site/SiteLogo.vue";
+    component.__file = "/components/Site/SiteLogo.vue";
   }
 
   if (!component.render) {
@@ -2972,7 +2972,7 @@ function __vue_normalize__$i(template, style, script, scope, functional, moduleI
   const component = (typeof script === 'function' ? script.options : script) || {};
 
   {
-    component.__file = "/Users/batin/Desktop/tabler-vue/src/components/Site/SiteNav.vue";
+    component.__file = "/components/Site/SiteNav.vue";
   }
 
   if (!component.render) {
@@ -3109,7 +3109,7 @@ function __vue_normalize__$j(template, style, script, scope, functional, moduleI
   const component = (typeof script === 'function' ? script.options : script) || {};
 
   {
-    component.__file = "/Users/batin/Desktop/tabler-vue/src/components/Site/SiteWrapper.vue";
+    component.__file = "/components/Site/SiteWrapper.vue";
   }
 
   if (!component.render) {
@@ -3266,7 +3266,7 @@ function __vue_normalize__$k(template, style, script, scope, functional, moduleI
   const component = (typeof script === 'function' ? script.options : script) || {};
 
   {
-    component.__file = "/Users/batin/Desktop/tabler-vue/src/components/StampCard.vue";
+    component.__file = "/components/StampCard.vue";
   }
 
   if (!component.render) {
@@ -3423,7 +3423,7 @@ function __vue_normalize__$l(template, style, script, scope, functional, moduleI
   const component = (typeof script === 'function' ? script.options : script) || {};
 
   {
-    component.__file = "/Users/batin/Desktop/tabler-vue/src/components/StatsCard.vue";
+    component.__file = "/components/StatsCard.vue";
   }
 
   if (!component.render) {
