@@ -40,7 +40,7 @@
       vertical-align="center"
       class="table-outline table-hover"
       id="table2">
-        <table-head class="table card-table table-vcenter text-nowrap datatable dataTable">
+        <table-head class="table card-table table-vcenter">
           <table-row class="t-row">
             <table-cel colspan="2" class="unselectable"  header>Name</table-cel>
             <table-cel colspan="2" class="unselectable"  header>Description</table-cel>

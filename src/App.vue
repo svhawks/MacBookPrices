@@ -38,7 +38,7 @@ export default {
 }
 
 .inputs {
-  padding: 5%;
+  padding: 5em;
   margin: auto;
   margin-bottom: 4%;
   width: 79%;
