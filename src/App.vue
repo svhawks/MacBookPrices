@@ -78,7 +78,7 @@ p {
     user-select: none;
 }
 
-.title {
+.homeTitle {
   font-family:monospace;
   font-style: oblique;
   font-stretch:extra-expanded;

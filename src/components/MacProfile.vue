@@ -9,7 +9,7 @@
   </div>
   <div class="row">
     <div class="col"></div>
-  <div class="Mytable col-4" v-if="mac != undefined">
+  <div class="Mytable" v-if="mac != undefined">
     <div class="card">
     <t-table class="table">
       <table-row class="t-row">
@@ -100,7 +100,9 @@ export default {
   }
 }
 </script>
-<style>
+<style scoped>
+
+
 .score {
   border: 1px solid;
 }
@@ -110,16 +112,16 @@ export default {
   font-stretch:extra-expanded;
   font-size: 2.5em;
   color:  cornflowerblue;
-  text-align: center;
+  padding-top: 1em;
   }
 .t-row {
   border: 2px ridge ;
 }
 .table {
-  width: 100%;
+  width: 100% !important;
   margin: auto;
+  
 }
-
   .back {
   font-family:monospace;
   font-style: oblique;
@@ -129,4 +131,13 @@ export default {
   text-align: center;
   cursor: pointer;
   }
+  
+.Mytable {
+  position: relative;
+    width: 65%;
+    min-height: 1px;
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+}
+
 </style>

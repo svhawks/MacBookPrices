@@ -2,7 +2,7 @@
 <div>
   <a href="https://github.com/batin/MacScores"><button type="button" class="leftbar btn btn-github"><i class="fe fe-github"></i> Github</button></a>
   
-        <p class="title">Mac Scores</p>
+        <p class="homeTitle">Mac Scores</p>
     <div class="row">      
     <div class="card  inputs">
         <div class="form-group search">
