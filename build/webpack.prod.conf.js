@@ -8,7 +8,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+// const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 var env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
@@ -20,9 +20,9 @@ var webpackConfig = merge(baseWebpackConfig, {
       sourceMap: config.build.productionSourceMap,
       extract: true
     }),
-    optimization: {
-      minimizer: [new UglifyJsPlugin()],
-    },
+    // optimization: {
+    //   minimizer: [new UglifyJsPlugin()],
+    // },
   },
   devtool: config.build.productionSourceMap ? '#source-map' : false,
   output: {
