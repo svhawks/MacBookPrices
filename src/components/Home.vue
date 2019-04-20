@@ -44,10 +44,10 @@
           <table-row class="t-row">
             <table-cel colspan="2" class="unselectable"  header>Name</table-cel>
             <table-cel colspan="2" class="unselectable"  header>Description</table-cel>
-            <table-cel class="sorting" colspan="1" header> <span class="unselectable" @click="sortSingle"> Single-Core Score </span></table-cel>
-            <table-cel class="sorting" colspan="1" header> <span class="unselectable" @click="sortMulti"> Multi-Core Score </span></table-cel>
-            <table-cel class="sorting" colspan="1" header> <span class="unselectable" @click="sortPrice"> Price </span></table-cel>
-            <table-cel class="sorting" colspan="1" header> <span class="unselectable" @click="sortPerDollar"> Multi-score per $ </span></table-cel>
+            <table-cel colspan="1" header> <p @click="sortSingle" class="sorting"></p><span class="unselectable mini" @click="sortSingle"> Single - Core Score </span></table-cel>
+            <table-cel colspan="1" header> <p @click="sortMulti" class="sorting"></p><span class="unselectable mini" @click="sortMulti"> Multi - Core Score </span></table-cel>
+            <table-cel colspan="1" header> <p @click="sortPrice" class="sorting"></p><span class="unselectable" @click="sortPrice"> Price </span></table-cel>
+            <table-cel colspan="1" header> <p @click="sortPerDollar" class="sorting"></p><span class="unselectable mini" @click="sortPerDollar"> Multi-score per $ </span></table-cel>
           </table-row>
         </table-head>
       <table-body v-for="mac in tableItems" :key="mac.id">
@@ -185,7 +185,7 @@ export default {
         sorted =  this.tableItems.reverse()
         this.singleFlag = true
       }
-      this.fillTable(sorted)
+      this.tableItems = sorted
     },
     sortMulti () {
       let sorted
@@ -196,7 +196,7 @@ export default {
         sorted =  this.tableItems.reverse()
         this.multiFlag = true
       } 
-      this.fillTable(sorted)
+      this.tableItems = sorted
     },
     sortPrice () {  
       let sorted
@@ -207,7 +207,7 @@ export default {
         sorted = this.tableItems.reverse()
         this.priceFlag = true
       }
-      this.fillTable(sorted)
+      this.tableItems = sorted
     },
     sortPerDollar () {
       let sorted =  this.tableItems.sort((a, b) => {
@@ -221,7 +221,7 @@ export default {
           return (ratio1 > ratio2) ? 1 : -1
         }
         })
-      this.fillTable(sorted)
+      this.tableItems = sorted
     }
   }  
 }

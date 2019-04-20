@@ -50,15 +50,16 @@ thead {
   border-color: inherit;
   cursor: pointer;
 }
-
+p {
+  text-align: center;
+}
 .sorting:after { 
-  bottom: 5px;
   content: "\e92d";
   font-family: 'feather' !important;
+  
 }
 
 .sorting:before {
-  top: 5px;
   content: "\e930";
   font-family: 'feather' !important;
 }

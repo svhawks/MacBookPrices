@@ -29,9 +29,9 @@ export default {
 
 <style scoped >
 .score {
-    padding-left: 6em;
+    text-align: center;
 }
 .price { 
-    padding-left: 3em;
+    text-align: center;
 }
 </style>
