@@ -11,5 +11,5 @@ export default {
 </script>
 
 <style>
-@import "../dist/css/dashboard.css";
+@import "../static/css/dashboard.css";
 </style>

@@ -19,6 +19,7 @@
     "https-proxy-agent": "^2.2.1",
     "parsejson": "^0.0.3",
     "tabler-ui": "0.0.34",
+    "uglifyjs-webpack-plugin": "^2.1.2",
     "vue": "^2.4.2",
     "vue-router": "^2.7.0"
   },
