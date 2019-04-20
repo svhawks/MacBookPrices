@@ -305,7 +305,7 @@ var Component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_App_vue__ = __webpack_require__("xJD8");
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_b8b52488_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__ = __webpack_require__("sWKQ");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_c8ea5924_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__ = __webpack_require__("neMZ");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__("XyMi");
 function injectStyle (context) {
   __webpack_require__("RB0i")
@@ -326,8 +326,8 @@ var __vue_module_identifier__ = null
 
 var Component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__["a" /* default */])(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_App_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_b8b52488_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__["a" /* render */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_b8b52488_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__["b" /* staticRenderFns */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_c8ea5924_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__["a" /* render */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_c8ea5924_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_App_vue__["b" /* staticRenderFns */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -619,7 +619,7 @@ var staticRenderFns = []
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Home_vue__ = __webpack_require__("Fs8J");
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_7eb6782c_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Home_vue__ = __webpack_require__("obsU");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_b9a2bcde_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Home_vue__ = __webpack_require__("uiXH");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__("XyMi");
 function injectStyle (context) {
   __webpack_require__("MbxX")
@@ -640,8 +640,8 @@ var __vue_module_identifier__ = null
 
 var Component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__["a" /* default */])(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Home_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_7eb6782c_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Home_vue__["a" /* render */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_7eb6782c_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Home_vue__["b" /* staticRenderFns */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_b9a2bcde_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Home_vue__["a" /* render */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_b9a2bcde_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Home_vue__["b" /* staticRenderFns */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -649,6 +649,18 @@ var Component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 )
 
 /* harmony default export */ __webpack_exports__["a"] = (Component.exports);
+
+
+/***/ }),
+
+/***/ "neMZ":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return staticRenderFns; });
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"app"}},[_c('router-view')],1)}
+var staticRenderFns = []
 
 
 /***/ }),
@@ -757,18 +769,6 @@ var Component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
         }
     }
 });
-
-/***/ }),
-
-/***/ "obsU":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return staticRenderFns; });
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_vm._m(0),_vm._v(" "),_c('p',{staticClass:"title"},[_vm._v("Mac Scores")]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"card  inputs"},[_c('div',{staticClass:"form-group search"},[_c('p',[_vm._v("Search")]),_vm._v(" "),_c('div',{staticClass:"input-icon"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.nameFilter),expression:"nameFilter"}],staticClass:"form-control",attrs:{"type":"text","placeholder":"Search for..."},domProps:{"value":(_vm.nameFilter)},on:{"input":function($event){if($event.target.composing){ return; }_vm.nameFilter=$event.target.value}}}),_vm._v(" "),_vm._m(1)])]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col-4"},[_c('p',[_vm._v("Single-Score")]),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.singleMinScore),expression:"singleMinScore"}],staticClass:"form-control",attrs:{"type":"number","placeholder":"Min"},domProps:{"value":(_vm.singleMinScore)},on:{"input":function($event){if($event.target.composing){ return; }_vm.singleMinScore=$event.target.value}}}),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.singleMaxScore),expression:"singleMaxScore"}],staticClass:"form-control",attrs:{"type":"number","placeholder":"Max"},domProps:{"value":(_vm.singleMaxScore)},on:{"input":function($event){if($event.target.composing){ return; }_vm.singleMaxScore=$event.target.value}}})]),_vm._v(" "),_c('div',{staticClass:"col-4"},[_c('p',[_vm._v("Multi-Score")]),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.multiMinScore),expression:"multiMinScore"}],staticClass:"form-control",attrs:{"type":"number","placeholder":"Min"},domProps:{"value":(_vm.multiMinScore)},on:{"input":function($event){if($event.target.composing){ return; }_vm.multiMinScore=$event.target.value}}}),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.multiMaxScore),expression:"multiMaxScore"}],staticClass:"form-control",attrs:{"type":"number","placeholder":"Max"},domProps:{"value":(_vm.multiMaxScore)},on:{"input":function($event){if($event.target.composing){ return; }_vm.multiMaxScore=$event.target.value}}})]),_vm._v(" "),_c('div',{staticClass:"col-4"},[_c('p',[_vm._v("Price")]),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.minPrice),expression:"minPrice"}],staticClass:"form-control",attrs:{"type":"number","placeholder":"Min"},domProps:{"value":(_vm.minPrice)},on:{"input":function($event){if($event.target.composing){ return; }_vm.minPrice=$event.target.value}}}),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.maxPrice),expression:"maxPrice"}],staticClass:"form-control",attrs:{"type":"number","placeholder":"Max"},domProps:{"value":(_vm.maxPrice)},on:{"input":function($event){if($event.target.composing){ return; }_vm.maxPrice=$event.target.value}}}),_vm._v(" "),_c('button',{staticClass:"clear btn btn-icon btn-primary btn-primary5",attrs:{"type":"button"},on:{"click":_vm.clear}},[_vm._v(" Clear ")])])])])]),_vm._v(" "),_c('div',{staticClass:"card table"},[_c('t-table',{staticClass:"table-outline table-hover",attrs:{"cards":"","vertical-align":"center","id":"table"}},[_c('table-head',{staticClass:"table card-table table-vcenter text-nowrap datatable dataTable"},[_c('table-row',{staticClass:"t-row"},[_c('table-cel',{staticClass:"unselectable",attrs:{"colspan":"2","header":""}},[_vm._v("Name")]),_vm._v(" "),_c('table-cel',{staticClass:"unselectable",attrs:{"colspan":"2","header":""}},[_vm._v("Description")]),_vm._v(" "),_c('table-cel',{staticClass:"sorting",attrs:{"colspan":"1","header":""}},[_c('span',{staticClass:"unselectable",on:{"click":_vm.sortSingle}},[_vm._v(" Single-Core Score ")])]),_vm._v(" "),_c('table-cel',{staticClass:"sorting",attrs:{"colspan":"1","header":""}},[_c('span',{staticClass:"unselectable",on:{"click":_vm.sortMulti}},[_vm._v(" Multi-Core Score ")])]),_vm._v(" "),_c('table-cel',{staticClass:"sorting",attrs:{"colspan":"1","header":""}},[_c('span',{staticClass:"unselectable",on:{"click":_vm.sortPrice}},[_vm._v(" Price ")])]),_vm._v(" "),_c('table-cel',{staticClass:"sorting",attrs:{"colspan":"1","header":""}},[_c('span',{staticClass:"unselectable",on:{"click":_vm.sortPerDollar}},[_vm._v(" Multi-score per $ ")])])],1)],1),_vm._v(" "),_vm._l((_vm.tableItems),function(mac){return _c('table-body',{key:mac.id},[_c('MacItem',{attrs:{"mac":mac}})],1)})],2)],1)])}
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('a',{attrs:{"href":"https://github.com/batin/MacScores"}},[_c('button',{staticClass:"leftbar btn btn-github",attrs:{"type":"button"}},[_c('i',{staticClass:"fe fe-github"}),_vm._v(" Github")])])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('span',{staticClass:"input-icon-addon"},[_c('i',{staticClass:"fe fe-search"})])}]
-
 
 /***/ }),
 
@@ -4492,18 +4492,6 @@ var staticRenderFns = []
 
 /***/ }),
 
-/***/ "sWKQ":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return staticRenderFns; });
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"app"}},[_c('router-view')],1)}
-var staticRenderFns = []
-
-
-/***/ }),
-
 /***/ "uSGr":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -4540,6 +4528,18 @@ var Component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 )
 
 /* harmony default export */ __webpack_exports__["a"] = (Component.exports);
+
+
+/***/ }),
+
+/***/ "uiXH":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return staticRenderFns; });
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_vm._m(0),_vm._v(" "),_c('p',{staticClass:"title"},[_vm._v("Mac Scores")]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"card  inputs"},[_c('div',{staticClass:"form-group search"},[_c('p',[_vm._v("Search")]),_vm._v(" "),_c('div',{staticClass:"input-icon"},[_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.nameFilter),expression:"nameFilter"}],staticClass:"form-control",attrs:{"type":"text","placeholder":"Search for..."},domProps:{"value":(_vm.nameFilter)},on:{"input":function($event){if($event.target.composing){ return; }_vm.nameFilter=$event.target.value}}}),_vm._v(" "),_vm._m(1)])]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col-4"},[_c('p',[_vm._v("Single-Score")]),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.singleMinScore),expression:"singleMinScore"}],staticClass:"form-control",attrs:{"type":"number","placeholder":"Min"},domProps:{"value":(_vm.singleMinScore)},on:{"input":function($event){if($event.target.composing){ return; }_vm.singleMinScore=$event.target.value}}}),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.singleMaxScore),expression:"singleMaxScore"}],staticClass:"form-control",attrs:{"type":"number","placeholder":"Max"},domProps:{"value":(_vm.singleMaxScore)},on:{"input":function($event){if($event.target.composing){ return; }_vm.singleMaxScore=$event.target.value}}})]),_vm._v(" "),_c('div',{staticClass:"col-4"},[_c('p',[_vm._v("Multi-Score")]),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.multiMinScore),expression:"multiMinScore"}],staticClass:"form-control",attrs:{"type":"number","placeholder":"Min"},domProps:{"value":(_vm.multiMinScore)},on:{"input":function($event){if($event.target.composing){ return; }_vm.multiMinScore=$event.target.value}}}),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.multiMaxScore),expression:"multiMaxScore"}],staticClass:"form-control",attrs:{"type":"number","placeholder":"Max"},domProps:{"value":(_vm.multiMaxScore)},on:{"input":function($event){if($event.target.composing){ return; }_vm.multiMaxScore=$event.target.value}}})]),_vm._v(" "),_c('div',{staticClass:"col-4"},[_c('p',[_vm._v("Price")]),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.minPrice),expression:"minPrice"}],staticClass:"form-control",attrs:{"type":"number","placeholder":"Min"},domProps:{"value":(_vm.minPrice)},on:{"input":function($event){if($event.target.composing){ return; }_vm.minPrice=$event.target.value}}}),_vm._v(" "),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.maxPrice),expression:"maxPrice"}],staticClass:"form-control",attrs:{"type":"number","placeholder":"Max"},domProps:{"value":(_vm.maxPrice)},on:{"input":function($event){if($event.target.composing){ return; }_vm.maxPrice=$event.target.value}}}),_vm._v(" "),_c('button',{staticClass:"clear btn btn-icon btn-primary btn-primary5",attrs:{"type":"button"},on:{"click":_vm.clear}},[_vm._v(" Clear ")])])])])]),_vm._v(" "),_c('div',{staticClass:"card table"},[_c('t-table',{staticClass:"table-outline table-hover",attrs:{"cards":"","vertical-align":"center","id":"table2"}},[_c('table-head',{staticClass:"table card-table table-vcenter text-nowrap datatable dataTable"},[_c('table-row',{staticClass:"t-row"},[_c('table-cel',{staticClass:"unselectable",attrs:{"colspan":"2","header":""}},[_vm._v("Name")]),_vm._v(" "),_c('table-cel',{staticClass:"unselectable",attrs:{"colspan":"2","header":""}},[_vm._v("Description")]),_vm._v(" "),_c('table-cel',{staticClass:"sorting",attrs:{"colspan":"1","header":""}},[_c('span',{staticClass:"unselectable",on:{"click":_vm.sortSingle}},[_vm._v(" Single-Core Score ")])]),_vm._v(" "),_c('table-cel',{staticClass:"sorting",attrs:{"colspan":"1","header":""}},[_c('span',{staticClass:"unselectable",on:{"click":_vm.sortMulti}},[_vm._v(" Multi-Core Score ")])]),_vm._v(" "),_c('table-cel',{staticClass:"sorting",attrs:{"colspan":"1","header":""}},[_c('span',{staticClass:"unselectable",on:{"click":_vm.sortPrice}},[_vm._v(" Price ")])]),_vm._v(" "),_c('table-cel',{staticClass:"sorting",attrs:{"colspan":"1","header":""}},[_c('span',{staticClass:"unselectable",on:{"click":_vm.sortPerDollar}},[_vm._v(" Multi-score per $ ")])])],1)],1),_vm._v(" "),_vm._l((_vm.tableItems),function(mac){return _c('table-body',{key:mac.id},[_c('MacItem',{attrs:{"mac":mac}})],1)})],2)],1)])}
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('a',{attrs:{"href":"https://github.com/batin/MacScores"}},[_c('button',{staticClass:"leftbar btn btn-github",attrs:{"type":"button"}},[_c('i',{staticClass:"fe fe-github"}),_vm._v(" Github")])])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('span',{staticClass:"input-icon-addon"},[_c('i',{staticClass:"fe fe-search"})])}]
 
 
 /***/ }),
@@ -4609,4 +4609,4 @@ var Component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.fc6b7f9f65fa1089173e.js.map
+//# sourceMappingURL=app.daf5b76e31004d242b8d.js.map
