@@ -54,8 +54,8 @@ function __vue_normalize__(template, style, script$$1, scope, functional, module
 
   component._scopeId = scope;
 
-  {
-    let hook;
+  { 
+    let hook = null;
     if (style) {
       hook = function (context) {
         style.call(this, createInjector(context));
