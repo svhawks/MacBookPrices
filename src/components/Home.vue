@@ -61,7 +61,7 @@
 <script>
 import  { Table, TableBody, TableCel, TableHead, TableRow } from './index.js'
 import MacItem from './MacItem.vue'
-import datas from '../../../MacScores/db.json'
+import axios from 'axios'
 export default {
   name: 'Home',
   data () {
@@ -94,8 +94,15 @@ export default {
   },
   created () {
     this.loading = true
-    this.macs = datas.macs
-    this.tableItems = this.macs
+    
+    axios.get('https://batin.github.io/MacScoresDB/db.json')
+      .then(macs => {
+        this.macs =  macs.data.macs        
+        this.tableItems = this.macs
+      })
+      .catch(err => {
+        console.log(err)
+      })
     this.loading = false
   },
   components: {

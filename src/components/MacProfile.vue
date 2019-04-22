@@ -72,7 +72,7 @@
 
 <script>
 import  { Table, TableBody, TableCel, TableHead, TableRow } from './index.js'
-import datas from '../../../MacScores/db.json'
+import axios from 'axios'
 export default {
   name: 'MacProfile',
   data () {
@@ -81,10 +81,17 @@ export default {
     }
   },
   created () {
-    datas.macs.forEach(mac => {
-      if(mac._id === this.$route.params.id)
-      this.mac = mac
-    });
+    axios.get('https://batin.github.io/MacScoresDB/db.json')
+      .then(macs => {
+        macs.data.macs.forEach(mac => {
+            if(mac._id== this.$route.params.id){
+            this.mac = mac
+          }
+        })
+      })
+      .catch(err => {
+        console.log(err)
+      })
   },
   methods: {
     homeLink () {
