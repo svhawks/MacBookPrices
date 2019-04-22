@@ -4,7 +4,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import TablerVue from '../dist/vue-tabler'
+import TablerVue from '../static/vue-tabler'
 
 Vue.use(TablerVue)
 
