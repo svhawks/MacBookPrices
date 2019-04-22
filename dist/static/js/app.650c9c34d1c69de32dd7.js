@@ -1,676 +1,16 @@
 webpackJsonp([1],{
 
-/***/ "+GGk":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "4gUM":
+/***/ (function(module, exports) {
 
-"use strict";
-
-
-var utils = __webpack_require__("zIVT");
-
-function InterceptorManager() {
-  this.handlers = [];
-}
-
-/**
- * Add a new interceptor to the stack
- *
- * @param {Function} fulfilled The function to handle `then` for a `Promise`
- * @param {Function} rejected The function to handle `reject` for a `Promise`
- *
- * @return {Number} An ID used to remove interceptor later
- */
-InterceptorManager.prototype.use = function use(fulfilled, rejected) {
-  this.handlers.push({
-    fulfilled: fulfilled,
-    rejected: rejected
-  });
-  return this.handlers.length - 1;
-};
-
-/**
- * Remove an interceptor from the stack
- *
- * @param {Number} id The ID that was returned by `use`
- */
-InterceptorManager.prototype.eject = function eject(id) {
-  if (this.handlers[id]) {
-    this.handlers[id] = null;
-  }
-};
-
-/**
- * Iterate over all the registered interceptors
- *
- * This method is particularly useful for skipping over any
- * interceptors that may have become `null` calling `eject`.
- *
- * @param {Function} fn The function to call for each interceptor
- */
-InterceptorManager.prototype.forEach = function forEach(fn) {
-  utils.forEach(this.handlers, function forEachHandler(h) {
-    if (h !== null) {
-      fn(h);
-    }
-  });
-};
-
-module.exports = InterceptorManager;
-
+module.exports = {"macs":[{"_id":"444","name":"iMac (21.5-inch Retina Early 2019)","model_identifier":"iMac19,2","processor":"Intel Core i5-8500","processor_freq":"3000","processor_cores":6,"processor_threads":6,"processor_count":1,"price":0,"multi_score":20681,"single_score":5220},{"_id":"443","name":"iMac (21.5-inch Retina Early 2019)","model_identifier":"iMac19,2","processor":"Intel Core i7-8700","processor_freq":"3200","processor_cores":6,"processor_threads":12,"processor_count":1,"price":0,"multi_score":27097,"single_score":5893},{"_id":"442","name":"iMac (21.5-inch Retina Early 2019)","model_identifier":"iMac19,2","processor":"Intel Core i3-8100","processor_freq":"3600","processor_cores":4,"processor_threads":4,"processor_count":1,"price":0,"multi_score":13445,"single_score":4617},{"_id":"441","name":"iMac (27-inch Retina Early 2019)","model_identifier":"iMac19,1","processor":"Intel Core i5-8600","processor_freq":"3100","processor_cores":6,"processor_threads":6,"processor_count":1,"price":0,"multi_score":21420,"single_score":5438},{"_id":"440","name":"iMac (27-inch Retina Early 2019)","model_identifier":"iMac19,1","processor":"Intel Core i5-8500","processor_freq":"3000","processor_cores":6,"processor_threads":6,"processor_count":1,"price":0,"multi_score":20429,"single_score":5217},{"_id":"439","name":"iMac (27-inch Retina Early 2019)","model_identifier":"iMac19,1","processor":"Intel Core i5-9600K","processor_freq":"3700","processor_cores":6,"processor_threads":6,"processor_count":1,"price":0,"multi_score":22741,"single_score":5782},{"_id":"438","name":"iMac (27-inch Retina Early 2019)","model_identifier":"iMac19,1","processor":"Intel Core i9-9900K","processor_freq":"3600","processor_cores":8,"processor_threads":16,"processor_count":1,"price":0,"multi_score":32315,"single_score":6167},{"_id":"437","name":"MacBook Air (Late 2018)","model_identifier":"MacBookAir8,1","processor":"Intel Core i5-8210Y","processor_freq":"1600","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":7406,"single_score":4008},{"_id":"436","name":"Mac mini (Late 2018)","model_identifier":"Macmini8,1","processor":"Intel Core i5-8500B","processor_freq":"3000","processor_cores":6,"processor_threads":6,"processor_count":1,"price":0,"multi_score":20309,"single_score":5156},{"_id":"435","name":"Mac mini (Late 2018)","model_identifier":"Macmini8,1","processor":"Intel Core i3-8100B","processor_freq":"3600","processor_cores":4,"processor_threads":4,"processor_count":1,"price":0,"multi_score":13980,"single_score":4684},{"_id":"434","name":"Mac mini (Late 2018)","model_identifier":"Macmini8,1","processor":"Intel Core i7-8700B","processor_freq":"3200","processor_cores":6,"processor_threads":12,"processor_count":1,"price":0,"multi_score":24291,"single_score":5660},{"_id":"433","name":"MacBook Pro (13-inch Mid 2018)","model_identifier":"MacBookPro15,2","processor":"Intel Core i7-8559U","processor_freq":"2700","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":17757,"single_score":5139},{"_id":"432","name":"MacBook Pro (13-inch Mid 2018)","model_identifier":"MacBookPro15,2","processor":"Intel Core i5-8259U","processor_freq":"2300","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":16609,"single_score":4523},{"_id":"431","name":"MacBook Pro (15-inch Mid 2018)","model_identifier":"MacBookPro15,1","processor":"Intel Core i9-8950HK","processor_freq":"2900","processor_cores":6,"processor_threads":12,"processor_count":1,"price":0,"multi_score":22610,"single_score":5346},{"_id":"430","name":"MacBook Pro (15-inch Mid 2018)","model_identifier":"MacBookPro15,1","processor":"Intel Core i7-8850H","processor_freq":"2600","processor_cores":6,"processor_threads":12,"processor_count":1,"price":0,"multi_score":21459,"single_score":5054},{"_id":"429","name":"MacBook Pro (15-inch Mid 2018)","model_identifier":"MacBookPro15,1","processor":"Intel Core i7-8750H","processor_freq":"2200","processor_cores":6,"processor_threads":12,"processor_count":1,"price":0,"multi_score":21225,"single_score":4925},{"_id":"428","name":"iMac Pro (Late 2017)","model_identifier":"iMacPro1,1","processor":"Intel Xeon W-2191B","processor_freq":"2300","processor_cores":18,"processor_threads":36,"processor_count":1,"price":0,"multi_score":47838,"single_score":5185},{"_id":"427","name":"iMac Pro (Late 2017)","model_identifier":"iMacPro1,1","processor":"Intel Xeon W-2170B","processor_freq":"2500","processor_cores":14,"processor_threads":28,"processor_count":1,"price":0,"multi_score":41344,"single_score":5192},{"_id":"426","name":"iMac Pro (Late 2017)","model_identifier":"iMacPro1,1","processor":"Intel Xeon W-2140B","processor_freq":"3200","processor_cores":8,"processor_threads":16,"processor_count":1,"price":0,"multi_score":31151,"single_score":5061},{"_id":"425","name":"iMac Pro (Late 2017)","model_identifier":"iMacPro1,1","processor":"Intel Xeon W-2150B","processor_freq":"3000","processor_cores":10,"processor_threads":20,"processor_count":1,"price":0,"multi_score":35950,"single_score":5324},{"_id":"424","name":"MacBook Air (Mid 2017)","model_identifier":"MacBookAir7,2","processor":"Intel Core i5-5350U","processor_freq":"1800","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":6111,"single_score":3345},{"_id":"423","name":"MacBook (Mid 2017)","model_identifier":"MacBook10,1","processor":"Intel Core i5-7Y54","processor_freq":"1200","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":6976,"single_score":3645},{"_id":"422","name":"MacBook (Mid 2017)","model_identifier":"MacBook10,1","processor":"Intel Core i7-7Y75","processor_freq":"1300","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":7556,"single_score":3932},{"_id":"421","name":"iMac (21.5-inch Retina Mid 2017)","model_identifier":"iMac18,2","processor":"Intel Core i7-7700","processor_freq":"3600","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":17860,"single_score":5255},{"_id":"420","name":"iMac (21.5-inch Retina Mid 2017)","model_identifier":"iMac18,2","processor":"Intel Core i5-7400","processor_freq":"3000","processor_cores":4,"processor_threads":4,"processor_count":1,"price":0,"multi_score":12814,"single_score":4449},{"_id":"419","name":"MacBook Pro (15-inch Mid 2017)","model_identifier":"MacBookPro14,3","processor":"Intel Core i7-7920HQ","processor_freq":"3100","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":15539,"single_score":4638},{"_id":"418","name":"MacBook Pro (15-inch Mid 2017)","model_identifier":"MacBookPro14,3","processor":"Intel Core i7-7820HQ","processor_freq":"2900","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":15264,"single_score":4490},{"_id":"417","name":"MacBook Pro (15-inch Mid 2017)","model_identifier":"MacBookPro14,3","processor":"Intel Core i7-7700HQ","processor_freq":"2800","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":14401,"single_score":4356},{"_id":"416","name":"MacBook Pro (13-inch Mid 2017)","model_identifier":"MacBookPro14,2","processor":"Intel Core i7-7567U","processor_freq":"3500","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":9544,"single_score":4627},{"_id":"415","name":"MacBook Pro (13-inch Mid 2017)","model_identifier":"MacBookPro14,2","processor":"Intel Core i5-7267U","processor_freq":"3100","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":8834,"single_score":4217},{"_id":"414","name":"MacBook Pro (13-inch Mid 2017)","model_identifier":"MacBookPro14,1","processor":"Intel Core i5-7360U","processor_freq":"2300","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":9080,"single_score":4333},{"_id":"413","name":"MacBook (Mid 2017)","model_identifier":"MacBook10,1","processor":"Intel Core i5-7Y57","processor_freq":"1200","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"412","name":"MacBook (Mid 2017)","model_identifier":"MacBook10,1","processor":"Intel Core m3-7Y32","processor_freq":"1100","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":6645,"single_score":3529},{"_id":"411","name":"iMac (21.5-inch Retina Mid 2017)","model_identifier":"iMac18,2","processor":"Intel Core i5-7500","processor_freq":"3400","processor_cores":4,"processor_threads":4,"processor_count":1,"price":0,"multi_score":13759,"single_score":4753},{"_id":"410","name":"iMac (21.5-inch Mid 2017)","model_identifier":"iMac18,1","processor":"Intel Core i5-7360U","processor_freq":"2300","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":9055,"single_score":4433},{"_id":"409","name":"iMac (27-inch Retina Mid 2017)","model_identifier":"iMac18,3","processor":"Intel Core i5-7600K","processor_freq":"3800","processor_cores":4,"processor_threads":4,"processor_count":1,"price":0,"multi_score":15252,"single_score":5219},{"_id":"408","name":"iMac (27-inch Retina Mid 2017)","model_identifier":"iMac18,3","processor":"Intel Core i5-7500","processor_freq":"3400","processor_cores":4,"processor_threads":4,"processor_count":1,"price":0,"multi_score":13866,"single_score":4768},{"_id":"407","name":"iMac (27-inch Retina Mid 2017)","model_identifier":"iMac18,3","processor":"Intel Core i7-7700K","processor_freq":"4200","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":19375,"single_score":5685},{"_id":"406","name":"iMac (27-inch Retina Mid 2017)","model_identifier":"iMac18,3","processor":"Intel Core i5-7600","processor_freq":"3500","processor_cores":4,"processor_threads":4,"processor_count":1,"price":0,"multi_score":14856,"single_score":5093},{"_id":"405","name":"MacBook Pro (13-inch Late 2016)","model_identifier":"MacBookPro13,2","processor":"Intel Core i7-6567U","processor_freq":"3300","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":8119,"single_score":4037},{"_id":"404","name":"MacBook Pro (13-inch Late 2016)","model_identifier":"MacBookPro13,2","processor":"Intel Core i5-6287U","processor_freq":"3100","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":7960,"single_score":3966},{"_id":"403","name":"MacBook Pro (13-inch Late 2016)","model_identifier":"MacBookPro13,2","processor":"Intel Core i5-6267U","processor_freq":"2900","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":7657,"single_score":3826},{"_id":"402","name":"MacBook Pro (15-inch Late 2016)","model_identifier":"MacBookPro13,3","processor":"Intel Core i7-6920HQ","processor_freq":"2900","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":14271,"single_score":4317},{"_id":"401","name":"MacBook Pro (15-inch Late 2016)","model_identifier":"MacBookPro13,3","processor":"Intel Core i7-6820HQ","processor_freq":"2700","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":13885,"single_score":4158},{"_id":"400","name":"MacBook Pro (15-inch Late 2016)","model_identifier":"MacBookPro13,3","processor":"Intel Core i7-6700HQ","processor_freq":"2600","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":13138,"single_score":4017},{"_id":"399","name":"MacBook Pro (15-inch Retina Mid 2015)","model_identifier":"MacBookPro11,5","processor":"Intel Core i7-4870HQ","processor_freq":"2500","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":13956,"single_score":4103},{"_id":"398","name":"MacBook Pro (15-inch Retina Mid 2015)","model_identifier":"MacBookPro11,5","processor":"Intel Core i7-4980HQ","processor_freq":"2800","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":14601,"single_score":4385},{"_id":"397","name":"MacBook Pro (13-inch Late 2016)","model_identifier":"MacBookPro13,1","processor":"Intel Core i7-6660U","processor_freq":"2400","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":7822,"single_score":3921},{"_id":"396","name":"MacBook Pro (13-inch Late 2016)","model_identifier":"MacBookPro13,1","processor":"Intel Core i5-6360U","processor_freq":"2000","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":7216,"single_score":3661},{"_id":"395","name":"iMac (21.5-inch Retina Late 2015)","model_identifier":"iMac16,2","processor":"Intel Core i7-5775R","processor_freq":"3300","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":15065,"single_score":4458},{"_id":"394","name":"iMac (21.5-inch Late 2015)","model_identifier":"iMac16,2","processor":"Intel Core i5-5575R","processor_freq":"2800","processor_cores":4,"processor_threads":4,"processor_count":1,"price":0,"multi_score":12062,"single_score":4068},{"_id":"393","name":"iMac (21.5-inch Retina Late 2015)","model_identifier":"iMac16,2","processor":"Intel Core i5-5675R","processor_freq":"3100","processor_cores":4,"processor_threads":4,"processor_count":1,"price":0,"multi_score":12838,"single_score":4298},{"_id":"392","name":"iMac (21.5-inch Late 2015)","model_identifier":"iMac16,1","processor":"Intel Core i5-5250U","processor_freq":"1600","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":5751,"single_score":3183},{"_id":"391","name":"iMac (27-inch Retina Late 2015)","model_identifier":"iMac17,1","processor":"Intel Core i5-6500","processor_freq":"3200","processor_cores":4,"processor_threads":4,"processor_count":1,"price":0,"multi_score":12412,"single_score":4399},{"_id":"390","name":"iMac (27-inch Retina Late 2015)","model_identifier":"iMac17,1","processor":"Intel Core i5-6600","processor_freq":"3300","processor_cores":4,"processor_threads":4,"processor_count":1,"price":0,"multi_score":13397,"single_score":4724},{"_id":"389","name":"iMac (27-inch Retina Late 2015)","model_identifier":"iMac17,1","processor":"Intel Core i7-6700K","processor_freq":"4000","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":17580,"single_score":5282},{"_id":"388","name":"MacBook (Early 2016)","model_identifier":"MacBook9,1","processor":"Intel Core m7-6Y75","processor_freq":"1200","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":6627,"single_score":3343},{"_id":"387","name":"MacBook (Early 2016)","model_identifier":"MacBook9,1","processor":"Intel Core m5-6Y54","processor_freq":"1100","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":5948,"single_score":3072},{"_id":"386","name":"MacBook (Early 2016)","model_identifier":"MacBook9,1","processor":"Intel Core m3-6Y30","processor_freq":"900","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":5173,"single_score":2695},{"_id":"385","name":"MacBook Pro (15-inch Retina Mid 2015)","model_identifier":"MacBookPro11,4","processor":"Intel Core i7-4980HQ","processor_freq":"2800","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":14676,"single_score":4395},{"_id":"384","name":"MacBook Pro (15-inch Retina Mid 2015)","model_identifier":"MacBookPro11,4","processor":"Intel Core i7-4870HQ","processor_freq":"2500","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":14059,"single_score":4116},{"_id":"383","name":"MacBook Pro (15-inch Retina Mid 2015)","model_identifier":"MacBookPro11,4","processor":"Intel Core i7-4770HQ","processor_freq":"2200","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":13060,"single_score":3801},{"_id":"382","name":"MacBook (Early 2015)","model_identifier":"MacBook8,1","processor":"Intel Core M-5Y71","processor_freq":"1200","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":5432,"single_score":2959},{"_id":"381","name":"MacBook (Early 2015)","model_identifier":"MacBook8,1","processor":"Intel Core M-5Y51","processor_freq":"1100","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":5158,"single_score":2735},{"_id":"380","name":"MacBook (Early 2015)","model_identifier":"MacBook8,1","processor":"Intel Core M-5Y31","processor_freq":"900","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":4443,"single_score":2499},{"_id":"379","name":"MacBook Pro (13-inch Retina Early 2015)","model_identifier":"MacBookPro12,1","processor":"Intel Core i5-5287U","processor_freq":"2900","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":7077,"single_score":3737},{"_id":"378","name":"MacBook Pro (13-inch Retina Early 2015)","model_identifier":"MacBookPro12,1","processor":"Intel Core i7-5557U","processor_freq":"3100","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":7337,"single_score":3847},{"_id":"377","name":"MacBook Pro (13-inch Retina Early 2015)","model_identifier":"MacBookPro12,1","processor":"Intel Core i5-5257U","processor_freq":"2700","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":6764,"single_score":3563},{"_id":"376","name":"MacBook Air (13-inch Early 2015)","model_identifier":"MacBookAir7,2","processor":"Intel Core i7-5650U","processor_freq":"2200","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":6911,"single_score":3614},{"_id":"375","name":"MacBook Air (11-inch Early 2015)","model_identifier":"MacBookAir7,1","processor":"Intel Core i7-5650U","processor_freq":"2200","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":6778,"single_score":3560},{"_id":"374","name":"MacBook Air (13-inch Early 2015)","model_identifier":"MacBookAir7,2","processor":"Intel Core i5-5250U","processor_freq":"1600","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":5569,"single_score":3057},{"_id":"373","name":"MacBook Air (11-inch Early 2015)","model_identifier":"MacBookAir7,1","processor":"Intel Core i5-5250U","processor_freq":"1600","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":5532,"single_score":3033},{"_id":"372","name":"iMac (27-inch Retina)","model_identifier":"iMac15,1","processor":"Intel Core i5-4690","processor_freq":"3500","processor_cores":4,"processor_threads":4,"processor_count":1,"price":0,"multi_score":12099,"single_score":4227},{"_id":"371","name":"iMac (27-inch Retina)","model_identifier":"iMac15,1","processor":"Intel Core i7-4790K","processor_freq":"4000","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":15696,"single_score":4766},{"_id":"370","name":"Mac mini (Late 2014)","model_identifier":"Macmini7,1","processor":"Intel Core i7-4578U","processor_freq":"3000","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":7046,"single_score":3701},{"_id":"369","name":"Mac mini (Late 2014)","model_identifier":"Macmini7,1","processor":"Intel Core i5-4308U","processor_freq":"2800","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":6816,"single_score":3584},{"_id":"368","name":"Mac mini (Late 2014)","model_identifier":"Macmini7,1","processor":"Intel Core i5-4278U","processor_freq":"2600","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":6494,"single_score":3412},{"_id":"367","name":"Mac mini (Late 2014)","model_identifier":"Macmini7,1","processor":"Intel Core i5-4260U","processor_freq":"1400","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":5420,"single_score":3027},{"_id":"366","name":"MacBook Pro (13-inch Retina Mid 2014)","model_identifier":"MacBookPro11,1","processor":"Intel Core i7-4578U","processor_freq":"3000","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":7197,"single_score":3774},{"_id":"365","name":"MacBook Pro (13-inch Retina Mid 2014)","model_identifier":"MacBookPro11,1","processor":"Intel Core i5-4308U","processor_freq":"2800","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":6815,"single_score":3563},{"_id":"364","name":"MacBook Pro (13-inch Retina Mid 2014)","model_identifier":"MacBookPro11,1","processor":"Intel Core i5-4278U","processor_freq":"2600","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":6477,"single_score":3375},{"_id":"363","name":"MacBook Pro (15-inch Retina Mid 2014)","model_identifier":"MacBookPro11,3","processor":"Intel Core i7-4980HQ","processor_freq":"2800","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":14529,"single_score":4411},{"_id":"362","name":"MacBook Pro (15-inch Retina Mid 2014)","model_identifier":"MacBookPro11,3","processor":"Intel Core i7-4870HQ","processor_freq":"2500","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":13883,"single_score":4120},{"_id":"361","name":"MacBook Pro (15-inch Retina Mid 2014)","model_identifier":"MacBookPro11,2","processor":"Intel Core i7-4770HQ","processor_freq":"2200","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":12913,"single_score":3782},{"_id":"360","name":"iMac (21.5-inch Mid 2014)","model_identifier":"iMac14,4","processor":"Intel Core i5-4260U","processor_freq":"1400","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":5196,"single_score":2902},{"_id":"359","name":"MacBook Air (13-inch Early 2014)","model_identifier":"MacBookAir6,2","processor":"Intel Core i5-4260U","processor_freq":"1400","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":5164,"single_score":2771},{"_id":"358","name":"MacBook Air (11-inch Early 2014)","model_identifier":"MacBookAir6,1","processor":"Intel Core i5-4260U","processor_freq":"1400","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":5123,"single_score":2745},{"_id":"357","name":"Mac Pro (Late 2013)","model_identifier":"MacPro6,1","processor":"Intel Xeon E5-2697 v2","processor_freq":"2700","processor_cores":12,"processor_threads":24,"processor_count":1,"price":0,"multi_score":27332,"single_score":3372},{"_id":"356","name":"Mac Pro (Late 2013)","model_identifier":"MacPro6,1","processor":"Intel Xeon E5-1680 v2","processor_freq":"3000","processor_cores":8,"processor_threads":16,"processor_count":1,"price":0,"multi_score":23457,"single_score":3850},{"_id":"355","name":"Mac Pro (Late 2013)","model_identifier":"MacPro6,1","processor":"Intel Xeon E5-1620 v2","processor_freq":"3700","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":13274,"single_score":3781},{"_id":"354","name":"Mac Pro (Late 2013)","model_identifier":"MacPro6,1","processor":"Intel Xeon E5-1650 v2","processor_freq":"3500","processor_cores":6,"processor_threads":12,"processor_count":1,"price":0,"multi_score":18179,"single_score":3817},{"_id":"353","name":"iMac (27-inch Late 2013)","model_identifier":"iMac14,2","processor":"Intel Core i7-4771","processor_freq":"3500","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":13993,"single_score":4254},{"_id":"352","name":"iMac (27-inch Late 2013)","model_identifier":"iMac14,2","processor":"Intel Core i5-4670","processor_freq":"3400","processor_cores":4,"processor_threads":4,"processor_count":1,"price":0,"multi_score":11802,"single_score":4126},{"_id":"351","name":"iMac (27-inch Late 2013)","model_identifier":"iMac14,2","processor":"Intel Core i5-4570","processor_freq":"3200","processor_cores":4,"processor_threads":4,"processor_count":1,"price":0,"multi_score":11331,"single_score":3967},{"_id":"350","name":"iMac (21.5-inch Late 2013)","model_identifier":"iMac14,3","processor":"Intel Core i7-4770S","processor_freq":"3100","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":13708,"single_score":4248},{"_id":"349","name":"iMac (21.5-inch Late 2013)","model_identifier":"iMac14,3","processor":"Intel Core i5-4570S","processor_freq":"2900","processor_cores":4,"processor_threads":4,"processor_count":1,"price":0,"multi_score":10831,"single_score":3876},{"_id":"348","name":"iMac (21.5-inch Late 2013)","model_identifier":"iMac14,1","processor":"Intel Core i5-4570R","processor_freq":"2700","processor_cores":4,"processor_threads":4,"processor_count":1,"price":0,"multi_score":10636,"single_score":3635},{"_id":"347","name":"MacBook Pro (13-inch Retina Late 2013)","model_identifier":"MacBookPro11,1","processor":"Intel Core i7-4558U","processor_freq":"2800","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":6884,"single_score":3604},{"_id":"346","name":"MacBook Pro (13-inch Retina Late 2013)","model_identifier":"MacBookPro11,1","processor":"Intel Core i5-4288U","processor_freq":"2600","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":6465,"single_score":3368},{"_id":"345","name":"MacBook Pro (13-inch Retina Late 2013)","model_identifier":"MacBookPro11,1","processor":"Intel Core i5-4258U","processor_freq":"2400","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":6058,"single_score":3161},{"_id":"344","name":"MacBook Pro (15-inch Retina Late 2013)","model_identifier":"MacBookPro11,3","processor":"Intel Core i7-4960HQ","processor_freq":"2600","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":14198,"single_score":4211},{"_id":"343","name":"MacBook Pro (15-inch Retina Late 2013)","model_identifier":"MacBookPro11,3","processor":"Intel Core i7-4850HQ","processor_freq":"2300","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":13296,"single_score":3913},{"_id":"342","name":"MacBook Pro (15-inch Retina Late 2013)","model_identifier":"MacBookPro11,2","processor":"Intel Core i7-4750HQ","processor_freq":"2000","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":12150,"single_score":3568},{"_id":"341","name":"Mac Pro (Mid 2012)","model_identifier":"MacPro5,1","processor":"Intel Xeon E5645","processor_freq":"2400","processor_cores":12,"processor_threads":24,"processor_count":2,"price":0,"multi_score":16997,"single_score":2207},{"_id":"340","name":"MacBook Air (13-inch Mid 2013)","model_identifier":"MacBookAir6,2","processor":"Intel Core i7-4650U","processor_freq":"1700","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":6255,"single_score":3378},{"_id":"339","name":"MacBook Air (13-inch Mid 2013)","model_identifier":"MacBookAir6,2","processor":"Intel Core i5-4250U","processor_freq":"1300","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":4976,"single_score":2672},{"_id":"338","name":"MacBook Air (11-inch Mid 2013)","model_identifier":"MacBookAir6,1","processor":"Intel Core i7-4650U","processor_freq":"1700","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":6322,"single_score":3402},{"_id":"337","name":"MacBook Air (11-inch Mid 2013)","model_identifier":"MacBookAir6,1","processor":"Intel Core i5-4250U","processor_freq":"1300","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":5021,"single_score":2689},{"_id":"336","name":"MacBook Pro (15-inch Retina Early 2013)","model_identifier":"MacBookPro10,1","processor":"Intel Core i7-3840QM","processor_freq":"2800","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":11978,"single_score":3716},{"_id":"335","name":"MacBook Pro (15-inch Retina Early 2013)","model_identifier":"MacBookPro10,1","processor":"Intel Core i7-3740QM","processor_freq":"2700","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":11494,"single_score":3587},{"_id":"334","name":"MacBook Pro (15-inch Retina Early 2013)","model_identifier":"MacBookPro10,1","processor":"Intel Core i7-3635QM","processor_freq":"2400","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":11119,"single_score":3385},{"_id":"333","name":"MacBook Pro (13-inch Retina Early 2013)","model_identifier":"MacBookPro10,2","processor":"Intel Core i7-3540M","processor_freq":"3000","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":6593,"single_score":3402},{"_id":"332","name":"MacBook Pro (13-inch Retina Early 2013)","model_identifier":"MacBookPro10,2","processor":"Intel Core i5-3230M","processor_freq":"2600","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":5694,"single_score":2979},{"_id":"331","name":"iMac (27-inch Late 2012)","model_identifier":"iMac13,2","processor":"Intel Core i5-3470","processor_freq":"3200","processor_cores":4,"processor_threads":4,"processor_count":1,"price":0,"multi_score":10284,"single_score":3613},{"_id":"330","name":"iMac (27-inch Late 2012)","model_identifier":"iMac13,2","processor":"Intel Core i5-3470S","processor_freq":"2900","processor_cores":4,"processor_threads":4,"processor_count":1,"price":0,"multi_score":9951,"single_score":3638},{"_id":"329","name":"iMac (27-inch Late 2012)","model_identifier":"iMac13,2","processor":"Intel Core i7-3770","processor_freq":"3400","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":12866,"single_score":3907},{"_id":"328","name":"iMac (21.5-inch Late 2012)","model_identifier":"iMac13,1","processor":"Intel Core i7-3770S","processor_freq":"3100","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":12550,"single_score":3903},{"_id":"327","name":"iMac (21.5-inch Late 2012)","model_identifier":"iMac13,1","processor":"Intel Core i5-3470S","processor_freq":"2900","processor_cores":4,"processor_threads":4,"processor_count":1,"price":0,"multi_score":10107,"single_score":3673},{"_id":"326","name":"iMac (21.5-inch Late 2012)","model_identifier":"iMac13,1","processor":"Intel Core i5-3335S","processor_freq":"2700","processor_cores":4,"processor_threads":4,"processor_count":1,"price":0,"multi_score":9088,"single_score":3337},{"_id":"325","name":"Mac mini (Late 2012)","model_identifier":"Macmini6,2","processor":"Intel Core i7-3720QM","processor_freq":"2600","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":11562,"single_score":3511},{"_id":"324","name":"Mac mini (Late 2012)","model_identifier":"Macmini6,2","processor":"Intel Core i7-3615QM","processor_freq":"2300","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":10776,"single_score":3259},{"_id":"323","name":"MacBook Pro (13-inch Retina)","model_identifier":"MacBookPro10,2","processor":"Intel Core i7-3520M","processor_freq":"2900","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":6526,"single_score":3357},{"_id":"322","name":"MacBook Pro (13-inch Retina)","model_identifier":"MacBookPro10,2","processor":"Intel Core i5-3210M","processor_freq":"2500","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":5605,"single_score":2934},{"_id":"321","name":"Mac mini (Late 2012)","model_identifier":"Macmini6,1","processor":"Intel Core i5-3210M","processor_freq":"2500","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":5702,"single_score":2945},{"_id":"320","name":"Xserve (Slot Load)","model_identifier":"RackMac1,2","processor":"PowerPC G4 (7445/7455)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"319","name":"Mac Pro (Early 2008)","model_identifier":"MacPro3,1","processor":"Intel Xeon E5472","processor_freq":"3000","processor_cores":8,"processor_threads":8,"processor_count":2,"price":0,"multi_score":9848,"single_score":1967},{"_id":"318","name":"iMac (27-inch Late 2009)","model_identifier":"iMac11,1","processor":"Intel Core i5-750","processor_freq":"2670","processor_cores":4,"processor_threads":4,"processor_count":1,"price":0,"multi_score":6452,"single_score":2401},{"_id":"317","name":"iMac (Mid 2009)","model_identifier":"iMac9,1","processor":"Intel Core 2 Duo P7550","processor_freq":"2260","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":2558,"single_score":1539},{"_id":"316","name":"iMac (Mid 2009)","model_identifier":"iMac9,1","processor":"Intel Core 2 Duo P7350","processor_freq":"2000","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":2282,"single_score":1399},{"_id":"315","name":"iMac (Early 2008)","model_identifier":"iMac8,1","processor":"Intel Core 2 Duo E8135","processor_freq":"2660","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"314","name":"iMac G5 (Mid 2006)","model_identifier":"iMac4,2","processor":"Intel Core Duo T2400","processor_freq":"1830","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"313","name":"iBook (FireWire)","model_identifier":"PowerBook2,2","processor":"PowerPC G3 (740/750)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"312","name":"iBook","model_identifier":"PowerBook2,1","processor":"PowerPC G3 (740/750)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"311","name":"iBook","model_identifier":"PowerBook2,1","processor":"PowerPC G3 (740/750)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"310","name":"iMac G3 (Summer 2001)","model_identifier":"PowerMac4,1","processor":"PowerPC G3 (740/750)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"309","name":"iMac G3 (Early 2001)","model_identifier":"PowerMac4,1","processor":"PowerPC G3 (740/750)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"308","name":"iMac (Summer 2000)","model_identifier":"PowerMac2,2","processor":"PowerPC G3 (740/750)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"307","name":"iMac (Summer 2000)","model_identifier":"PowerMac2,2","processor":"PowerPC G3 (740/750)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"306","name":"Xserve (Early 2009)","model_identifier":"Xserve3,1","processor":"Intel Xeon X5570","processor_freq":"2930","processor_cores":8,"processor_threads":16,"processor_count":2,"price":0,"multi_score":15549,"single_score":2563},{"_id":"305","name":"Xserve (Early 2009)","model_identifier":"Xserve3,1","processor":"Intel Xeon E5520","processor_freq":"2270","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":7271,"single_score":2190},{"_id":"304","name":"Xserve (Early 2008)","model_identifier":"Xserve2,1","processor":"Intel Xeon E5472","processor_freq":"3000","processor_cores":8,"processor_threads":8,"processor_count":2,"price":0,"multi_score":9660,"single_score":1970},{"_id":"303","name":"iMac (Summer 2000)","model_identifier":"PowerMac2,2","processor":"PowerPC G3 (740/750)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"302","name":"Xserve (Early 2008)","model_identifier":"Xserve2,1","processor":"Intel Xeon E5462","processor_freq":"2800","processor_cores":4,"processor_threads":4,"processor_count":1,"price":0,"multi_score":4741,"single_score":1836},{"_id":"301","name":"Xserve G5","model_identifier":"RackMac3,1","processor":"PowerPC G5 (970FX)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"300","name":"Xserve","model_identifier":"RackMac1,1","processor":"PowerPC G4 (7445/7455)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"299","name":"iMac (Slot Load)","model_identifier":"PowerMac2,1","processor":"PowerPC G3 (740/750)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"298","name":"PowerBook G3","model_identifier":"PowerBook1,1","processor":"PowerPC G3 (740/750)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"297","name":"Power Mac G4 (Digital Audio)","model_identifier":"PowerMac3,4","processor":"PowerPC G4 (7441/7450/7451)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"296","name":"Power Mac G4 (Digital Audio)","model_identifier":"PowerMac3,4","processor":"PowerPC G4 (7441/7450/7451)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"295","name":"Power Mac G4 (PCI)","model_identifier":"PowerMac1,2","processor":"PowerPC G4 (7400)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"294","name":"Power Mac G4 (PCI)","model_identifier":"PowerMac1,2","processor":"PowerPC G4 (7400)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"293","name":"Power Mac G3 (Blue and White)","model_identifier":"PowerMac1,1","processor":"PowerPC G3 (740/750)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"292","name":"Power Mac G3 (Blue and White)","model_identifier":"PowerMac1,1","processor":"PowerPC G3 (740/750)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"291","name":"iBook (Opaque 16 VRAM)","model_identifier":"PowerBook4,3","processor":"PowerPC G3 (740/750)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"290","name":"MacBook Air (Mid 2009)","model_identifier":"MacBookAir2,1","processor":"Intel Core 2 Duo L9600","processor_freq":"2130","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":2221,"single_score":1375},{"_id":"289","name":"Mac Pro (Mid 2012)","model_identifier":"MacPro5,1","processor":"Intel Xeon X5675","processor_freq":"3070","processor_cores":12,"processor_threads":24,"processor_count":2,"price":0,"multi_score":20667,"single_score":2706},{"_id":"288","name":"Mac Pro (Early 2009)","model_identifier":"MacPro4,1","processor":"Intel Xeon W5590","processor_freq":"3330","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":9464,"single_score":2872},{"_id":"287","name":"Mac Pro (Early 2008)","model_identifier":"MacPro3,1","processor":"Intel Xeon E5462","processor_freq":"2800","processor_cores":8,"processor_threads":8,"processor_count":2,"price":0,"multi_score":9140,"single_score":1855},{"_id":"286","name":"iBook (Dual USB)","model_identifier":"PowerBook4,1","processor":"PowerPC G3 (740/750)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"285","name":"iMac (21.5 inch Late 2011)","model_identifier":"iMac12,1","processor":"Intel Core i3-2100","processor_freq":"3100","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":5357,"single_score":2825},{"_id":"284","name":"MacBook Pro (Retina)","model_identifier":"MacBookPro10,1","processor":"Intel Core i7-3820QM","processor_freq":"2700","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":11688,"single_score":3625},{"_id":"283","name":"MacBook Pro (13-inch Mid 2012)","model_identifier":"MacBookPro9,2","processor":"Intel Core i7-3520M","processor_freq":"2900","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":6594,"single_score":3378},{"_id":"282","name":"MacBook Pro (13-inch Mid 2012)","model_identifier":"MacBookPro9,2","processor":"Intel Core i5-3210M","processor_freq":"2500","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":5672,"single_score":2965},{"_id":"281","name":"MacBook Pro (15-inch Mid 2012)","model_identifier":"MacBookPro9,1","processor":"Intel Core i7-3615QM","processor_freq":"2300","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":10707,"single_score":3235},{"_id":"280","name":"MacBook Pro (15-inch Mid 2012)","model_identifier":"MacBookPro9,1","processor":"Intel Core i7-3720QM","processor_freq":"2600","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":11400,"single_score":3454},{"_id":"279","name":"MacBook Pro (15-inch Mid 2012)","model_identifier":"MacBookPro9,1","processor":"Intel Core i7-3820QM","processor_freq":"2700","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":11967,"single_score":3569},{"_id":"278","name":"MacBook Pro (Retina)","model_identifier":"MacBookPro10,1","processor":"Intel Core i7-3720QM","processor_freq":"2600","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":11196,"single_score":3523},{"_id":"277","name":"MacBook Pro (Retina)","model_identifier":"MacBookPro10,1","processor":"Intel Core i7-3615QM","processor_freq":"2300","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":10717,"single_score":3290},{"_id":"276","name":"MacBook Air (13-inch Mid 2012)","model_identifier":"MacBookAir5,2","processor":"Intel Core i7-3667U","processor_freq":"2000","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":5813,"single_score":3023},{"_id":"275","name":"MacBook Air (13-inch Mid 2012)","model_identifier":"MacBookAir5,2","processor":"Intel Core i5-3427U","processor_freq":"1800","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":5032,"single_score":2659},{"_id":"274","name":"MacBook Air (11-inch Mid 2012)","model_identifier":"MacBookAir5,1","processor":"Intel Core i7-3667U","processor_freq":"2000","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":5936,"single_score":3067},{"_id":"273","name":"MacBook Air (11-inch Mid 2012)","model_identifier":"MacBookAir5,1","processor":"Intel Core i5-3317U","processor_freq":"1700","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":4834,"single_score":2557},{"_id":"272","name":"Xserve (Early 2009)","model_identifier":"Xserve3,1","processor":"Intel Xeon X5570","processor_freq":"2930","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"271","name":"Xserve (Early 2009)","model_identifier":"Xserve3,1","processor":"Intel Xeon E5520","processor_freq":"2270","processor_cores":8,"processor_threads":16,"processor_count":2,"price":0,"multi_score":12588,"single_score":2046},{"_id":"270","name":"Xserve (Early 2009)","model_identifier":"Xserve3,1","processor":"Intel Xeon X5550","processor_freq":"2670","processor_cores":8,"processor_threads":16,"processor_count":2,"price":0,"multi_score":14499,"single_score":2388},{"_id":"269","name":"Xserve (Early 2008)","model_identifier":"Xserve2,1","processor":"Intel Xeon E5462","processor_freq":"2800","processor_cores":8,"processor_threads":8,"processor_count":2,"price":0,"multi_score":8986,"single_score":1854},{"_id":"268","name":"Xserve (Late 2006)","model_identifier":"Xserve1,1","processor":"Intel Xeon 5160","processor_freq":"3000","processor_cores":4,"processor_threads":4,"processor_count":2,"price":0,"multi_score":5549,"single_score":1830},{"_id":"267","name":"Xserve (Late 2006)","model_identifier":"Xserve1,1","processor":"Intel Xeon 5130","processor_freq":"2000","processor_cores":4,"processor_threads":4,"processor_count":2,"price":0,"multi_score":3663,"single_score":1308},{"_id":"266","name":"Xserve (Late 2006)","model_identifier":"Xserve1,1","processor":"Intel Xeon 5150","processor_freq":"2660","processor_cores":4,"processor_threads":4,"processor_count":2,"price":0,"multi_score":4646,"single_score":1658},{"_id":"265","name":"Mac Pro (Mid 2010)","model_identifier":"MacPro5,1","processor":"Intel Xeon X5670","processor_freq":"2930","processor_cores":12,"processor_threads":24,"processor_count":2,"price":0,"multi_score":19782,"single_score":2617},{"_id":"264","name":"Mac Pro (Mid 2010)","model_identifier":"MacPro5,1","processor":"Intel Xeon X5650","processor_freq":"2670","processor_cores":12,"processor_threads":24,"processor_count":2,"price":0,"multi_score":19089,"single_score":2446},{"_id":"263","name":"Mac Pro (Mid 2010)","model_identifier":"MacPro5,1","processor":"Intel Xeon E5620","processor_freq":"2400","processor_cores":8,"processor_threads":16,"processor_count":2,"price":0,"multi_score":13472,"single_score":2143},{"_id":"262","name":"Mac Pro (Mid 2010)","model_identifier":"MacPro5,1","processor":"Intel Xeon W3680","processor_freq":"3330","processor_cores":6,"processor_threads":12,"processor_count":1,"price":0,"multi_score":13386,"single_score":3000},{"_id":"261","name":"Mac Pro (Mid 2010)","model_identifier":"MacPro5,1","processor":"Intel Xeon W3565","processor_freq":"3200","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":8943,"single_score":2724},{"_id":"260","name":"Mac Pro (Mid 2010)","model_identifier":"MacPro5,1","processor":"Intel Xeon W3530","processor_freq":"2800","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":8117,"single_score":2487},{"_id":"259","name":"Mac Pro (Early 2009)","model_identifier":"MacPro4,1","processor":"Intel Xeon X5570","processor_freq":"2930","processor_cores":8,"processor_threads":16,"processor_count":2,"price":0,"multi_score":14292,"single_score":2476},{"_id":"258","name":"Mac Pro (Early 2009)","model_identifier":"MacPro4,1","processor":"Intel Xeon W3520","processor_freq":"2670","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":7787,"single_score":2400},{"_id":"257","name":"Mac Pro (Early 2009)","model_identifier":"MacPro4,1","processor":"Intel Xeon E5520","processor_freq":"2270","processor_cores":8,"processor_threads":16,"processor_count":2,"price":0,"multi_score":11885,"single_score":1998},{"_id":"256","name":"Mac Pro (Early 2009)","model_identifier":"MacPro4,1","processor":"Intel Xeon W3540","processor_freq":"2930","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":8345,"single_score":2578},{"_id":"255","name":"Mac Pro (Early 2009)","model_identifier":"MacPro4,1","processor":"Intel Xeon X5550","processor_freq":"2670","processor_cores":8,"processor_threads":16,"processor_count":2,"price":0,"multi_score":13855,"single_score":2335},{"_id":"254","name":"Mac Pro (Early 2008)","model_identifier":"MacPro3,1","processor":"Intel Xeon X5472","processor_freq":"3000","processor_cores":8,"processor_threads":8,"processor_count":2,"price":0,"multi_score":9697,"single_score":1963},{"_id":"253","name":"Mac Pro (Early 2008)","model_identifier":"MacPro3,1","processor":"Intel Xeon E5462","processor_freq":"2800","processor_cores":4,"processor_threads":4,"processor_count":1,"price":0,"multi_score":5271,"single_score":1832},{"_id":"252","name":"Mac Pro (Early 2008)","model_identifier":"MacPro3,1","processor":"Intel Xeon X5482","processor_freq":"3200","processor_cores":8,"processor_threads":8,"processor_count":2,"price":0,"multi_score":10088,"single_score":2070},{"_id":"251","name":"Mac Pro (8-core)","model_identifier":"MacPro2,1","processor":"Intel Xeon X5365","processor_freq":"3000","processor_cores":8,"processor_threads":8,"processor_count":2,"price":0,"multi_score":8150,"single_score":1800},{"_id":"250","name":"Mac Pro","model_identifier":"MacPro1,1","processor":"Intel Xeon 5160","processor_freq":"3000","processor_cores":4,"processor_threads":4,"processor_count":2,"price":0,"multi_score":5217,"single_score":1788},{"_id":"249","name":"Mac Pro","model_identifier":"MacPro1,1","processor":"Intel Xeon 5130","processor_freq":"2000","processor_cores":4,"processor_threads":4,"processor_count":2,"price":0,"multi_score":3616,"single_score":1260},{"_id":"248","name":"Mac Pro","model_identifier":"MacPro1,1","processor":"Intel Xeon 5150","processor_freq":"2660","processor_cores":4,"processor_threads":4,"processor_count":2,"price":0,"multi_score":4696,"single_score":1618},{"_id":"247","name":"MacBook Pro (17-inch Late 2011)","model_identifier":"MacBookPro8,3","processor":"Intel Core i7-2860QM","processor_freq":"2500","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":10385,"single_score":3318},{"_id":"246","name":"MacBook Pro (15-inch Late 2011)","model_identifier":"MacBookPro8,2","processor":"Intel Core i7-2860QM","processor_freq":"2500","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":9926,"single_score":3168},{"_id":"245","name":"MacBook Pro (13-inch Late 2011)","model_identifier":"MacBookPro8,1","processor":"Intel Core i5-2435M","processor_freq":"2400","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":5048,"single_score":2669},{"_id":"244","name":"iMac (27-inch Mid 2011)","model_identifier":"iMac12,2","processor":"Intel Core i5-2500S","processor_freq":"2700","processor_cores":4,"processor_threads":4,"processor_count":1,"price":0,"multi_score":8287,"single_score":3405},{"_id":"243","name":"iMac (27-inch Mid 2011)","model_identifier":"iMac12,2","processor":"Intel Core i5-2400","processor_freq":"3100","processor_cores":4,"processor_threads":4,"processor_count":1,"price":0,"multi_score":9091,"single_score":3222},{"_id":"242","name":"iMac (27-inch Mid 2011)","model_identifier":"iMac12,2","processor":"Intel Core i7-2600","processor_freq":"3400","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":11197,"single_score":3514},{"_id":"241","name":"iMac (21.5-inch Mid 2011)","model_identifier":"iMac12,1","processor":"Intel Core i7-2600S","processor_freq":"2800","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":9817,"single_score":3494},{"_id":"240","name":"iMac (21.5-inch Mid 2011)","model_identifier":"iMac12,1","processor":"Intel Core i5-2500S","processor_freq":"2700","processor_cores":4,"processor_threads":4,"processor_count":1,"price":0,"multi_score":8342,"single_score":3416},{"_id":"239","name":"iMac (21.5-inch Mid 2011)","model_identifier":"iMac12,1","processor":"Intel Core i5-2400S","processor_freq":"2500","processor_cores":4,"processor_threads":4,"processor_count":1,"price":0,"multi_score":7841,"single_score":3125},{"_id":"238","name":"iMac (27-inch Mid 2010)","model_identifier":"iMac11,3","processor":"Intel Core i7-870","processor_freq":"2930","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":8524,"single_score":2704},{"_id":"237","name":"iMac (27-inch Mid 2010)","model_identifier":"iMac11,3","processor":"Intel Core i5-760","processor_freq":"2800","processor_cores":4,"processor_threads":4,"processor_count":1,"price":0,"multi_score":6858,"single_score":2523},{"_id":"236","name":"iMac (27-inch Mid 2010)","model_identifier":"iMac11,3","processor":"Intel Core i5-680","processor_freq":"3600","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":5492,"single_score":2766},{"_id":"235","name":"iMac (27-inch Mid 2010)","model_identifier":"iMac11,3","processor":"Intel Core i3-550","processor_freq":"3200","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":4619,"single_score":2282},{"_id":"234","name":"iMac (21.5-inch Mid 2010)","model_identifier":"iMac11,2","processor":"Intel Core i5-680","processor_freq":"3600","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":5441,"single_score":2726},{"_id":"233","name":"iMac (21.5-inch Mid 2010)","model_identifier":"iMac11,2","processor":"Intel Core i3-550","processor_freq":"3200","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":4557,"single_score":2251},{"_id":"232","name":"iMac (21.5-inch Mid 2010)","model_identifier":"iMac11,2","processor":"Intel Core i3-540","processor_freq":"3070","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":4487,"single_score":2213},{"_id":"231","name":"iMac (27-inch Late 2009)","model_identifier":"iMac11,1","processor":"Intel Core i7-860","processor_freq":"2800","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":7730,"single_score":2531},{"_id":"230","name":"iMac (Late 2009)","model_identifier":"iMac10,1","processor":"Intel Core 2 Duo E8600","processor_freq":"3330","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":3617,"single_score":2137},{"_id":"229","name":"iMac (Late 2009)","model_identifier":"iMac10,1","processor":"Intel Core 2 Duo E7600","processor_freq":"3060","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":3109,"single_score":1868},{"_id":"228","name":"iMac (Early 2009)","model_identifier":"iMac9,1","processor":"Intel Core 2 Duo E8135","processor_freq":"2660","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":2996,"single_score":1773},{"_id":"227","name":"iMac (Early 2009)","model_identifier":"iMac9,1","processor":"Intel Core 2 Duo E8335","processor_freq":"2930","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":3223,"single_score":1900},{"_id":"226","name":"iMac (Early 2009)","model_identifier":"iMac9,1","processor":"Intel Core 2 Duo E8435","processor_freq":"3060","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":3339,"single_score":1974},{"_id":"225","name":"iMac (Early 2008)","model_identifier":"iMac8,1","processor":"Intel Core 2 Duo E8235","processor_freq":"2800","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":3151,"single_score":1832},{"_id":"224","name":"iMac (Early 2008)","model_identifier":"iMac8,1","processor":"Intel Core 2 Duo E8335","processor_freq":"2930","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"223","name":"iMac (Early 2008)","model_identifier":"iMac8,1","processor":"Intel Core 2 Duo E8435","processor_freq":"3060","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":3380,"single_score":1951},{"_id":"222","name":"iMac (Early 2008)","model_identifier":"iMac8,1","processor":"Intel Core 2 Duo E8135","processor_freq":"2660","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"221","name":"iMac (Mid 2007)","model_identifier":"iMac7,1","processor":"Intel Core 2 Duo T7700","processor_freq":"2400","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":2476,"single_score":1491},{"_id":"220","name":"iMac (Mid 2007)","model_identifier":"iMac7,1","processor":"Intel Core 2 Duo T7300","processor_freq":"2000","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":2177,"single_score":1302},{"_id":"219","name":"iMac (Mid 2007)","model_identifier":"iMac7,1","processor":"Intel Core 2 Extreme X7900","processor_freq":"2800","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":2826,"single_score":1696},{"_id":"218","name":"iMac (24-inch)","model_identifier":"iMac6,1","processor":"Intel Core 2 Duo T7400","processor_freq":"2160","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"217","name":"iMac (24-inch)","model_identifier":"iMac6,1","processor":"Intel Core 2 Duo T7600","processor_freq":"2330","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"216","name":"iMac (17-inch Late 2006 CD)","model_identifier":"iMac5,2","processor":"Intel Core 2 Duo T5600","processor_freq":"1830","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"215","name":"iMac (Late 2006)","model_identifier":"iMac5,1","processor":"Intel Core 2 Duo T7400","processor_freq":"2160","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"214","name":"iMac (Late 2006)","model_identifier":"iMac5,1","processor":"Intel Core 2 Duo T7200","processor_freq":"2000","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":2081,"single_score":1237},{"_id":"213","name":"iMac (Late 2006)","model_identifier":"iMac5,1","processor":"Intel Core 2 Duo T7600","processor_freq":"2330","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":2438,"single_score":1463},{"_id":"212","name":"iMac (Early 2006)","model_identifier":"iMac4,1","processor":"Intel Core Duo T2500","processor_freq":"2000","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"211","name":"iMac (Early 2006)","model_identifier":"iMac4,1","processor":"Intel Core Duo T2400","processor_freq":"1830","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"210","name":"Xserve G5","model_identifier":"RackMac3,1","processor":"PowerPC G5 (970FX)","processor_freq":"0","processor_cores":2,"processor_threads":2,"processor_count":2,"price":0,"multi_score":0,"single_score":0},{"_id":"209","name":"Xserve G5","model_identifier":"RackMac3,1","processor":"PowerPC G5 (970FX)","processor_freq":"0","processor_cores":2,"processor_threads":2,"processor_count":2,"price":0,"multi_score":0,"single_score":0},{"_id":"208","name":"Xserve (Slot Load)","model_identifier":"RackMac1,2","processor":"PowerPC G4 (7445/7455)","processor_freq":"0","processor_cores":2,"processor_threads":2,"processor_count":2,"price":0,"multi_score":0,"single_score":0},{"_id":"207","name":"Xserve (Slot Load)","model_identifier":"RackMac1,2","processor":"PowerPC G4 (7445/7455)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"206","name":"Xserve","model_identifier":"RackMac1,1","processor":"PowerPC G4 (7445/7455)","processor_freq":"0","processor_cores":2,"processor_threads":2,"processor_count":2,"price":0,"multi_score":0,"single_score":0},{"_id":"205","name":"Power Mac G5 (Late 2004)","model_identifier":"PowerMac9,1","processor":"PowerPC G5 (970FX)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"204","name":"iMac G5 (Ambient Light Sensor)","model_identifier":"PowerMac8,2","processor":"PowerPC G5 (970FX)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"203","name":"iMac G5 (Ambient Light Sensor)","model_identifier":"PowerMac8,2","processor":"PowerPC G5 (970FX)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"202","name":"iMac G5","model_identifier":"PowerMac8,1","processor":"PowerPC G5 (970FX)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"201","name":"iMac G5","model_identifier":"PowerMac8,1","processor":"PowerPC G5 (970FX)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"200","name":"Power Mac G5 (June 2004)","model_identifier":"PowerMac7,3","processor":"PowerPC G5 (970FX)","processor_freq":"0","processor_cores":2,"processor_threads":2,"processor_count":2,"price":0,"multi_score":0,"single_score":0},{"_id":"199","name":"Power Mac G5 (June 2004)","model_identifier":"PowerMac7,3","processor":"PowerPC G5 (970FX)","processor_freq":"0","processor_cores":2,"processor_threads":2,"processor_count":2,"price":0,"multi_score":0,"single_score":0},{"_id":"198","name":"Power Mac G5 (June 2004)","model_identifier":"PowerMac7,3","processor":"PowerPC G5 (970FX)","processor_freq":"0","processor_cores":2,"processor_threads":2,"processor_count":2,"price":0,"multi_score":0,"single_score":0},{"_id":"197","name":"Power Mac G5 (June 2004)","model_identifier":"PowerMac7,3","processor":"PowerPC G5 (970FX)","processor_freq":"0","processor_cores":2,"processor_threads":2,"processor_count":2,"price":0,"multi_score":0,"single_score":0},{"_id":"196","name":"Power Mac G5 (June 2004)","model_identifier":"PowerMac7,3","processor":"PowerPC G5 (970)","processor_freq":"0","processor_cores":2,"processor_threads":2,"processor_count":2,"price":0,"multi_score":0,"single_score":0},{"_id":"195","name":"Power Mac G5 (June 2004)","model_identifier":"PowerMac7,3","processor":"PowerPC G5 (970FX)","processor_freq":"0","processor_cores":2,"processor_threads":2,"processor_count":2,"price":0,"multi_score":0,"single_score":0},{"_id":"194","name":"Power Mac G5 (June 2004)","model_identifier":"PowerMac7,3","processor":"PowerPC G5 (970)","processor_freq":"0","processor_cores":2,"processor_threads":2,"processor_count":2,"price":0,"multi_score":0,"single_score":0},{"_id":"193","name":"Power Mac G5","model_identifier":"PowerMac7,2","processor":"PowerPC G5 (970)","processor_freq":"0","processor_cores":2,"processor_threads":2,"processor_count":2,"price":0,"multi_score":0,"single_score":0},{"_id":"192","name":"Power Mac G5","model_identifier":"PowerMac7,2","processor":"PowerPC G5 (970)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"191","name":"Power Mac G5","model_identifier":"PowerMac7,2","processor":"PowerPC G5 (970)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"190","name":"Power Mac G5","model_identifier":"PowerMac7,2","processor":"PowerPC G5 (970)","processor_freq":"0","processor_cores":2,"processor_threads":2,"processor_count":2,"price":0,"multi_score":0,"single_score":0},{"_id":"189","name":"eMac (USB 2.0)","model_identifier":"PowerMac6,4","processor":"PowerPC G4 (7447A)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"188","name":"eMac (USB 2.0)","model_identifier":"PowerMac6,4","processor":"PowerPC G4 (7447A)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"187","name":"eMac (USB 2.0)","model_identifier":"PowerMac6,4","processor":"PowerPC G4 (7447/7457)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"186","name":"iMac G4 (20-inch Flat-Panel)","model_identifier":"PowerMac6,3","processor":"PowerPC G4 (7447A)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"185","name":"iMac G4 (20-inch Flat-Panel)","model_identifier":"PowerMac6,3","processor":"PowerPC G4 (7445/7455)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"184","name":"iMac G4 (USB 2.0)","model_identifier":"PowerMac6,1","processor":"PowerPC G4 (7445/7455)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"183","name":"iMac G4 (USB 2.0)","model_identifier":"PowerMac6,1","processor":"PowerPC G4 (7445/7455)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"182","name":"Power Mac G4 Cube","model_identifier":"PowerMac5,1","processor":"PowerPC G4 (7410)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"181","name":"Power Mac G4 Cube","model_identifier":"PowerMac5,1","processor":"PowerPC G4 (7400)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"180","name":"iMac G4 (17-inch Flat-Panel)","model_identifier":"PowerMac4,5","processor":"PowerPC G4 (7441/7450/7451)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"179","name":"eMac","model_identifier":"PowerMac4,4","processor":"PowerPC G4 (7445/7455)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"178","name":"eMac","model_identifier":"PowerMac4,4","processor":"PowerPC G4 (7441/7450/7451)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"177","name":"eMac","model_identifier":"PowerMac4,4","processor":"PowerPC G4 (7441/7450/7451)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"176","name":"eMac","model_identifier":"PowerMac4,4","processor":"PowerPC G4 (7445/7455)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"175","name":"iMac (Flat-Panel)","model_identifier":"PowerMac4,2","processor":"PowerPC G4 (7441/7450/7451)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"174","name":"iMac (Flat-Panel)","model_identifier":"PowerMac4,2","processor":"PowerPC G4 (7441/7450/7451)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"173","name":"iMac G3 (Early 2001)","model_identifier":"PowerMac4,1","processor":"PowerPC G3 (740/750)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"172","name":"iMac G3 (Early 2001)","model_identifier":"PowerMac4,1","processor":"PowerPC G3 (740/750)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"171","name":"Power Mac G4 (Mirrored Drive Doors)","model_identifier":"PowerMac3,6","processor":"PowerPC G4 (7445/7455)","processor_freq":"0","processor_cores":2,"processor_threads":2,"processor_count":2,"price":0,"multi_score":0,"single_score":0},{"_id":"170","name":"Power Mac G4 (Mirrored Drive Doors)","model_identifier":"PowerMac3,6","processor":"PowerPC G4 (7445/7455)","processor_freq":"0","processor_cores":2,"processor_threads":2,"processor_count":2,"price":0,"multi_score":0,"single_score":0},{"_id":"169","name":"Power Mac G4 (Mirrored Drive Doors)","model_identifier":"PowerMac3,6","processor":"PowerPC G4 (7445/7455)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"168","name":"Power Mac G4 (Mirrored Drive Doors)","model_identifier":"PowerMac3,6","processor":"PowerPC G4 (7445/7455)","processor_freq":"0","processor_cores":2,"processor_threads":2,"processor_count":2,"price":0,"multi_score":0,"single_score":0},{"_id":"167","name":"Power Mac G4 (Mirrored Drive Doors)","model_identifier":"PowerMac3,6","processor":"PowerPC G4 (7445/7455)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"166","name":"Power Mac G4 (Mirrored Drive Doors)","model_identifier":"PowerMac3,6","processor":"PowerPC G4 (7445/7455)","processor_freq":"0","processor_cores":2,"processor_threads":2,"processor_count":2,"price":0,"multi_score":0,"single_score":0},{"_id":"165","name":"Power Mac G4 (Quicksilver)","model_identifier":"PowerMac3,5","processor":"PowerPC G4 (7445/7455)","processor_freq":"0","processor_cores":2,"processor_threads":2,"processor_count":2,"price":0,"multi_score":0,"single_score":0},{"_id":"164","name":"Power Mac G4 (Quicksilver)","model_identifier":"PowerMac3,5","processor":"PowerPC G4 (7441/7450/7451)","processor_freq":"0","processor_cores":2,"processor_threads":2,"processor_count":2,"price":0,"multi_score":0,"single_score":0},{"_id":"163","name":"Power Mac G4 (Quicksilver)","model_identifier":"PowerMac3,5","processor":"PowerPC G4 (7441/7450/7451)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"162","name":"Power Mac G4 (Quicksilver)","model_identifier":"PowerMac3,5","processor":"PowerPC G4 (7445/7455)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"161","name":"Power Mac G4 (Quicksilver)","model_identifier":"PowerMac3,5","processor":"PowerPC G4 (7441/7450/7451)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"160","name":"Power Mac G4 (Quicksilver)","model_identifier":"PowerMac3,5","processor":"PowerPC G4 (7441/7450/7451)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"159","name":"Power Mac G4 (Quicksilver)","model_identifier":"PowerMac3,5","processor":"PowerPC G4 (7441/7450/7451)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"158","name":"Power Mac G4 (Digital Audio)","model_identifier":"PowerMac3,4","processor":"PowerPC G4 (7400)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"157","name":"Power Mac G4 (Digital Audio)","model_identifier":"PowerMac3,4","processor":"PowerPC G4 (7410)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"156","name":"Power Mac G4 (Digital Audio)","model_identifier":"PowerMac3,4","processor":"PowerPC G4 (7410)","processor_freq":"0","processor_cores":2,"processor_threads":2,"processor_count":2,"price":0,"multi_score":0,"single_score":0},{"_id":"155","name":"Power Mac G4 (Digital Audio)","model_identifier":"PowerMac3,4","processor":"PowerPC G4 (7441/7450/7451)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"154","name":"Power Mac G4 (Gigabit Ethernet)","model_identifier":"PowerMac3,3","processor":"PowerPC G4 (7400)","processor_freq":"0","processor_cores":2,"processor_threads":2,"processor_count":2,"price":0,"multi_score":0,"single_score":0},{"_id":"153","name":"Power Mac G4 (Gigabit Ethernet)","model_identifier":"PowerMac3,3","processor":"PowerPC G4 (7400)","processor_freq":"0","processor_cores":2,"processor_threads":2,"processor_count":2,"price":0,"multi_score":0,"single_score":0},{"_id":"152","name":"Power Mac G4 (Gigabit Ethernet)","model_identifier":"PowerMac3,3","processor":"PowerPC G4 (7400)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"151","name":"Power Mac G4 (AGP Graphics)","model_identifier":"PowerMac3,1","processor":"PowerPC G4 (7400)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"150","name":"Power Mac G4 (AGP Graphics)","model_identifier":"PowerMac3,1","processor":"PowerPC G4 (7400)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"149","name":"Power Mac G4 (AGP Graphics)","model_identifier":"PowerMac3,1","processor":"PowerPC G4 (7400)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"148","name":"Power Mac G4 (AGP Graphics)","model_identifier":"PowerMac3,1","processor":"PowerPC G4 (7400)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"147","name":"iMac (Summer 2000)","model_identifier":"PowerMac2,2","processor":"PowerPC G3 (740/750)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"146","name":"iMac (Slot Load)","model_identifier":"PowerMac2,1","processor":"PowerPC G3 (740/750)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"145","name":"iMac G5 (iSight)","model_identifier":"PowerMac12,1","processor":"PowerPC G5 (970FX)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"144","name":"iMac G5 (iSight)","model_identifier":"PowerMac12,1","processor":"PowerPC G5 (970FX)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"143","name":"Power Mac G5 (Late 2005)","model_identifier":"PowerMac11,2","processor":"PowerPC G5 (970MP)","processor_freq":"0","processor_cores":4,"processor_threads":4,"processor_count":2,"price":0,"multi_score":0,"single_score":0},{"_id":"142","name":"Power Mac G5 (Late 2005)","model_identifier":"PowerMac11,2","processor":"PowerPC G5 (970MP)","processor_freq":"0","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"141","name":"Power Mac G5 (Late 2005)","model_identifier":"PowerMac11,2","processor":"PowerPC G5 (970MP)","processor_freq":"0","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"140","name":"Mac mini (Late 2005)","model_identifier":"PowerMac10,2","processor":"PowerPC G4 (7447A)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"139","name":"Mac mini (Late 2005)","model_identifier":"PowerMac10,2","processor":"PowerPC G4 (7447A)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"138","name":"Mac mini","model_identifier":"PowerMac10,1","processor":"PowerPC G4 (7447A)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"137","name":"Mac mini","model_identifier":"PowerMac10,1","processor":"PowerPC G4 (7447A)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"136","name":"Power Mac G3 (Blue and White)","model_identifier":"PowerMac1,1","processor":"PowerPC G3 (740/750)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"135","name":"Power Mac G3 (Blue and White)","model_identifier":"PowerMac1,1","processor":"PowerPC G3 (740/750)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"134","name":"PowerBook G4 (12-inch 1.5 GHz)","model_identifier":"PowerBook6,8","processor":"PowerPC G4 (7447A)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"133","name":"iBook G4 (Mid 2005)","model_identifier":"PowerBook6,7","processor":"PowerPC G4 (7447A)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"132","name":"iBook G4 (Mid 2005)","model_identifier":"PowerBook6,7","processor":"PowerPC G4 (7447A)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"131","name":"iBook G4 (Early 2004)","model_identifier":"PowerBook6,5","processor":"PowerPC G4 (7447A)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"130","name":"iBook G4 (Early 2004)","model_identifier":"PowerBook6,5","processor":"PowerPC G4 (7447A)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"129","name":"iBook G4 (Early 2004)","model_identifier":"PowerBook6,5","processor":"PowerPC G4 (7447A)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"128","name":"PowerBook G4 (12-inch 1.33 GHz)","model_identifier":"PowerBook6,4","processor":"PowerPC G4 (7447A)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"127","name":"iBook G4","model_identifier":"PowerBook6,3","processor":"PowerPC G4 (7445/7455)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"126","name":"iBook G4","model_identifier":"PowerBook6,3","processor":"PowerPC G4 (7445/7455)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"125","name":"iBook G4","model_identifier":"PowerBook6,3","processor":"PowerPC G4 (7445/7455)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"124","name":"PowerBook G4 (12-inch DVI)","model_identifier":"PowerBook6,2","processor":"PowerPC G4 (7447/7457)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"123","name":"PowerBook G4 (12-inch)","model_identifier":"PowerBook6,1","processor":"PowerPC G4 (7445/7455)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"122","name":"PowerBook G4 (Double-Layer SD, 17-inch)","model_identifier":"PowerBook5,9","processor":"PowerPC G4 (7447A)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"121","name":"PowerBook G4 (Double-Layer SD, 15-inch)","model_identifier":"PowerBook5,8","processor":"PowerPC G4 (7447A)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"120","name":"PowerBook G4 (17-inch 1.67 GHz)","model_identifier":"PowerBook5,7","processor":"PowerPC G4 (7447A)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"119","name":"PowerBook G4 (15-inch 1.67/1.5 GHz)","model_identifier":"PowerBook5,6","processor":"PowerPC G4 (7447A)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"118","name":"PowerBook G4 (15-inch 1.67/1.5 GHz)","model_identifier":"PowerBook5,6","processor":"PowerPC G4 (7447A)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"117","name":"PowerBook G4 (17-inch 1.5 GHz)","model_identifier":"PowerBook5,5","processor":"PowerPC G4 (7447A)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"116","name":"PowerBook G4 (15-inch 1.5/1.33 GHz)","model_identifier":"PowerBook5,4","processor":"PowerPC G4 (7447A)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"115","name":"PowerBook G4 (15-inch 1.5/1.33 GHz)","model_identifier":"PowerBook5,4","processor":"PowerPC G4 (7447A)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"114","name":"PowerBook G4 (17-inch 1.33 GHz)","model_identifier":"PowerBook5,3","processor":"PowerPC G4 (7447/7457)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"113","name":"PowerBook G4 (15-inch FW800)","model_identifier":"PowerBook5,2","processor":"PowerPC G4 (7447/7457)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"112","name":"PowerBook G4 (15-inch FW800)","model_identifier":"PowerBook5,2","processor":"PowerPC G4 (7447/7457)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"111","name":"PowerBook G4 (17-inch)","model_identifier":"PowerBook5,1","processor":"PowerPC G4 (7445/7455)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"110","name":"iBook (Opaque 16 VRAM)","model_identifier":"PowerBook4,3","processor":"PowerPC 750FX","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"109","name":"iBook (Opaque 16 VRAM)","model_identifier":"PowerBook4,3","processor":"PowerPC 750FX","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"108","name":"iBook (Opaque 16 VRAM)","model_identifier":"PowerBook4,3","processor":"PowerPC 750FX","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"107","name":"iBook (16 VRAM)","model_identifier":"PowerBook4,2","processor":"PowerPC G3 (740/750)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"106","name":"iBook (Dual USB)","model_identifier":"PowerBook4,1","processor":"PowerPC G3 (740/750)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"105","name":"PowerBook G4 (1 GHz/867 MHz)","model_identifier":"PowerBook3,5","processor":"PowerPC G4 (7445/7455)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"104","name":"PowerBook G4 (1 GHz/867 MHz)","model_identifier":"PowerBook3,5","processor":"PowerPC G4 (7445/7455)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"103","name":"PowerBook G4 (DVI)","model_identifier":"PowerBook3,4","processor":"PowerPC G4 (7445/7455)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"102","name":"PowerBook G4 (DVI)","model_identifier":"PowerBook3,4","processor":"PowerPC G4 (7445/7455)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"101","name":"PowerBook G4 (Gigabit Ethernet)","model_identifier":"PowerBook3,3","processor":"PowerPC G4 (7441/7450/7451)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"100","name":"PowerBook G4 (Gigabit Ethernet)","model_identifier":"PowerBook3,3","processor":"PowerPC G4 (7441/7450/7451)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"99","name":"PowerBook G4","model_identifier":"PowerBook3,2","processor":"PowerPC G4 (7410)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"98","name":"PowerBook G4","model_identifier":"PowerBook3,2","processor":"PowerPC G4 (7410)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"97","name":"PowerBook G3 (FireWire)","model_identifier":"PowerBook3,1","processor":"PowerPC G3 (740/750)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"96","name":"PowerBook G3 (FireWire)","model_identifier":"PowerBook3,1","processor":"PowerPC G3 (740/750)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"95","name":"iBook (FireWire)","model_identifier":"PowerBook2,2","processor":"PowerPC G3 (740/750)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"94","name":"PowerBook G3","model_identifier":"PowerBook1,1","processor":"PowerPC G3 (740/750)","processor_freq":"0","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"93","name":"Mac mini (Mid 2011)","model_identifier":"Macmini5,3","processor":"Intel Core i7-2635QM","processor_freq":"2000","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":8550,"single_score":2783},{"_id":"92","name":"Mac mini (Mid 2011)","model_identifier":"Macmini5,2","processor":"Intel Core i7-2620M","processor_freq":"2700","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":5968,"single_score":3084},{"_id":"91","name":"Mac mini (Mid 2011)","model_identifier":"Macmini5,2","processor":"Intel Core i5-2520M","processor_freq":"2500","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":5504,"single_score":2883},{"_id":"90","name":"Mac mini (Mid 2011)","model_identifier":"Macmini5,1","processor":"Intel Core i5-2415M","processor_freq":"2300","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":5003,"single_score":2619},{"_id":"89","name":"Mac mini (Early 2010)","model_identifier":"Macmini4,1","processor":"Intel Core 2 Duo P8600","processor_freq":"2400","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":2480,"single_score":1511},{"_id":"88","name":"Mac mini (Early 2010)","model_identifier":"Macmini4,1","processor":"Intel Core 2 Duo P8800","processor_freq":"2660","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":2642,"single_score":1602},{"_id":"87","name":"Mac mini (Late 2009)","model_identifier":"Macmini3,1","processor":"Intel Core 2 Duo P8800","processor_freq":"2660","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":2699,"single_score":1662},{"_id":"86","name":"Mac mini (Late 2009)","model_identifier":"Macmini3,1","processor":"Intel Core 2 Duo P8700","processor_freq":"2530","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":2618,"single_score":1586},{"_id":"85","name":"Mac mini (Late 2009)","model_identifier":"Macmini3,1","processor":"Intel Core 2 Duo P7550","processor_freq":"2260","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":2463,"single_score":1481},{"_id":"84","name":"Mac mini (Early 2009)","model_identifier":"Macmini3,1","processor":"Intel Core 2 Duo P8400","processor_freq":"2260","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":2483,"single_score":1492},{"_id":"83","name":"Mac mini (Early 2009)","model_identifier":"Macmini3,1","processor":"Intel Core 2 Duo P7350","processor_freq":"2000","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":2243,"single_score":1362},{"_id":"82","name":"Mac mini (Mid 2007)","model_identifier":"Macmini2,1","processor":"Intel Core 2 Duo T7200","processor_freq":"2000","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":2159,"single_score":1276},{"_id":"81","name":"Mac mini (Mid 2007)","model_identifier":"Macmini2,1","processor":"Intel Core 2 Duo T5600","processor_freq":"1830","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"80","name":"Mac mini (Early 2006)","model_identifier":"Macmini1,1","processor":"Intel Core Duo T2300","processor_freq":"1660","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"79","name":"Mac mini (Early 2006)","model_identifier":"Macmini1,1","processor":"Intel Core Duo T2400","processor_freq":"1830","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"78","name":"Mac mini (Early 2006)","model_identifier":"Macmini1,1","processor":"Intel Core Solo T1200","processor_freq":"1500","processor_cores":1,"processor_threads":1,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"77","name":"MacBook Pro (17-inch Late 2011)","model_identifier":"MacBookPro8,3","processor":"Intel Core i7-2760QM","processor_freq":"2400","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":9803,"single_score":3190},{"_id":"76","name":"MacBook Pro (17-inch Early 2011)","model_identifier":"MacBookPro8,3","processor":"Intel Core i7-2720QM","processor_freq":"2200","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":9029,"single_score":2947},{"_id":"75","name":"MacBook Pro (17-inch Early 2011)","model_identifier":"MacBookPro8,3","processor":"Intel Core i7-2820QM","processor_freq":"2300","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":9840,"single_score":3149},{"_id":"74","name":"MacBook Pro (15-inch Late 2011)","model_identifier":"MacBookPro8,2","processor":"Intel Core i7-2760QM","processor_freq":"2400","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":9495,"single_score":3122},{"_id":"73","name":"MacBook Pro (15-inch Late 2011)","model_identifier":"MacBookPro8,2","processor":"Intel Core i7-2675QM","processor_freq":"2200","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":8679,"single_score":2797},{"_id":"72","name":"MacBook Pro (15-inch Early 2011)","model_identifier":"MacBookPro8,2","processor":"Intel Core i7-2635QM","processor_freq":"2000","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":7723,"single_score":2483},{"_id":"71","name":"MacBook Pro (15-inch Early 2011)","model_identifier":"MacBookPro8,2","processor":"Intel Core i7-2720QM","processor_freq":"2200","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":8298,"single_score":2710},{"_id":"70","name":"MacBook Pro (15-inch Early 2011)","model_identifier":"MacBookPro8,2","processor":"Intel Core i7-2820QM","processor_freq":"2300","processor_cores":4,"processor_threads":8,"processor_count":1,"price":0,"multi_score":9502,"single_score":2986},{"_id":"69","name":"MacBook Pro (13-inch Late 2011)","model_identifier":"MacBookPro8,1","processor":"Intel Core i7-2640M","processor_freq":"2800","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":5908,"single_score":3083},{"_id":"68","name":"MacBook Pro (13-inch Early 2011)","model_identifier":"MacBookPro8,1","processor":"Intel Core i7-2620M","processor_freq":"2700","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":5656,"single_score":2947},{"_id":"67","name":"MacBook Pro (13-inch Early 2011)","model_identifier":"MacBookPro8,1","processor":"Intel Core i5-2415M","processor_freq":"2300","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":4855,"single_score":2563},{"_id":"66","name":"MacBook Pro (13-inch Early 2010)","model_identifier":"MacBookPro7,1","processor":"Intel Core 2 Duo P8600","processor_freq":"2400","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":2498,"single_score":1526},{"_id":"65","name":"MacBook Pro (13-inch Early 2010)","model_identifier":"MacBookPro7,1","processor":"Intel Core 2 Duo P8800","processor_freq":"2660","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":2699,"single_score":1644},{"_id":"64","name":"MacBook Pro (15-inch Early 2010)","model_identifier":"MacBookPro6,2","processor":"Intel Core i7-640M","processor_freq":"2800","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":4422,"single_score":2256},{"_id":"63","name":"MacBook Pro (15-inch Early 2010)","model_identifier":"MacBookPro6,2","processor":"Intel Core i7-620M","processor_freq":"2670","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":4349,"single_score":2218},{"_id":"62","name":"MacBook Pro (15-inch Early 2010)","model_identifier":"MacBookPro6,2","processor":"Intel Core i5-540M","processor_freq":"2530","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":3909,"single_score":2012},{"_id":"61","name":"MacBook Pro (15-inch Early 2010)","model_identifier":"MacBookPro6,2","processor":"Intel Core i5-520M","processor_freq":"2400","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":3802,"single_score":1978},{"_id":"60","name":"MacBook Pro (17-inch Early 2010)","model_identifier":"MacBookPro6,1","processor":"Intel Core i7-640M","processor_freq":"2800","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":4518,"single_score":2292},{"_id":"59","name":"MacBook Pro (17-inch Early 2010)","model_identifier":"MacBookPro6,1","processor":"Intel Core i7-620M","processor_freq":"2670","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":4376,"single_score":2216},{"_id":"58","name":"MacBook Pro (17-inch Early 2010)","model_identifier":"MacBookPro6,1","processor":"Intel Core i5-540M","processor_freq":"2530","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":3964,"single_score":2038},{"_id":"57","name":"MacBook Pro (13-inch Mid 2009)","model_identifier":"MacBookPro5,5","processor":"Intel Core 2 Duo P8400","processor_freq":"2260","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":2459,"single_score":1481},{"_id":"56","name":"MacBook Pro (13-inch Mid 2009)","model_identifier":"MacBookPro5,5","processor":"Intel Core 2 Duo P8700","processor_freq":"2530","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":2618,"single_score":1577},{"_id":"55","name":"MacBook Pro (13-inch Mid 2009)","model_identifier":"MacBookPro5,5","processor":"Intel Core 2 Duo P7550","processor_freq":"2260","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":2415,"single_score":1464},{"_id":"54","name":"MacBook Pro (15-inch Mid 2009)","model_identifier":"MacBookPro5,4","processor":"Intel Core 2 Duo P8700","processor_freq":"2530","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":2613,"single_score":1579},{"_id":"53","name":"MacBook Pro (15-inch Mid 2009)","model_identifier":"MacBookPro5,3","processor":"Intel Core 2 Duo T9900","processor_freq":"3060","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":3282,"single_score":1926},{"_id":"52","name":"MacBook Pro (15-inch Mid 2009)","model_identifier":"MacBookPro5,3","processor":"Intel Core 2 Duo T9600","processor_freq":"2800","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":3012,"single_score":1795},{"_id":"51","name":"MacBook Pro (15-inch Mid 2009)","model_identifier":"MacBookPro5,3","processor":"Intel Core 2 Duo P8800","processor_freq":"2660","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":2730,"single_score":1654},{"_id":"50","name":"MacBook Pro (17-inch Mid 2009)","model_identifier":"MacBookPro5,2","processor":"Intel Core 2 Duo T9900","processor_freq":"3060","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":3196,"single_score":1910},{"_id":"49","name":"MacBook Pro (17-inch Mid 2009)","model_identifier":"MacBookPro5,2","processor":"Intel Core 2 Duo T9600","processor_freq":"2800","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":2982,"single_score":1765},{"_id":"48","name":"MacBook Pro (17-inch Early 2009)","model_identifier":"MacBookPro5,2","processor":"Intel Core 2 Duo T9800","processor_freq":"2930","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":3019,"single_score":1801},{"_id":"47","name":"MacBook Pro (17-inch Early 2009)","model_identifier":"MacBookPro5,2","processor":"Intel Core 2 Duo T9550","processor_freq":"2660","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":2857,"single_score":1711},{"_id":"46","name":"MacBook Pro (Late 2008)","model_identifier":"MacBookPro5,1","processor":"Intel Core 2 Duo T9550","processor_freq":"2660","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":2889,"single_score":1724},{"_id":"45","name":"MacBook Pro (Late 2008)","model_identifier":"MacBookPro5,1","processor":"Intel Core 2 Duo T9400","processor_freq":"2530","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":2740,"single_score":1619},{"_id":"44","name":"MacBook Pro (Late 2008)","model_identifier":"MacBookPro5,1","processor":"Intel Core 2 Duo T9600","processor_freq":"2800","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":2930,"single_score":1724},{"_id":"43","name":"MacBook Pro (Late 2008)","model_identifier":"MacBookPro5,1","processor":"Intel Core 2 Duo T9800","processor_freq":"2930","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":2894,"single_score":1710},{"_id":"42","name":"MacBook Pro (Late 2008)","model_identifier":"MacBookPro5,1","processor":"Intel Core 2 Duo P8600","processor_freq":"2400","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":2494,"single_score":1512},{"_id":"41","name":"MacBook Pro (Early 2008)","model_identifier":"MacBookPro4,1","processor":"Intel Core 2 Duo T9300","processor_freq":"2500","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":2465,"single_score":1429},{"_id":"40","name":"MacBook Pro (Early 2008)","model_identifier":"MacBookPro4,1","processor":"Intel Core 2 Duo T9500","processor_freq":"2600","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":2595,"single_score":1495},{"_id":"39","name":"MacBook Pro (Early 2008)","model_identifier":"MacBookPro4,1","processor":"Intel Core 2 Duo T8300","processor_freq":"2400","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":2316,"single_score":1365},{"_id":"38","name":"MacBook Pro (Mid 2007)","model_identifier":"MacBookPro3,1","processor":"Intel Core 2 Duo T7700","processor_freq":"2400","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":2110,"single_score":1256},{"_id":"37","name":"MacBook Pro (Mid 2007)","model_identifier":"MacBookPro3,1","processor":"Intel Core 2 Duo T7800","processor_freq":"2600","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":2330,"single_score":1375},{"_id":"36","name":"MacBook Pro (Mid 2007)","model_identifier":"MacBookPro3,1","processor":"Intel Core 2 Duo T7500","processor_freq":"2200","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":1954,"single_score":1161},{"_id":"35","name":"MacBook Pro (Core 2 Duo)","model_identifier":"MacBookPro2,2","processor":"Intel Core 2 Duo T7400","processor_freq":"2160","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"34","name":"MacBook Pro (Core 2 Duo)","model_identifier":"MacBookPro2,2","processor":"Intel Core 2 Duo T7600","processor_freq":"2330","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":2496,"single_score":1465},{"_id":"33","name":"MacBook Pro (17-inch Core 2 Duo)","model_identifier":"MacBookPro2,1","processor":"Intel Core 2 Duo T7400","processor_freq":"2160","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"32","name":"MacBook Pro (17-inch Core 2 Duo)","model_identifier":"MacBookPro2,1","processor":"Intel Core 2 Duo T7600","processor_freq":"2330","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"31","name":"MacBook Pro (17-inch)","model_identifier":"MacBookPro1,2","processor":"Intel Core Duo T2600","processor_freq":"2160","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"30","name":"MacBook Pro","model_identifier":"MacBookPro1,1","processor":"Intel Core Duo T2500","processor_freq":"2000","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"29","name":"MacBook Pro","model_identifier":"MacBookPro1,1","processor":"Intel Core Duo T2400","processor_freq":"1830","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"28","name":"MacBook Pro","model_identifier":"MacBookPro1,1","processor":"Intel Core Duo T2600","processor_freq":"2160","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":0,"single_score":0},{"_id":"27","name":"MacBook Air (13-inch Mid 2011)","model_identifier":"MacBookAir4,2","processor":"Intel Core i7-2677M","processor_freq":"1800","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":4671,"single_score":2535},{"_id":"26","name":"MacBook Air (13-inch Mid 2011)","model_identifier":"MacBookAir4,2","processor":"Intel Core i5-2557M","processor_freq":"1700","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":4359,"single_score":2388},{"_id":"25","name":"MacBook Air (11-inch Mid 2011)","model_identifier":"MacBookAir4,1","processor":"Intel Core i7-2677M","processor_freq":"1800","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":4760,"single_score":2550},{"_id":"24","name":"MacBook Air (11-inch Mid 2011)","model_identifier":"MacBookAir4,1","processor":"Intel Core i5-2467M","processor_freq":"1601","processor_cores":2,"processor_threads":4,"processor_count":1,"price":0,"multi_score":3785,"single_score":2089},{"_id":"23","name":"MacBook Air (13-inch Late 2010)","model_identifier":"MacBookAir3,2","processor":"Intel Core 2 Duo L9600","processor_freq":"2130","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":2314,"single_score":1408},{"_id":"22","name":"MacBook Air (13-inch Late 2010)","model_identifier":"MacBookAir3,2","processor":"Intel Core 2 Duo L9400","processor_freq":"1860","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":2180,"single_score":1306},{"_id":"21","name":"MacBook Air (11-inch Late 2010)","model_identifier":"MacBookAir3,1","processor":"Intel Core 2 Duo U9600","processor_freq":"1600","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":1763,"single_score":1079},{"_id":"20","name":"MacBook Air (11-inch Late 2010)","model_identifier":"MacBookAir3,1","processor":"Intel Core 2 Duo U9400","processor_freq":"1400","processor_cores":2,"processor_threads":2,"processor_count":1,"price":0,"multi_score":1617,"single_score":977}]}
 
 /***/ }),
 
-/***/ "/VWB":
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "8adX":
+/***/ (function(module, exports) {
 
-"use strict";
-
-
-var Cancel = __webpack_require__("RlDD");
-
-/**
- * A `CancelToken` is an object that can be used to request cancellation of an operation.
- *
- * @class
- * @param {Function} executor The executor function.
- */
-function CancelToken(executor) {
-  if (typeof executor !== 'function') {
-    throw new TypeError('executor must be a function.');
-  }
-
-  var resolvePromise;
-  this.promise = new Promise(function promiseExecutor(resolve) {
-    resolvePromise = resolve;
-  });
-
-  var token = this;
-  executor(function cancel(message) {
-    if (token.reason) {
-      // Cancellation has already been requested
-      return;
-    }
-
-    token.reason = new Cancel(message);
-    resolvePromise(token.reason);
-  });
-}
-
-/**
- * Throws a `Cancel` if cancellation has been requested.
- */
-CancelToken.prototype.throwIfRequested = function throwIfRequested() {
-  if (this.reason) {
-    throw this.reason;
-  }
-};
-
-/**
- * Returns an object that contains a new `CancelToken` and a function that, when called,
- * cancels the `CancelToken`.
- */
-CancelToken.source = function source() {
-  var cancel;
-  var token = new CancelToken(function executor(c) {
-    cancel = c;
-  });
-  return {
-    token: token,
-    cancel: cancel
-  };
-};
-
-module.exports = CancelToken;
-
-
-/***/ }),
-
-/***/ "0l+G":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var enhanceError = __webpack_require__("obgR");
-
-/**
- * Create an Error with the specified message, config, error code, request and response.
- *
- * @param {string} message The error message.
- * @param {Object} config The config.
- * @param {string} [code] The error code (for example, 'ECONNABORTED').
- * @param {Object} [request] The request.
- * @param {Object} [response] The response.
- * @returns {Error} The created error.
- */
-module.exports = function createError(message, config, code, request, response) {
-  var error = new Error(message);
-  return enhanceError(error, config, code, request, response);
-};
-
-
-/***/ }),
-
-/***/ "1DmB":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var utils = __webpack_require__("zIVT");
-
-module.exports = (
-  utils.isStandardBrowserEnv() ?
-
-  // Standard browser envs have full support of the APIs needed to test
-  // whether the request URL is of the same origin as current location.
-  (function standardBrowserEnv() {
-    var msie = /(msie|trident)/i.test(navigator.userAgent);
-    var urlParsingNode = document.createElement('a');
-    var originURL;
-
-    /**
-    * Parse a URL to discover it's components
-    *
-    * @param {String} url The URL to be parsed
-    * @returns {Object}
-    */
-    function resolveURL(url) {
-      var href = url;
-
-      if (msie) {
-        // IE needs attribute set twice to normalize properties
-        urlParsingNode.setAttribute('href', href);
-        href = urlParsingNode.href;
-      }
-
-      urlParsingNode.setAttribute('href', href);
-
-      // urlParsingNode provides the UrlUtils interface - http://url.spec.whatwg.org/#urlutils
-      return {
-        href: urlParsingNode.href,
-        protocol: urlParsingNode.protocol ? urlParsingNode.protocol.replace(/:$/, '') : '',
-        host: urlParsingNode.host,
-        search: urlParsingNode.search ? urlParsingNode.search.replace(/^\?/, '') : '',
-        hash: urlParsingNode.hash ? urlParsingNode.hash.replace(/^#/, '') : '',
-        hostname: urlParsingNode.hostname,
-        port: urlParsingNode.port,
-        pathname: (urlParsingNode.pathname.charAt(0) === '/') ?
-                  urlParsingNode.pathname :
-                  '/' + urlParsingNode.pathname
-      };
-    }
-
-    originURL = resolveURL(window.location.href);
-
-    /**
-    * Determine if a URL shares the same origin as the current location
-    *
-    * @param {String} requestURL The URL to test
-    * @returns {boolean} True if URL shares the same origin, otherwise false
-    */
-    return function isURLSameOrigin(requestURL) {
-      var parsed = (utils.isString(requestURL)) ? resolveURL(requestURL) : requestURL;
-      return (parsed.protocol === originURL.protocol &&
-            parsed.host === originURL.host);
-    };
-  })() :
-
-  // Non standard browser envs (web workers, react-native) lack needed support.
-  (function nonStandardBrowserEnv() {
-    return function isURLSameOrigin() {
-      return true;
-    };
-  })()
-);
-
-
-/***/ }),
-
-/***/ "4nb4":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = function bind(fn, thisArg) {
-  return function wrap() {
-    var args = new Array(arguments.length);
-    for (var i = 0; i < args.length; i++) {
-      args[i] = arguments[i];
-    }
-    return fn.apply(thisArg, args);
-  };
-};
-
-
-/***/ }),
-
-/***/ "5aBc":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-// btoa polyfill for IE<10 courtesy https://github.com/davidchambers/Base64.js
-
-var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
-
-function E() {
-  this.message = 'String contains an invalid character';
-}
-E.prototype = new Error;
-E.prototype.code = 5;
-E.prototype.name = 'InvalidCharacterError';
-
-function btoa(input) {
-  var str = String(input);
-  var output = '';
-  for (
-    // initialize result and counter
-    var block, charCode, idx = 0, map = chars;
-    // if the next str index does not exist:
-    //   change the mapping table to "="
-    //   check if d has no fractional digits
-    str.charAt(idx | 0) || (map = '=', idx % 1);
-    // "8 - idx % 1 * 8" generates the sequence 2, 4, 6, 8
-    output += map.charAt(63 & block >> 8 - idx % 1 * 8)
-  ) {
-    charCode = str.charCodeAt(idx += 3 / 4);
-    if (charCode > 0xFF) {
-      throw new E();
-    }
-    block = block << 8 | charCode;
-  }
-  return output;
-}
-
-module.exports = btoa;
-
-
-/***/ }),
-
-/***/ "7LYE":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var utils = __webpack_require__("zIVT");
-var settle = __webpack_require__("wZW9");
-var buildURL = __webpack_require__("RS1v");
-var parseHeaders = __webpack_require__("9T8H");
-var isURLSameOrigin = __webpack_require__("1DmB");
-var createError = __webpack_require__("0l+G");
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__("5aBc");
-
-module.exports = function xhrAdapter(config) {
-  return new Promise(function dispatchXhrRequest(resolve, reject) {
-    var requestData = config.data;
-    var requestHeaders = config.headers;
-
-    if (utils.isFormData(requestData)) {
-      delete requestHeaders['Content-Type']; // Let the browser set it
-    }
-
-    var request = new XMLHttpRequest();
-    var loadEvent = 'onreadystatechange';
-    var xDomain = false;
-
-    // For IE 8/9 CORS support
-    // Only supports POST and GET calls and doesn't returns the response headers.
-    // DON'T do this for testing b/c XMLHttpRequest is mocked, not XDomainRequest.
-    if ("production" !== 'test' &&
-        typeof window !== 'undefined' &&
-        window.XDomainRequest && !('withCredentials' in request) &&
-        !isURLSameOrigin(config.url)) {
-      request = new window.XDomainRequest();
-      loadEvent = 'onload';
-      xDomain = true;
-      request.onprogress = function handleProgress() {};
-      request.ontimeout = function handleTimeout() {};
-    }
-
-    // HTTP basic authentication
-    if (config.auth) {
-      var username = config.auth.username || '';
-      var password = config.auth.password || '';
-      requestHeaders.Authorization = 'Basic ' + btoa(username + ':' + password);
-    }
-
-    request.open(config.method.toUpperCase(), buildURL(config.url, config.params, config.paramsSerializer), true);
-
-    // Set the request timeout in MS
-    request.timeout = config.timeout;
-
-    // Listen for ready state
-    request[loadEvent] = function handleLoad() {
-      if (!request || (request.readyState !== 4 && !xDomain)) {
-        return;
-      }
-
-      // The request errored out and we didn't get a response, this will be
-      // handled by onerror instead
-      // With one exception: request that using file: protocol, most browsers
-      // will return status as 0 even though it's a successful request
-      if (request.status === 0 && !(request.responseURL && request.responseURL.indexOf('file:') === 0)) {
-        return;
-      }
-
-      // Prepare the response
-      var responseHeaders = 'getAllResponseHeaders' in request ? parseHeaders(request.getAllResponseHeaders()) : null;
-      var responseData = !config.responseType || config.responseType === 'text' ? request.responseText : request.response;
-      var response = {
-        data: responseData,
-        // IE sends 1223 instead of 204 (https://github.com/mzabriskie/axios/issues/201)
-        status: request.status === 1223 ? 204 : request.status,
-        statusText: request.status === 1223 ? 'No Content' : request.statusText,
-        headers: responseHeaders,
-        config: config,
-        request: request
-      };
-
-      settle(resolve, reject, response);
-
-      // Clean up request
-      request = null;
-    };
-
-    // Handle low level network errors
-    request.onerror = function handleError() {
-      // Real errors are hidden from us by the browser
-      // onerror should only fire if it's a network error
-      reject(createError('Network Error', config, null, request));
-
-      // Clean up request
-      request = null;
-    };
-
-    // Handle timeout
-    request.ontimeout = function handleTimeout() {
-      reject(createError('timeout of ' + config.timeout + 'ms exceeded', config, 'ECONNABORTED',
-        request));
-
-      // Clean up request
-      request = null;
-    };
-
-    // Add xsrf header
-    // This is only done if running in a standard browser environment.
-    // Specifically not if we're in a web worker, or react-native.
-    if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__("OhlP");
-
-      // Add xsrf header
-      var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
-          cookies.read(config.xsrfCookieName) :
-          undefined;
-
-      if (xsrfValue) {
-        requestHeaders[config.xsrfHeaderName] = xsrfValue;
-      }
-    }
-
-    // Add headers to the request
-    if ('setRequestHeader' in request) {
-      utils.forEach(requestHeaders, function setRequestHeader(val, key) {
-        if (typeof requestData === 'undefined' && key.toLowerCase() === 'content-type') {
-          // Remove Content-Type if data is undefined
-          delete requestHeaders[key];
-        } else {
-          // Otherwise add header to the request
-          request.setRequestHeader(key, val);
-        }
-      });
-    }
-
-    // Add withCredentials to request if needed
-    if (config.withCredentials) {
-      request.withCredentials = true;
-    }
-
-    // Add responseType to request if needed
-    if (config.responseType) {
-      try {
-        request.responseType = config.responseType;
-      } catch (e) {
-        // Expected DOMException thrown by browsers not compatible XMLHttpRequest Level 2.
-        // But, this can be suppressed for 'json' type as it can be parsed by default 'transformResponse' function.
-        if (config.responseType !== 'json') {
-          throw e;
-        }
-      }
-    }
-
-    // Handle progress if needed
-    if (typeof config.onDownloadProgress === 'function') {
-      request.addEventListener('progress', config.onDownloadProgress);
-    }
-
-    // Not all browsers support upload events
-    if (typeof config.onUploadProgress === 'function' && request.upload) {
-      request.upload.addEventListener('progress', config.onUploadProgress);
-    }
-
-    if (config.cancelToken) {
-      // Handle cancellation
-      config.cancelToken.promise.then(function onCanceled(cancel) {
-        if (!request) {
-          return;
-        }
-
-        request.abort();
-        reject(cancel);
-        // Clean up request
-        request = null;
-      });
-    }
-
-    if (requestData === undefined) {
-      requestData = null;
-    }
-
-    // Send the request
-    request.send(requestData);
-  });
-};
-
-
-/***/ }),
-
-/***/ "9RB6":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var defaults = __webpack_require__("T2kP");
-var utils = __webpack_require__("zIVT");
-var InterceptorManager = __webpack_require__("+GGk");
-var dispatchRequest = __webpack_require__("U2+V");
-var isAbsoluteURL = __webpack_require__("Ex+b");
-var combineURLs = __webpack_require__("BTlr");
-
-/**
- * Create a new instance of Axios
- *
- * @param {Object} instanceConfig The default config for the instance
- */
-function Axios(instanceConfig) {
-  this.defaults = instanceConfig;
-  this.interceptors = {
-    request: new InterceptorManager(),
-    response: new InterceptorManager()
-  };
-}
-
-/**
- * Dispatch a request
- *
- * @param {Object} config The config specific for this request (merged with this.defaults)
- */
-Axios.prototype.request = function request(config) {
-  /*eslint no-param-reassign:0*/
-  // Allow for axios('example/url'[, config]) a la fetch API
-  if (typeof config === 'string') {
-    config = utils.merge({
-      url: arguments[0]
-    }, arguments[1]);
-  }
-
-  config = utils.merge(defaults, this.defaults, { method: 'get' }, config);
-  config.method = config.method.toLowerCase();
-
-  // Support baseURL config
-  if (config.baseURL && !isAbsoluteURL(config.url)) {
-    config.url = combineURLs(config.baseURL, config.url);
-  }
-
-  // Hook up interceptors middleware
-  var chain = [dispatchRequest, undefined];
-  var promise = Promise.resolve(config);
-
-  this.interceptors.request.forEach(function unshiftRequestInterceptors(interceptor) {
-    chain.unshift(interceptor.fulfilled, interceptor.rejected);
-  });
-
-  this.interceptors.response.forEach(function pushResponseInterceptors(interceptor) {
-    chain.push(interceptor.fulfilled, interceptor.rejected);
-  });
-
-  while (chain.length) {
-    promise = promise.then(chain.shift(), chain.shift());
-  }
-
-  return promise;
-};
-
-// Provide aliases for supported request methods
-utils.forEach(['delete', 'get', 'head', 'options'], function forEachMethodNoData(method) {
-  /*eslint func-names:0*/
-  Axios.prototype[method] = function(url, config) {
-    return this.request(utils.merge(config || {}, {
-      method: method,
-      url: url
-    }));
-  };
-});
-
-utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
-  /*eslint func-names:0*/
-  Axios.prototype[method] = function(url, data, config) {
-    return this.request(utils.merge(config || {}, {
-      method: method,
-      url: url,
-      data: data
-    }));
-  };
-});
-
-module.exports = Axios;
-
-
-/***/ }),
-
-/***/ "9T8H":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var utils = __webpack_require__("zIVT");
-
-/**
- * Parse headers into an object
- *
- * ```
- * Date: Wed, 27 Aug 2014 08:58:49 GMT
- * Content-Type: application/json
- * Connection: keep-alive
- * Transfer-Encoding: chunked
- * ```
- *
- * @param {String} headers Headers needing to be parsed
- * @returns {Object} Headers parsed into an object
- */
-module.exports = function parseHeaders(headers) {
-  var parsed = {};
-  var key;
-  var val;
-  var i;
-
-  if (!headers) { return parsed; }
-
-  utils.forEach(headers.split('\n'), function parser(line) {
-    i = line.indexOf(':');
-    key = utils.trim(line.substr(0, i)).toLowerCase();
-    val = utils.trim(line.substr(i + 1));
-
-    if (key) {
-      parsed[key] = parsed[key] ? parsed[key] + ', ' + val : val;
-    }
-  });
-
-  return parsed;
-};
-
-
-/***/ }),
-
-/***/ "BTlr":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Creates a new URL by combining the specified URLs
- *
- * @param {string} baseURL The base URL
- * @param {string} relativeURL The relative URL
- * @returns {string} The combined URL
- */
-module.exports = function combineURLs(baseURL, relativeURL) {
-  return relativeURL
-    ? baseURL.replace(/\/+$/, '') + '/' + relativeURL.replace(/^\/+/, '')
-    : baseURL;
-};
-
-
-/***/ }),
-
-/***/ "C9l1":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = function isCancel(value) {
-  return !!(value && value.__CANCEL__);
-};
-
-
-/***/ }),
-
-/***/ "Ex+b":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Determines whether the specified URL is absolute
- *
- * @param {string} url The URL to test
- * @returns {boolean} True if the specified URL is absolute, otherwise false
- */
-module.exports = function isAbsoluteURL(url) {
-  // A URL is considered absolute if it begins with "<scheme>://" or "//" (protocol-relative URL).
-  // RFC 3986 defines scheme name as a sequence of characters beginning with a letter and followed
-  // by any combination of letters, digits, plus, period, or hyphen.
-  return /^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(url);
-};
-
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -680,8 +20,8 @@ module.exports = function isAbsoluteURL(url) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__index_js__ = __webpack_require__("bGai");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__MacItem_vue__ = __webpack_require__("uSGr");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__("uj17");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__MacScores_db_json__ = __webpack_require__("4gUM");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__MacScores_db_json___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__MacScores_db_json__);
 //
 //
 //
@@ -778,16 +118,9 @@ module.exports = function isAbsoluteURL(url) {
     'multiMaxScore': 'filterFunc'
   },
   created: function created() {
-    var _this = this;
-
     this.loading = true;
-
-    __WEBPACK_IMPORTED_MODULE_2_axios___default.a.get('https://batin.github.io/MacScoresDB/db.json').then(function (macs) {
-      _this.macs = macs.data.macs;
-      _this.tableItems = _this.macs;
-    }).catch(function (err) {
-      console.log(err);
-    });
+    this.macs = __WEBPACK_IMPORTED_MODULE_2__MacScores_db_json___default.a.macs;
+    this.tableItems = this.macs;
     this.loading = false;
   },
 
@@ -812,49 +145,49 @@ module.exports = function isAbsoluteURL(url) {
       this.loading = false;
     },
     filterFunc: function filterFunc() {
-      var _this2 = this;
+      var _this = this;
 
       this.loading = true;
       var tempMacArray = this.macs;
       if (this.nameFilter !== '') {
         this.filteredMacs = this.macs.filter(function (mac) {
-          return mac.name.toLowerCase().includes(_this2.nameFilter.toLowerCase());
+          return mac.name.toLowerCase().includes(_this.nameFilter.toLowerCase());
         });
         tempMacArray = this.findCommonItems(tempMacArray, this.filteredMacs);
       }
       if (this.singleMinScore != '') {
         this.filteredMacs = this.macs.filter(function (mac) {
-          return mac.single_score >= _this2.singleMinScore;
+          return mac.single_score >= _this.singleMinScore;
         });
         tempMacArray = this.findCommonItems(tempMacArray, this.filteredMacs);
       }
       if (this.singleMaxScore != '') {
         this.filteredMacs = this.macs.filter(function (mac) {
-          return mac.single_score <= _this2.singleMaxScore;
+          return mac.single_score <= _this.singleMaxScore;
         });
         tempMacArray = this.findCommonItems(tempMacArray, this.filteredMacs);
       }
       if (this.minPrice != '') {
         this.filteredMacs = this.macs.filter(function (mac) {
-          return mac.price >= _this2.minPrice;
+          return mac.price >= _this.minPrice;
         });
         tempMacArray = this.findCommonItems(tempMacArray, this.filteredMacs);
       }
       if (this.maxPrice != '') {
         this.filteredMacs = this.macs.filter(function (mac) {
-          return mac.price <= _this2.maxPrice;
+          return mac.price <= _this.maxPrice;
         });
         tempMacArray = this.findCommonItems(tempMacArray, this.filteredMacs);
       }
       if (this.multiMinScore != '') {
         this.filteredMacs = this.macs.filter(function (mac) {
-          return mac.multi_score >= _this2.multiMinScore;
+          return mac.multi_score >= _this.multiMinScore;
         });
         tempMacArray = this.findCommonItems(tempMacArray, this.filteredMacs);
       }
       if (this.multiMaxScore != '') {
         this.filteredMacs = this.macs.filter(function (mac) {
-          return mac.multi_score <= _this2.multiMaxScore;
+          return mac.multi_score <= _this.multiMaxScore;
         });
         tempMacArray = this.findCommonItems(tempMacArray, this.filteredMacs);
       }
@@ -906,16 +239,16 @@ module.exports = function isAbsoluteURL(url) {
       this.tableItems = sorted;
     },
     sortPerDollar: function sortPerDollar() {
-      var _this3 = this;
+      var _this2 = this;
 
       var sorted = this.tableItems.sort(function (a, b) {
         var ratio1 = (a.multi_score / a.price == 0 ? 1 : a.price).toFixed(2);
         var ratio2 = (b.multi_score / b.price == 0 ? 1 : b.price).toFixed(2);
-        if (_this3.perDFlag) {
-          _this3.perDFlag = false;
+        if (_this2.perDFlag) {
+          _this2.perDFlag = false;
           return ratio1 < ratio2 ? 1 : -1;
         } else {
-          _this3.perDFlag = true;
+          _this2.perDFlag = true;
           return ratio1 > ratio2 ? 1 : -1;
         }
       });
@@ -926,76 +259,16 @@ module.exports = function isAbsoluteURL(url) {
 
 /***/ }),
 
-/***/ "HXpE":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var utils = __webpack_require__("zIVT");
-var bind = __webpack_require__("4nb4");
-var Axios = __webpack_require__("9RB6");
-var defaults = __webpack_require__("T2kP");
-
-/**
- * Create an instance of Axios
- *
- * @param {Object} defaultConfig The default config for the instance
- * @return {Axios} A new instance of Axios
- */
-function createInstance(defaultConfig) {
-  var context = new Axios(defaultConfig);
-  var instance = bind(Axios.prototype.request, context);
-
-  // Copy axios.prototype to instance
-  utils.extend(instance, Axios.prototype, context);
-
-  // Copy context to instance
-  utils.extend(instance, context);
-
-  return instance;
-}
-
-// Create the default instance to be exported
-var axios = createInstance(defaults);
-
-// Expose Axios class to allow class inheritance
-axios.Axios = Axios;
-
-// Factory for creating new instances
-axios.create = function create(instanceConfig) {
-  return createInstance(utils.merge(defaults, instanceConfig));
-};
-
-// Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__("RlDD");
-axios.CancelToken = __webpack_require__("/VWB");
-axios.isCancel = __webpack_require__("C9l1");
-
-// Expose all/spread
-axios.all = function all(promises) {
-  return Promise.all(promises);
-};
-axios.spread = __webpack_require__("Kbjq");
-
-module.exports = axios;
-
-// Allow use of default import syntax in TypeScript
-module.exports.default = axios;
-
-
-/***/ }),
-
 /***/ "I5jY":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_MacProfile_vue__ = __webpack_require__("fVli");
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_6ab0811d_hasScoped_true_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_MacProfile_vue__ = __webpack_require__("QAjf");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_5a42702e_hasScoped_true_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_MacProfile_vue__ = __webpack_require__("e17Q");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__("XyMi");
 function injectStyle (context) {
-  __webpack_require__("WlgH")
+  __webpack_require__("8adX")
 }
 /* script */
 
@@ -1007,14 +280,14 @@ var __vue_template_functional__ = false
 /* styles */
 var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = "data-v-6ab0811d"
+var __vue_scopeId__ = "data-v-5a42702e"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 
 var Component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__["a" /* default */])(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_MacProfile_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_6ab0811d_hasScoped_true_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_MacProfile_vue__["a" /* render */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_6ab0811d_hasScoped_true_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_MacProfile_vue__["b" /* staticRenderFns */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_5a42702e_hasScoped_true_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_MacProfile_vue__["a" /* render */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_5a42702e_hasScoped_true_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_MacProfile_vue__["b" /* staticRenderFns */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -1026,42 +299,7 @@ var Component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 
 /***/ }),
 
-/***/ "Kbjq":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Syntactic sugar for invoking a function and expanding an array for arguments.
- *
- * Common use case would be to use `Function.prototype.apply`.
- *
- *  ```js
- *  function f(x, y, z) {}
- *  var args = [1, 2, 3];
- *  f.apply(null, args);
- *  ```
- *
- * With `spread` this example can be re-written.
- *
- *  ```js
- *  spread(function(x, y, z) {})([1, 2, 3]);
- *  ```
- *
- * @param {Function} callback
- * @returns {Function}
- */
-module.exports = function spread(callback) {
-  return function wrap(arr) {
-    return callback.apply(null, arr);
-  };
-};
-
-
-/***/ }),
-
-/***/ "LUVD":
+/***/ "J+l4":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1151,394 +389,10 @@ new __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */]({
 
 /***/ }),
 
-/***/ "OhlP":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var utils = __webpack_require__("zIVT");
-
-module.exports = (
-  utils.isStandardBrowserEnv() ?
-
-  // Standard browser envs support document.cookie
-  (function standardBrowserEnv() {
-    return {
-      write: function write(name, value, expires, path, domain, secure) {
-        var cookie = [];
-        cookie.push(name + '=' + encodeURIComponent(value));
-
-        if (utils.isNumber(expires)) {
-          cookie.push('expires=' + new Date(expires).toGMTString());
-        }
-
-        if (utils.isString(path)) {
-          cookie.push('path=' + path);
-        }
-
-        if (utils.isString(domain)) {
-          cookie.push('domain=' + domain);
-        }
-
-        if (secure === true) {
-          cookie.push('secure');
-        }
-
-        document.cookie = cookie.join('; ');
-      },
-
-      read: function read(name) {
-        var match = document.cookie.match(new RegExp('(^|;\\s*)(' + name + ')=([^;]*)'));
-        return (match ? decodeURIComponent(match[3]) : null);
-      },
-
-      remove: function remove(name) {
-        this.write(name, '', Date.now() - 86400000);
-      }
-    };
-  })() :
-
-  // Non standard browser env (web workers, react-native) lack needed support.
-  (function nonStandardBrowserEnv() {
-    return {
-      write: function write() {},
-      read: function read() { return null; },
-      remove: function remove() {}
-    };
-  })()
-);
-
-
-/***/ }),
-
-/***/ "QAjf":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return staticRenderFns; });
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('div',{staticClass:"row"},[_c('div',{staticClass:"col"}),_vm._v(" "),_c('div',{staticClass:"col-4"},[(_vm.mac != undefined)?_c('p',{staticClass:"title"},[_vm._v(_vm._s(_vm.mac.name))]):_vm._e()]),_vm._v(" "),_c('div',{staticClass:"col"})]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col"}),_vm._v(" "),(_vm.mac != undefined)?_c('div',{staticClass:"Mytable"},[_c('div',{staticClass:"card"},[_c('t-table',{staticClass:"table"},[_c('table-row',{staticClass:"t-row"},[_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v("Single-Core Score")]),_vm._v(" "),_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v(_vm._s(_vm.mac.single_score))])],1),_vm._v(" "),_c('table-row',{staticClass:"t-row"},[_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v("Multi-Core Score")]),_vm._v(" "),_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v(_vm._s(_vm.mac.multi_score))])],1),_vm._v(" "),_c('table-row',{staticClass:"t-row"},[_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v("Model Identifier")]),_vm._v(" "),_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v(_vm._s(_vm.mac.model_identifier))])],1),_vm._v(" "),_c('table-row',{staticClass:"t-row"},[_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v("Processor")]),_vm._v(" "),_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v(_vm._s(_vm.mac.processor))])],1),_vm._v(" "),_c('table-row',{staticClass:"t-row"},[_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v("Processor Frequency")]),_vm._v(" "),_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v(_vm._s(_vm.mac.multi_score))])],1),_vm._v(" "),_c('table-row',{staticClass:"t-row"},[_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v("Processors")]),_vm._v(" "),_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v(_vm._s(_vm.mac.processor_count))])],1),_vm._v(" "),_c('table-row',{staticClass:"t-row"},[_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v("Processor Cores")]),_vm._v(" "),_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v(_vm._s(_vm.mac.processor_cores))])],1),_vm._v(" "),_c('table-row',{staticClass:"t-row"},[_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v("Processor Threads")]),_vm._v(" "),_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v(_vm._s(_vm.mac.processor_threads))])],1),_vm._v(" "),_c('table-row',{staticClass:"t-row"},[_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v("Price")]),_vm._v(" "),_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v("$"+_vm._s(_vm.mac.price))])],1),_vm._v(" "),_c('table-row',{staticClass:"t-row"},[_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v("Multi-score per $")]),_vm._v(" "),_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v(_vm._s((_vm.mac.multi_score/(_vm.mac.price) == 0 ? 1 : _vm.mac.price ).toFixed(2)))])],1)],1)],1)]):_vm._e(),_vm._v(" "),_c('div',{staticClass:"col"})]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col"}),_vm._v(" "),_c('div',{staticClass:"col-4"},[_c('p',{staticClass:"back"},[_c('a',{on:{"click":_vm.homeLink}},[_vm._v("Back to Home")])])]),_vm._v(" "),_c('div',{staticClass:"col"})])])}
-var staticRenderFns = []
-
-
-/***/ }),
-
 /***/ "RB0i":
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ "RS1v":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var utils = __webpack_require__("zIVT");
-
-function encode(val) {
-  return encodeURIComponent(val).
-    replace(/%40/gi, '@').
-    replace(/%3A/gi, ':').
-    replace(/%24/g, '$').
-    replace(/%2C/gi, ',').
-    replace(/%20/g, '+').
-    replace(/%5B/gi, '[').
-    replace(/%5D/gi, ']');
-}
-
-/**
- * Build a URL by appending params to the end
- *
- * @param {string} url The base of the url (e.g., http://www.google.com)
- * @param {object} [params] The params to be appended
- * @returns {string} The formatted url
- */
-module.exports = function buildURL(url, params, paramsSerializer) {
-  /*eslint no-param-reassign:0*/
-  if (!params) {
-    return url;
-  }
-
-  var serializedParams;
-  if (paramsSerializer) {
-    serializedParams = paramsSerializer(params);
-  } else if (utils.isURLSearchParams(params)) {
-    serializedParams = params.toString();
-  } else {
-    var parts = [];
-
-    utils.forEach(params, function serialize(val, key) {
-      if (val === null || typeof val === 'undefined') {
-        return;
-      }
-
-      if (utils.isArray(val)) {
-        key = key + '[]';
-      }
-
-      if (!utils.isArray(val)) {
-        val = [val];
-      }
-
-      utils.forEach(val, function parseValue(v) {
-        if (utils.isDate(v)) {
-          v = v.toISOString();
-        } else if (utils.isObject(v)) {
-          v = JSON.stringify(v);
-        }
-        parts.push(encode(key) + '=' + encode(v));
-      });
-    });
-
-    serializedParams = parts.join('&');
-  }
-
-  if (serializedParams) {
-    url += (url.indexOf('?') === -1 ? '?' : '&') + serializedParams;
-  }
-
-  return url;
-};
-
-
-/***/ }),
-
-/***/ "RlDD":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * A `Cancel` is an object that is thrown when an operation is canceled.
- *
- * @class
- * @param {string=} message The message.
- */
-function Cancel(message) {
-  this.message = message;
-}
-
-Cancel.prototype.toString = function toString() {
-  return 'Cancel' + (this.message ? ': ' + this.message : '');
-};
-
-Cancel.prototype.__CANCEL__ = true;
-
-module.exports = Cancel;
-
-
-/***/ }),
-
-/***/ "T2kP":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-var utils = __webpack_require__("zIVT");
-var normalizeHeaderName = __webpack_require__("TOXd");
-
-var DEFAULT_CONTENT_TYPE = {
-  'Content-Type': 'application/x-www-form-urlencoded'
-};
-
-function setContentTypeIfUnset(headers, value) {
-  if (!utils.isUndefined(headers) && utils.isUndefined(headers['Content-Type'])) {
-    headers['Content-Type'] = value;
-  }
-}
-
-function getDefaultAdapter() {
-  var adapter;
-  if (typeof XMLHttpRequest !== 'undefined') {
-    // For browsers use XHR adapter
-    adapter = __webpack_require__("7LYE");
-  } else if (typeof process !== 'undefined') {
-    // For node use HTTP adapter
-    adapter = __webpack_require__("7LYE");
-  }
-  return adapter;
-}
-
-var defaults = {
-  adapter: getDefaultAdapter(),
-
-  transformRequest: [function transformRequest(data, headers) {
-    normalizeHeaderName(headers, 'Content-Type');
-    if (utils.isFormData(data) ||
-      utils.isArrayBuffer(data) ||
-      utils.isBuffer(data) ||
-      utils.isStream(data) ||
-      utils.isFile(data) ||
-      utils.isBlob(data)
-    ) {
-      return data;
-    }
-    if (utils.isArrayBufferView(data)) {
-      return data.buffer;
-    }
-    if (utils.isURLSearchParams(data)) {
-      setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8');
-      return data.toString();
-    }
-    if (utils.isObject(data)) {
-      setContentTypeIfUnset(headers, 'application/json;charset=utf-8');
-      return JSON.stringify(data);
-    }
-    return data;
-  }],
-
-  transformResponse: [function transformResponse(data) {
-    /*eslint no-param-reassign:0*/
-    if (typeof data === 'string') {
-      try {
-        data = JSON.parse(data);
-      } catch (e) { /* Ignore */ }
-    }
-    return data;
-  }],
-
-  timeout: 0,
-
-  xsrfCookieName: 'XSRF-TOKEN',
-  xsrfHeaderName: 'X-XSRF-TOKEN',
-
-  maxContentLength: -1,
-
-  validateStatus: function validateStatus(status) {
-    return status >= 200 && status < 300;
-  }
-};
-
-defaults.headers = {
-  common: {
-    'Accept': 'application/json, text/plain, */*'
-  }
-};
-
-utils.forEach(['delete', 'get', 'head'], function forEachMethodNoData(method) {
-  defaults.headers[method] = {};
-});
-
-utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
-  defaults.headers[method] = utils.merge(DEFAULT_CONTENT_TYPE);
-});
-
-module.exports = defaults;
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__("W2nU")))
-
-/***/ }),
-
-/***/ "TOXd":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var utils = __webpack_require__("zIVT");
-
-module.exports = function normalizeHeaderName(headers, normalizedName) {
-  utils.forEach(headers, function processHeader(value, name) {
-    if (name !== normalizedName && name.toUpperCase() === normalizedName.toUpperCase()) {
-      headers[normalizedName] = value;
-      delete headers[name];
-    }
-  });
-};
-
-
-/***/ }),
-
-/***/ "U2+V":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var utils = __webpack_require__("zIVT");
-var transformData = __webpack_require__("i7gz");
-var isCancel = __webpack_require__("C9l1");
-var defaults = __webpack_require__("T2kP");
-
-/**
- * Throws a `Cancel` if cancellation has been requested.
- */
-function throwIfCancellationRequested(config) {
-  if (config.cancelToken) {
-    config.cancelToken.throwIfRequested();
-  }
-}
-
-/**
- * Dispatch a request to the server using the configured adapter.
- *
- * @param {object} config The config that is to be used for the request
- * @returns {Promise} The Promise to be fulfilled
- */
-module.exports = function dispatchRequest(config) {
-  throwIfCancellationRequested(config);
-
-  // Ensure headers exist
-  config.headers = config.headers || {};
-
-  // Transform request data
-  config.data = transformData(
-    config.data,
-    config.headers,
-    config.transformRequest
-  );
-
-  // Flatten headers
-  config.headers = utils.merge(
-    config.headers.common || {},
-    config.headers[config.method] || {},
-    config.headers || {}
-  );
-
-  utils.forEach(
-    ['delete', 'get', 'head', 'post', 'put', 'patch', 'common'],
-    function cleanHeaderConfig(method) {
-      delete config.headers[method];
-    }
-  );
-
-  var adapter = config.adapter || defaults.adapter;
-
-  return adapter(config).then(function onAdapterResolution(response) {
-    throwIfCancellationRequested(config);
-
-    // Transform response data
-    response.data = transformData(
-      response.data,
-      response.headers,
-      config.transformResponse
-    );
-
-    return response;
-  }, function onAdapterRejection(reason) {
-    if (!isCancel(reason)) {
-      throwIfCancellationRequested(config);
-
-      // Transform response data
-      if (reason && reason.response) {
-        reason.response.data = transformData(
-          reason.response.data,
-          reason.response.headers,
-          config.transformResponse
-        );
-      }
-    }
-
-    return Promise.reject(reason);
-  });
-};
-
 
 /***/ }),
 
@@ -1552,13 +406,6 @@ module.exports = function dispatchRequest(config) {
         return createElement('tbody', this.$slots.default);
     }
 });
-
-/***/ }),
-
-/***/ "WlgH":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -1605,34 +452,6 @@ __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */].config.productionTip = fals
 
 /***/ }),
 
-/***/ "ZH5x":
-/***/ (function(module, exports) {
-
-/*!
- * Determine if an object is a Buffer
- *
- * @author   Feross Aboukhadijeh <https://feross.org>
- * @license  MIT
- */
-
-// The _isBuffer check is for Safari 5-7 support, because it's missing
-// Object.prototype.constructor. Remove this eventually
-module.exports = function (obj) {
-  return obj != null && (isBuffer(obj) || isSlowBuffer(obj) || !!obj._isBuffer)
-}
-
-function isBuffer (obj) {
-  return !!obj.constructor && typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj)
-}
-
-// For Node v0.10 support. Remove this eventually.
-function isSlowBuffer (obj) {
-  return typeof obj.readFloatLE === 'function' && typeof obj.slice === 'function' && isBuffer(obj.slice(0, 0))
-}
-
-
-/***/ }),
-
 /***/ "bGai":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1674,13 +493,25 @@ function isSlowBuffer (obj) {
 
 /***/ }),
 
+/***/ "e17Q":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return staticRenderFns; });
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('div',{staticClass:"row"},[_c('div',{staticClass:"col"}),_vm._v(" "),_c('div',{staticClass:"col-4"},[(_vm.mac != undefined)?_c('p',{staticClass:"title"},[_vm._v(_vm._s(_vm.mac.name))]):_vm._e()]),_vm._v(" "),_c('div',{staticClass:"col"})]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col"}),_vm._v(" "),(_vm.mac != undefined)?_c('div',{staticClass:"Mytable"},[_c('div',{staticClass:"card"},[_c('t-table',{staticClass:"table"},[_c('table-row',{staticClass:"t-row"},[_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v("Single-Core Score")]),_vm._v(" "),_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v(_vm._s(_vm.mac.single_score))])],1),_vm._v(" "),_c('table-row',{staticClass:"t-row"},[_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v("Multi-Core Score")]),_vm._v(" "),_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v(_vm._s(_vm.mac.multi_score))])],1),_vm._v(" "),_c('table-row',{staticClass:"t-row"},[_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v("Model Identifier")]),_vm._v(" "),_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v(_vm._s(_vm.mac.model_identifier))])],1),_vm._v(" "),_c('table-row',{staticClass:"t-row"},[_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v("Processor")]),_vm._v(" "),_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v(_vm._s(_vm.mac.processor))])],1),_vm._v(" "),_c('table-row',{staticClass:"t-row"},[_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v("Processor Frequency")]),_vm._v(" "),_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v(_vm._s(_vm.mac.multi_score))])],1),_vm._v(" "),_c('table-row',{staticClass:"t-row"},[_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v("Processors")]),_vm._v(" "),_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v(_vm._s(_vm.mac.processor_count))])],1),_vm._v(" "),_c('table-row',{staticClass:"t-row"},[_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v("Processor Cores")]),_vm._v(" "),_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v(_vm._s(_vm.mac.processor_cores))])],1),_vm._v(" "),_c('table-row',{staticClass:"t-row"},[_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v("Processor Threads")]),_vm._v(" "),_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v(_vm._s(_vm.mac.processor_threads))])],1),_vm._v(" "),_c('table-row',{staticClass:"t-row"},[_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v("Price")]),_vm._v(" "),_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v("$"+_vm._s(_vm.mac.price))])],1),_vm._v(" "),_c('table-row',{staticClass:"t-row"},[_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v("Multi-score per $")]),_vm._v(" "),_c('table-cel',{staticClass:"score",attrs:{"colspan":"1","header":""}},[_vm._v(_vm._s((_vm.mac.multi_score/(_vm.mac.price) == 0 ? 1 : _vm.mac.price ).toFixed(2)))])],1)],1)],1)]):_vm._e(),_vm._v(" "),_c('div',{staticClass:"col"})]),_vm._v(" "),_c('div',{staticClass:"row"},[_c('div',{staticClass:"col"}),_vm._v(" "),_c('div',{staticClass:"col-4"},[_c('p',{staticClass:"back"},[_c('a',{on:{"click":_vm.homeLink}},[_vm._v("Back to Home")])])]),_vm._v(" "),_c('div',{staticClass:"col"})])])}
+var staticRenderFns = []
+
+
+/***/ }),
+
 /***/ "fVli":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__index_js__ = __webpack_require__("bGai");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__("uj17");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__MacScores_db_json__ = __webpack_require__("4gUM");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__MacScores_db_json___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__MacScores_db_json__);
 //
 //
 //
@@ -1766,14 +597,8 @@ function isSlowBuffer (obj) {
   created: function created() {
     var _this = this;
 
-    __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('https://batin.github.io/MacScoresDB/db.json').then(function (macs) {
-      macs.data.macs.forEach(function (mac) {
-        if (mac._id == _this.$route.params.id) {
-          _this.mac = mac;
-        }
-      });
-    }).catch(function (err) {
-      console.log(err);
+    __WEBPACK_IMPORTED_MODULE_1__MacScores_db_json___default.a.macs.forEach(function (mac) {
+      if (mac._id === _this.$route.params.id) _this.mac = mac;
     });
   },
 
@@ -1799,41 +624,13 @@ var staticRenderFns = []
 
 /***/ }),
 
-/***/ "i7gz":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var utils = __webpack_require__("zIVT");
-
-/**
- * Transform the data for a request or a response
- *
- * @param {Object|String} data The data to be transformed
- * @param {Array} headers The headers for the request or response
- * @param {Array|Function} fns A single function or Array of functions
- * @returns {*} The resulting transformed data
- */
-module.exports = function transformData(data, headers, fns) {
-  /*eslint no-param-reassign:0*/
-  utils.forEach(fns, function transform(fn) {
-    data = fn(data, headers);
-  });
-
-  return data;
-};
-
-
-/***/ }),
-
 /***/ "lO7g":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Home_vue__ = __webpack_require__("Fs8J");
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_5e508769_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Home_vue__ = __webpack_require__("LUVD");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_647e2544_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Home_vue__ = __webpack_require__("J+l4");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__ = __webpack_require__("XyMi");
 function injectStyle (context) {
   __webpack_require__("MbxX")
@@ -1854,8 +651,8 @@ var __vue_module_identifier__ = null
 
 var Component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_component_normalizer__["a" /* default */])(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_Home_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_5e508769_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Home_vue__["a" /* render */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_5e508769_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Home_vue__["b" /* staticRenderFns */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_647e2544_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Home_vue__["a" /* render */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_647e2544_hasScoped_false_optionsId_0_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_Home_vue__["b" /* staticRenderFns */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -1971,35 +768,6 @@ var Component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
         }
     }
 });
-
-/***/ }),
-
-/***/ "obgR":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Update an Error with the specified config, error code, and response.
- *
- * @param {Error} error The error to update.
- * @param {Object} config The config.
- * @param {string} [code] The error code (for example, 'ECONNABORTED').
- * @param {Object} [request] The request.
- * @param {Object} [response] The response.
- * @returns {Error} The error.
- */
-module.exports = function enhanceError(error, config, code, request, response) {
-  error.config = config;
-  if (code) {
-    error.code = code;
-  }
-  error.request = request;
-  error.response = response;
-  return error;
-};
-
 
 /***/ }),
 
@@ -5770,13 +4538,6 @@ var Component = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__node_modules_
 
 /***/ }),
 
-/***/ "uj17":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__("HXpE");
-
-/***/ }),
-
 /***/ "vzAi":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -5811,40 +4572,6 @@ module.exports = __webpack_require__("HXpE");
 
 /***/ }),
 
-/***/ "wZW9":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var createError = __webpack_require__("0l+G");
-
-/**
- * Resolve or reject a Promise based on response status.
- *
- * @param {Function} resolve A function that resolves the promise.
- * @param {Function} reject A function that rejects the promise.
- * @param {object} response The response.
- */
-module.exports = function settle(resolve, reject, response) {
-  var validateStatus = response.config.validateStatus;
-  // Note: status is not exposed by XDomainRequest
-  if (!response.status || !validateStatus || validateStatus(response.status)) {
-    resolve(response);
-  } else {
-    reject(createError(
-      'Request failed with status code ' + response.status,
-      response.config,
-      null,
-      response.request,
-      response
-    ));
-  }
-};
-
-
-/***/ }),
-
 /***/ "xJD8":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -5873,318 +4600,7 @@ module.exports = function settle(resolve, reject, response) {
     }
 });
 
-/***/ }),
-
-/***/ "zIVT":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var bind = __webpack_require__("4nb4");
-var isBuffer = __webpack_require__("ZH5x");
-
-/*global toString:true*/
-
-// utils is a library of generic helper functions non-specific to axios
-
-var toString = Object.prototype.toString;
-
-/**
- * Determine if a value is an Array
- *
- * @param {Object} val The value to test
- * @returns {boolean} True if value is an Array, otherwise false
- */
-function isArray(val) {
-  return toString.call(val) === '[object Array]';
-}
-
-/**
- * Determine if a value is an ArrayBuffer
- *
- * @param {Object} val The value to test
- * @returns {boolean} True if value is an ArrayBuffer, otherwise false
- */
-function isArrayBuffer(val) {
-  return toString.call(val) === '[object ArrayBuffer]';
-}
-
-/**
- * Determine if a value is a FormData
- *
- * @param {Object} val The value to test
- * @returns {boolean} True if value is an FormData, otherwise false
- */
-function isFormData(val) {
-  return (typeof FormData !== 'undefined') && (val instanceof FormData);
-}
-
-/**
- * Determine if a value is a view on an ArrayBuffer
- *
- * @param {Object} val The value to test
- * @returns {boolean} True if value is a view on an ArrayBuffer, otherwise false
- */
-function isArrayBufferView(val) {
-  var result;
-  if ((typeof ArrayBuffer !== 'undefined') && (ArrayBuffer.isView)) {
-    result = ArrayBuffer.isView(val);
-  } else {
-    result = (val) && (val.buffer) && (val.buffer instanceof ArrayBuffer);
-  }
-  return result;
-}
-
-/**
- * Determine if a value is a String
- *
- * @param {Object} val The value to test
- * @returns {boolean} True if value is a String, otherwise false
- */
-function isString(val) {
-  return typeof val === 'string';
-}
-
-/**
- * Determine if a value is a Number
- *
- * @param {Object} val The value to test
- * @returns {boolean} True if value is a Number, otherwise false
- */
-function isNumber(val) {
-  return typeof val === 'number';
-}
-
-/**
- * Determine if a value is undefined
- *
- * @param {Object} val The value to test
- * @returns {boolean} True if the value is undefined, otherwise false
- */
-function isUndefined(val) {
-  return typeof val === 'undefined';
-}
-
-/**
- * Determine if a value is an Object
- *
- * @param {Object} val The value to test
- * @returns {boolean} True if value is an Object, otherwise false
- */
-function isObject(val) {
-  return val !== null && typeof val === 'object';
-}
-
-/**
- * Determine if a value is a Date
- *
- * @param {Object} val The value to test
- * @returns {boolean} True if value is a Date, otherwise false
- */
-function isDate(val) {
-  return toString.call(val) === '[object Date]';
-}
-
-/**
- * Determine if a value is a File
- *
- * @param {Object} val The value to test
- * @returns {boolean} True if value is a File, otherwise false
- */
-function isFile(val) {
-  return toString.call(val) === '[object File]';
-}
-
-/**
- * Determine if a value is a Blob
- *
- * @param {Object} val The value to test
- * @returns {boolean} True if value is a Blob, otherwise false
- */
-function isBlob(val) {
-  return toString.call(val) === '[object Blob]';
-}
-
-/**
- * Determine if a value is a Function
- *
- * @param {Object} val The value to test
- * @returns {boolean} True if value is a Function, otherwise false
- */
-function isFunction(val) {
-  return toString.call(val) === '[object Function]';
-}
-
-/**
- * Determine if a value is a Stream
- *
- * @param {Object} val The value to test
- * @returns {boolean} True if value is a Stream, otherwise false
- */
-function isStream(val) {
-  return isObject(val) && isFunction(val.pipe);
-}
-
-/**
- * Determine if a value is a URLSearchParams object
- *
- * @param {Object} val The value to test
- * @returns {boolean} True if value is a URLSearchParams object, otherwise false
- */
-function isURLSearchParams(val) {
-  return typeof URLSearchParams !== 'undefined' && val instanceof URLSearchParams;
-}
-
-/**
- * Trim excess whitespace off the beginning and end of a string
- *
- * @param {String} str The String to trim
- * @returns {String} The String freed of excess whitespace
- */
-function trim(str) {
-  return str.replace(/^\s*/, '').replace(/\s*$/, '');
-}
-
-/**
- * Determine if we're running in a standard browser environment
- *
- * This allows axios to run in a web worker, and react-native.
- * Both environments support XMLHttpRequest, but not fully standard globals.
- *
- * web workers:
- *  typeof window -> undefined
- *  typeof document -> undefined
- *
- * react-native:
- *  navigator.product -> 'ReactNative'
- */
-function isStandardBrowserEnv() {
-  if (typeof navigator !== 'undefined' && navigator.product === 'ReactNative') {
-    return false;
-  }
-  return (
-    typeof window !== 'undefined' &&
-    typeof document !== 'undefined'
-  );
-}
-
-/**
- * Iterate over an Array or an Object invoking a function for each item.
- *
- * If `obj` is an Array callback will be called passing
- * the value, index, and complete array for each item.
- *
- * If 'obj' is an Object callback will be called passing
- * the value, key, and complete object for each property.
- *
- * @param {Object|Array} obj The object to iterate
- * @param {Function} fn The callback to invoke for each item
- */
-function forEach(obj, fn) {
-  // Don't bother if no value provided
-  if (obj === null || typeof obj === 'undefined') {
-    return;
-  }
-
-  // Force an array if not already something iterable
-  if (typeof obj !== 'object' && !isArray(obj)) {
-    /*eslint no-param-reassign:0*/
-    obj = [obj];
-  }
-
-  if (isArray(obj)) {
-    // Iterate over array values
-    for (var i = 0, l = obj.length; i < l; i++) {
-      fn.call(null, obj[i], i, obj);
-    }
-  } else {
-    // Iterate over object keys
-    for (var key in obj) {
-      if (Object.prototype.hasOwnProperty.call(obj, key)) {
-        fn.call(null, obj[key], key, obj);
-      }
-    }
-  }
-}
-
-/**
- * Accepts varargs expecting each argument to be an object, then
- * immutably merges the properties of each object and returns result.
- *
- * When multiple objects contain the same key the later object in
- * the arguments list will take precedence.
- *
- * Example:
- *
- * ```js
- * var result = merge({foo: 123}, {foo: 456});
- * console.log(result.foo); // outputs 456
- * ```
- *
- * @param {Object} obj1 Object to merge
- * @returns {Object} Result of all merge properties
- */
-function merge(/* obj1, obj2, obj3, ... */) {
-  var result = {};
-  function assignValue(val, key) {
-    if (typeof result[key] === 'object' && typeof val === 'object') {
-      result[key] = merge(result[key], val);
-    } else {
-      result[key] = val;
-    }
-  }
-
-  for (var i = 0, l = arguments.length; i < l; i++) {
-    forEach(arguments[i], assignValue);
-  }
-  return result;
-}
-
-/**
- * Extends object a by mutably adding to it the properties of object b.
- *
- * @param {Object} a The object to be extended
- * @param {Object} b The object to copy properties from
- * @param {Object} thisArg The object to bind function to
- * @return {Object} The resulting value of object a
- */
-function extend(a, b, thisArg) {
-  forEach(b, function assignValue(val, key) {
-    if (thisArg && typeof val === 'function') {
-      a[key] = bind(val, thisArg);
-    } else {
-      a[key] = val;
-    }
-  });
-  return a;
-}
-
-module.exports = {
-  isArray: isArray,
-  isArrayBuffer: isArrayBuffer,
-  isBuffer: isBuffer,
-  isFormData: isFormData,
-  isArrayBufferView: isArrayBufferView,
-  isString: isString,
-  isNumber: isNumber,
-  isObject: isObject,
-  isUndefined: isUndefined,
-  isDate: isDate,
-  isFile: isFile,
-  isBlob: isBlob,
-  isFunction: isFunction,
-  isStream: isStream,
-  isURLSearchParams: isURLSearchParams,
-  isStandardBrowserEnv: isStandardBrowserEnv,
-  forEach: forEach,
-  merge: merge,
-  extend: extend,
-  trim: trim
-};
-
-
 /***/ })
 
 },["NHnr"]);
-//# sourceMappingURL=app.0e90600532b2716f6cd9.js.map
+//# sourceMappingURL=app.650c9c34d1c69de32dd7.js.map
