@@ -9,7 +9,7 @@
   </div>
   <div class="row">
     <div class="col"></div>
-  <div class="Mytable col-4" v-if="mac != undefined">
+  <div class="Mytable" v-if="mac != undefined">
     <div class="card">
     <t-table class="table">
       <table-row class="t-row">
@@ -72,7 +72,7 @@
 
 <script>
 import  { Table, TableBody, TableCel, TableHead, TableRow } from './index.js'
-import axios from 'axios'
+import datas from '../../../MacScores/db.json'
 export default {
   name: 'MacProfile',
   data () {
@@ -81,17 +81,10 @@ export default {
     }
   },
   created () {
-    axios.get('https://batin.github.io/MacScoresDB/db.json')
-      .then(macs => {
-        macs.data.macs.forEach(mac => {
-            if(mac._id== this.$route.params.id){
-            this.mac = mac
-          }
-        })
-      })
-      .catch(err => {
-        console.log(err)
-      })
+    datas.macs.forEach(mac => {
+      if(mac._id === this.$route.params.id)
+      this.mac = mac
+    });
   },
   methods: {
     homeLink () {
@@ -100,7 +93,9 @@ export default {
   }
 }
 </script>
-<style>
+<style scoped>
+
+
 .score {
   border: 1px solid;
 }
@@ -110,16 +105,16 @@ export default {
   font-stretch:extra-expanded;
   font-size: 2.5em;
   color:  cornflowerblue;
-  text-align: center;
+  padding-top: 1em;
   }
 .t-row {
   border: 2px ridge ;
 }
 .table {
-  width: 100%;
+  width: 100% !important;
   margin: auto;
+  
 }
-
   .back {
   font-family:monospace;
   font-style: oblique;
@@ -129,4 +124,13 @@ export default {
   text-align: center;
   cursor: pointer;
   }
+  
+.Mytable {
+  position: relative;
+    width: 65%;
+    min-height: 1px;
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+}
+
 </style>

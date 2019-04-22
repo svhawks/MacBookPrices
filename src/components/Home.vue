@@ -2,7 +2,7 @@
 <div>
   <a href="https://github.com/batin/MacScores"><button type="button" class="leftbar btn btn-github"><i class="fe fe-github"></i> Github</button></a>
   
-        <p class="title">Mac Scores</p>
+        <p class="homeTitle">Mac Scores</p>
     <div class="row">      
     <div class="card  inputs">
         <div class="form-group search">
@@ -39,15 +39,15 @@
       cards
       vertical-align="center"
       class="table-outline table-hover"
-      id="table">
-        <table-head class="table card-table table-vcenter text-nowrap datatable dataTable">
+      id="table2">
+        <table-head class="table card-table table-vcenter">
           <table-row class="t-row">
             <table-cel colspan="2" class="unselectable"  header>Name</table-cel>
             <table-cel colspan="2" class="unselectable"  header>Description</table-cel>
-            <table-cel class="sorting" colspan="1" header> <span class="unselectable" @click="sortSingle"> Single-Core Score </span></table-cel>
-            <table-cel class="sorting" colspan="1" header> <span class="unselectable" @click="sortMulti"> Multi-Core Score </span></table-cel>
-            <table-cel class="sorting" colspan="1" header> <span class="unselectable" @click="sortPrice"> Price </span></table-cel>
-            <table-cel class="sorting" colspan="1" header> <span class="unselectable" @click="sortPerDollar"> Multi-score per $ </span></table-cel>
+            <table-cel colspan="1" header> <p @click="sortSingle" class="sorting"></p><span class="unselectable mini" @click="sortSingle"> Single - Core Score </span></table-cel>
+            <table-cel colspan="1" header> <p @click="sortMulti" class="sorting"></p><span class="unselectable mini" @click="sortMulti"> Multi - Core Score </span></table-cel>
+            <table-cel colspan="1" header> <p @click="sortPrice" class="sorting"></p><span class="unselectable" @click="sortPrice"> Price </span></table-cel>
+            <table-cel colspan="1" header> <p @click="sortPerDollar" class="sorting"></p><span class="unselectable mini" @click="sortPerDollar"> Multi-score per $ </span></table-cel>
           </table-row>
         </table-head>
       <table-body v-for="mac in tableItems" :key="mac.id">
@@ -61,7 +61,7 @@
 <script>
 import  { Table, TableBody, TableCel, TableHead, TableRow } from './index.js'
 import MacItem from './MacItem.vue'
-import axios from 'axios'
+import datas from '../../../MacScores/db.json'
 export default {
   name: 'Home',
   data () {
@@ -94,15 +94,8 @@ export default {
   },
   created () {
     this.loading = true
-    
-    axios.get('https://batin.github.io/MacScoresDB/db.json')
-      .then(macs => {
-        this.macs =  macs.data.macs        
-        this.tableItems = this.macs
-      })
-      .catch(err => {
-        console.log(err)
-      })
+    this.macs = datas.macs
+    this.tableItems = this.macs
     this.loading = false
   },
   components: {
@@ -185,7 +178,7 @@ export default {
         sorted =  this.tableItems.reverse()
         this.singleFlag = true
       }
-      this.fillTable(sorted)
+      this.tableItems = sorted
     },
     sortMulti () {
       let sorted
@@ -196,7 +189,7 @@ export default {
         sorted =  this.tableItems.reverse()
         this.multiFlag = true
       } 
-      this.fillTable(sorted)
+      this.tableItems = sorted
     },
     sortPrice () {  
       let sorted
@@ -207,7 +200,7 @@ export default {
         sorted = this.tableItems.reverse()
         this.priceFlag = true
       }
-      this.fillTable(sorted)
+      this.tableItems = sorted
     },
     sortPerDollar () {
       let sorted =  this.tableItems.sort((a, b) => {
@@ -221,90 +214,12 @@ export default {
           return (ratio1 > ratio2) ? 1 : -1
         }
         })
-      this.fillTable(sorted)
+      this.tableItems = sorted
     }
   }  
 }
 </script>
 
 <style>
-#table {
-  border: 1px solid rgba(0, 40, 100, 0.12);
-  margin: auto;
-  background-color: white;
-  display: table;
-  width: 100%
-}
-.table {
-  width: 80%;
-  margin: auto;
-}
-.t-row {
-  text-align: -webkit-match-parent;
-}
-
-.leftbar {
-  left: 0;
-  margin: 1%;
-  position: fixed;
-  z-index: 999;
-}
-
-.clear {
-  position: absolute;
-  right: 0.9em;
-  margin-top: 0.5em;
-}
-
-.inputs {
-  padding: 3%;
-  margin: auto;
-  margin-bottom: 4%;
-  width: 79%;
-}
-
-thead {
-  display: table-header-group;
-  vertical-align: middle;
-  border-color: inherit;
-  cursor: pointer;
-}
-
-.sorting:after { 
-  bottom: 5px;
-  content: "\e92d";
-  font-family: 'feather' !important;
-}
-
-.sorting:before {
-  top: 5px;
-  content: "\e930";
-  font-family: 'feather' !important;
-}
-.thead-light {
-  color: #495057;
-  background-color: #e9ecef;
-  border-color: rgba(0, 40, 100, 0.12);
-}
-
-.unselectable {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-.title {
-  font-family:monospace;
-  font-style: oblique;
-  font-stretch:extra-expanded;
-  font-size: 4em;
-  text-align: center;
-  color:  cornflowerblue;
-  padding-top: 1em;
-  }
-
 
 </style>
