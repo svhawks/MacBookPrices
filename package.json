@@ -33,6 +33,5 @@
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.9.1"
   },
-  "wst": "/dist/",
   "homepage": "git@github.com:batin/batin.github.io"
 }
