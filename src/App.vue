@@ -90,5 +90,6 @@ p {
 .table {
   width: 80% !important;  
   margin: auto;
+  margin-top: 3em;
 }
 </style>

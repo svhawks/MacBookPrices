@@ -47,12 +47,17 @@
       <table-row class="t-row">
         <table-cel class="score" colspan="1" header>Price</table-cel>
         <table-cel class="score" colspan="1" header v-if="mac.price !== 0" > $ {{mac.price}} </table-cel> 
-        <table-cel class="score" colspan="1" header v-else > $ <input type="number" v-model="price"> </table-cel> 
+        <table-cel class="score" colspan="1" header v-else > $ <input type="number" class="form-control" v-model="price"> </table-cel> 
+      </table-row>
+      <table-row class="t-row">
+        <table-cel class="score" colspan="1" header>Sinle-score per $</table-cel>
+        <table-cel class="score" colspan="1" v-if=" mac.price !== 0" header>{{ ( mac.single_score / mac.price ).toFixed(2) }}</table-cel> 
+        <table-cel class="score" colspan="1" v-else header>{{ ratio == Number.POSITIVE_INFINITY ? "" : ratio }}</table-cel> 
       </table-row>
       <table-row class="t-row">
         <table-cel class="score" colspan="1" header>Multi-score per $</table-cel>
         <table-cel class="score" colspan="1" v-if=" mac.price !== 0" header>{{ ( mac.multi_score / mac.price ).toFixed(2) }}</table-cel> 
-        <table-cel class="score" colspan="1" v-else header>{{ratio }}  </table-cel> 
+        <table-cel class="score" colspan="1" v-else header>{{ ratio == Number.POSITIVE_INFINITY ? "" : ratio }}</table-cel> 
       </table-row>
     </t-table>
     </div>
