@@ -19,6 +19,12 @@
             <p>Single-Score</p>
             <input type="number" class="form-control" v-model="singleMinScore" placeholder="Min">
             <input type="number" class="form-control" v-model="singleMaxScore" placeholder="Max">
+            <input type="radio"  name="select" value="true" v-model="onMarket">
+          <label for="one">On-Market</label>
+          <br>
+          <input type="radio" name="select" value="false" v-model="onMarket">
+          <label for="two">Not On-Market</label>
+          <br>
           </div>
           <div class="col-4">
             <p>Multi-Score</p>
@@ -31,6 +37,7 @@
             <input type="number" class="form-control" v-model="maxPrice" placeholder="Max">
             <button type="button" @click="clear" class="clear btn btn-icon btn-primary btn-primary5"> Clear </button>
           </div>
+          
         </div>
       </div>
         </div>
@@ -61,7 +68,8 @@
 <script>
 import  { Table, TableBody, TableCel, TableHead, TableRow } from './index.js'
 import MacItem from './MacItem.vue'
-import datas from '../../../MacScores/db.json'
+import datas from '../../db.json'
+import { log } from 'util';
 export default {
   name: 'Home',
   data () {
@@ -81,6 +89,7 @@ export default {
       multiFlag: true,  
       priceFlag: true,  
       perDFlag: true,  
+      onMarket: "true"
     }
   },
   watch: {
@@ -90,12 +99,14 @@ export default {
     'minPrice': 'filterFunc',
     'maxPrice': 'filterFunc',
     'multiMinScore': 'filterFunc',
-    'multiMaxScore': 'filterFunc'
+    'multiMaxScore': 'filterFunc',
+    'onMarket': 'showOnMarket'
   },
   created () {
     this.loading = true
     this.macs = datas.macs
     this.tableItems = this.macs
+    this.showOnMarket()
     this.loading = false
   },
   components: {
@@ -204,17 +215,31 @@ export default {
     },
     sortPerDollar () {
       let sorted =  this.tableItems.sort((a, b) => {
-        let ratio1 = (a.multi_score/(a.price) == 0 ? 1 : a.price ).toFixed(2)
-        let ratio2 = (b.multi_score/(b.price) == 0 ? 1 : b.price ).toFixed(2)
+        let ratio1 = (a.multi_score !==0 && a.price !== 0) ? (a.multi_score / a.price ) : 0
+        let ratio2 = (b.multi_score !==0 && b.price !== 0) ? (b.multi_score / b.price ) : 0
+        return ((ratio1 < ratio2) ? -1 : ((ratio1 > ratio2) ? 1 : 0))
+      })
         if (this.perDFlag) {  
           this.perDFlag = false
-          return (ratio1 < ratio2) ? 1 : -1
+          this.tableItems = sorted
         } else {
           this.perDFlag = true
-          return (ratio1 > ratio2) ? 1 : -1
+          this.tableItems = sorted.reverse()
         }
-        })
-      this.tableItems = sorted
+    },
+    showOnMarket () {
+      let availableMacs
+      if(this.onMarket == "true") {
+        availableMacs = this.macs.filter(mac => {
+           return mac.price > 0
+         })
+      } else {
+        console.log("onmarket degil")
+        availableMacs = this.macs.filter(mac => {
+           return mac.price == 0
+         })
+      }
+      this.tableItems = availableMacs
     }
   }  
 }

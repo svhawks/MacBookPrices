@@ -46,11 +46,13 @@
       </table-row>
       <table-row class="t-row">
         <table-cel class="score" colspan="1" header>Price</table-cel>
-        <table-cel class="score" colspan="1" header>${{mac.price}}</table-cel> 
+        <table-cel class="score" colspan="1" header v-if="mac.price !== 0" > $ {{mac.price}} </table-cel> 
+        <table-cel class="score" colspan="1" header v-else > $ <input type="number" v-model="price"> </table-cel> 
       </table-row>
       <table-row class="t-row">
         <table-cel class="score" colspan="1" header>Multi-score per $</table-cel>
-        <table-cel class="score" colspan="1" header>{{(mac.multi_score/(mac.price) == 0 ? 1 : mac.price ).toFixed(2)}}</table-cel> 
+        <table-cel class="score" colspan="1" v-if=" mac.price !== 0" header>{{ ( mac.multi_score / mac.price ).toFixed(2) }}</table-cel> 
+        <table-cel class="score" colspan="1" v-else header>{{ratio }}  </table-cel> 
       </table-row>
     </t-table>
     </div>
@@ -72,13 +74,18 @@
 
 <script>
 import  { Table, TableBody, TableCel, TableHead, TableRow } from './index.js'
-import datas from '../../../MacScores/db.json'
+import datas from '../../db.json'
 export default {
   name: 'MacProfile',
   data () {
     return {
-      mac: null
+      mac: null,
+      price: '',
+      ratio: ''
     }
+  },
+  watch: {
+    'price' : 'calculate'
   },
   created () {
     datas.macs.forEach(mac => {
@@ -89,6 +96,9 @@ export default {
   methods: {
     homeLink () {
       this.$router.push({name: 'home'})
+    },
+    calculate () {
+      this.ratio = (this.mac.multi_score !== 0 || this.price !== '') ? (this.mac.multi_score / this.price ).toFixed(2) : 0
     }
   }
 }

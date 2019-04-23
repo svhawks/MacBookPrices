@@ -6,7 +6,7 @@
         <table-cel class="score" colspan="1" header>{{mac.single_score}}</table-cel>
         <table-cel class="score" colspan="1" header>{{mac.multi_score}}</table-cel>
         <table-cel class="price" colspan="1" header>${{mac.price}}</table-cel>
-        <table-cel class="score" colspan="1" header>{{(mac.multi_score/(mac.price) == 0 ? 1 : mac.price ).toFixed(2) }}</table-cel>
+        <table-cel class="score" colspan="1" header>{{ (mac.multi_score !==0 && mac.price !== 0) ? (mac.multi_score / mac.price ).toFixed(2) : 0 }}</table-cel>
       </table-row>
 </template>
 
