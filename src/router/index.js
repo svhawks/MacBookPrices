@@ -8,7 +8,8 @@ Vue.config.productionTip = false
 export default new Router({
   routes: [
     {
-      base: '/MacScores/'
+      path: "/index.html",
+      redirect: "/"
     },
     {
       path: '/',
