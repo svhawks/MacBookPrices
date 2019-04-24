@@ -30,7 +30,7 @@
       </table-row>
       <table-row class="t-row">
         <table-cel class="score" colspan="1" header>Processor Frequency</table-cel>
-        <table-cel class="score" colspan="1" header>{{mac.multi_score}}</table-cel> 
+        <table-cel class="score" colspan="1" header>{{mac.processor_freq}}</table-cel> 
       </table-row>
       <table-row class="t-row">
         <table-cel class="score" colspan="1" header>Processors</table-cel>
@@ -52,12 +52,12 @@
       <table-row class="t-row">
         <table-cel class="score" colspan="1" header>Sinle-score per $</table-cel>
         <table-cel class="score" colspan="1" v-if=" mac.price !== 0" header>{{ ( mac.single_score / mac.price ).toFixed(2) }}</table-cel> 
-        <table-cel class="score" colspan="1" v-else header>{{ ratio == Number.POSITIVE_INFINITY ? "" : ratio }}</table-cel> 
+        <table-cel class="score" colspan="1" v-else header>{{ parseInt(ratio) == Number.POSITIVE_INFINITY ? "" : ratio }}</table-cel> 
       </table-row>
       <table-row class="t-row">
         <table-cel class="score" colspan="1" header>Multi-score per $</table-cel>
         <table-cel class="score" colspan="1" v-if=" mac.price !== 0" header>{{ ( mac.multi_score / mac.price ).toFixed(2) }}</table-cel> 
-        <table-cel class="score" colspan="1" v-else header>{{ ratio == Number.POSITIVE_INFINITY ? "" : ratio }}</table-cel> 
+        <table-cel class="score" colspan="1" v-else header>{{ parseInt(ratio) == Number.POSITIVE_INFINITY ? "" : ratio }}</table-cel> 
       </table-row>
     </t-table>
     </div>

@@ -4,16 +4,16 @@
     <table-cel colspan="2" header v-else> <button class="btn-sm btn-primary" @click="clicked">+</button> </table-cel>
     <table-cel colspan="2" header> <router-link :to="profileLink">{{mac.name}}</router-link> </table-cel>
     <table-cel colspan="2" header>
-      {{ mac.processor + ' @ ' + parseFloat(mac.processor_freq / 1000).toFixed(1) + 'Ghz ('+mac.processor_cores+ (mac.processor_cores == 1 ? ' core) ' :' cores) ') }}
+      {{ mac.processor + ' @ ' + (parseFloat(mac.processor_freq) / 1000).toFixed(1) + 'Ghz ('+mac.processor_cores+ (mac.processor_cores == 1 ? ' core) ' :' cores) ') }}
     </table-cel>
     <table-cel class="score" colspan="1" header>{{mac.single_score}}</table-cel>
     <table-cel class="score" colspan="1" header>{{mac.multi_score}}</table-cel>
     <table-cel class="price dollar" colspan="1" header v-if="mac.price == -1">$<input type="number" class="form-control input" v-model="price"> </table-cel>
     <table-cel class="price" colspan="1" header v-else >${{mac.price}}</table-cel>
-    <table-cel class="score" colspan="1" v-if=" mac.price !== -1" header>{{ ( mac.single_score / mac.price ).toFixed(2) }}</table-cel> 
-    <table-cel class="score" colspan="1" v-else header>{{ ratio == Number.POSITIVE_INFINITY ? "" : ratio }}</table-cel> 
-    <table-cel class="score" colspan="1" v-if=" mac.price !== -1" header>{{ ( mac.multi_score / mac.price ).toFixed(2) }}</table-cel> 
-    <table-cel class="score" colspan="1" v-else header>{{ ratio == Number.POSITIVE_INFINITY ? "" : ratio }}</table-cel> 
+    <table-cel class="score" colspan="1" v-if=" mac.price !== -1" header>{{ mac.multi_score / mac.price   == Number.POSITIVE_INFINITY ? 0 : ( mac.single_score / mac.price ).toFixed(2) }}</table-cel> 
+    <table-cel class="score" colspan="1" v-else header>{{ singleRatio }}</table-cel> 
+    <table-cel class="score" colspan="3" v-if=" mac.price !== -1" header>{{  mac.multi_score / mac.price   == Number.POSITIVE_INFINITY ? 0 : ( mac.single_score / mac.price ).toFixed(2) }}</table-cel> 
+    <table-cel class="score" colspan="1" v-else header>{{ multiRatio }}</table-cel> 
   </table-row>
 </template>
 
@@ -28,12 +28,13 @@ export default {
   },
   data() {
     return {
-      price: "",
-      ratio: ""
+      price: '',
+      multiRatio: '',
+      singleRatio: ''
     }
   },
   watch: {
-    price: "calculate"
+    'price': "calculate"
   },
   computed: {
     profileLink() {
@@ -64,7 +65,8 @@ export default {
       this.$emit("removed",this.mac)
     },
     calculate () {
-      this.ratio = this.mac.multi_score !== 0 || this.price !== "" ? (this.mac.multi_score / this.price).toFixed(2): 0
+      this.multiRatio = this.mac.multi_score !== 0 || this.price !==  '' ? ( (this.mac.multi_score / this.price).toFixed(2) == Number.POSITIVE_INFINITY ? 0 : (this.mac.multi_score / this.price).toFixed(2) ) : 0
+      this.singleRatio = this.mac.single_score !== 0 || this.price !==  '' ? ( (this.mac.single_score / this.price).toFixed(2) == Number.POSITIVE_INFINITY ? 0 : (this.mac.single_score / this.price).toFixed(2) ) : 0
     }
   }
 }

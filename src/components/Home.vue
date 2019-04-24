@@ -52,11 +52,11 @@
             <table-cel colspan="2" class="unselectable"  header>Remove</table-cel>
             <table-cel colspan="2" class="unselectable"  header>Name</table-cel>
             <table-cel colspan="2" class="unselectable"  header>Description</table-cel>
-            <table-cel colspan="1" header> <p @click="sortSingle" class="sorting"></p><span class="unselectable mini" @click="sortSingle"> Single - Core Score </span></table-cel>
-            <table-cel colspan="1" header> <p @click="sortMulti" class="sorting"></p><span class="unselectable mini" @click="sortMulti"> Multi - Core Score </span></table-cel>
-            <table-cel colspan="1" header> <p @click="sortPrice" class="sorting"></p><span class="unselectable" @click="sortPrice"> Price </span></table-cel>
-            <table-cel colspan="1" header> <p @click="sortPerDollarSingle" class="sorting"></p><span class="unselectable mini" @click="sortPerDollarSingle"> Single-score per $ </span></table-cel>
-            <table-cel colspan="1" header> <p @click="sortPerDollarMulti" class="sorting"></p><span class="unselectable mini" @click="sortPerDollarMulti"> Multi-score per $ </span></table-cel>
+            <table-cel colspan="1" header> <span class="unselectable mid"> Single - Core Score </span></table-cel>
+            <table-cel colspan="1" header> <span class="unselectable mid" > Multi - Core Score </span></table-cel>
+            <table-cel colspan="1" header> <span class="unselectable mid center" > Price </span></table-cel>
+            <table-cel colspan="1" header> <span class="unselectable mid" > Single-score per $ </span></table-cel>
+            <table-cel colspan="1" header> <span class="unselectable mid" > Multi-score per $ </span></table-cel>
           </table-row>
         </table-head>
       <table-body v-for="mac in AddedItems" :key="mac.id">
@@ -75,11 +75,11 @@
             <table-cel colspan="2" class="unselectable"  header>Add</table-cel>
             <table-cel colspan="2" class="unselectable"  header>Name</table-cel>
             <table-cel colspan="2" class="unselectable"  header>Description</table-cel>
-            <table-cel colspan="1" header> <p @click="sortSingle" class="sorting"></p><span class="unselectable mini" @click="sortSingle"> Single - Core Score </span></table-cel>
-            <table-cel colspan="1" header> <p @click="sortMulti" class="sorting"></p><span class="unselectable mini" @click="sortMulti"> Multi - Core Score </span></table-cel>
-            <table-cel colspan="1" header> <p @click="sortPrice" class="sorting"></p><span class="unselectable" @click="sortPrice"> Price </span></table-cel>
-            <table-cel colspan="1" header> <p @click="sortPerDollarSingle" class="sorting"></p><span class="unselectable mini" @click="sortPerDollarSingle">Single-score per $</span></table-cel>
-            <table-cel colspan="1" header> <p @click="sortPerDollarMulti" class="sorting"></p><span class="unselectable mini" @click="sortPerDollarMulti">Multi-score per $</span></table-cel>
+            <table-cel colspan="1" header> <p @click="sortSingle" class="sorting"></p><span class="unselectable mid" @click="sortSingle"> Single - Core Score </span></table-cel>
+            <table-cel colspan="1" header> <p @click="sortMulti" class="sorting"></p><span class="unselectable mid" @click="sortMulti"> Multi - Core Score </span></table-cel>
+            <table-cel colspan="1" header> <p @click="sortPrice" class="sorting"></p><span class="unselectable mid" @click="sortPrice"> Stock-Price </span></table-cel>
+            <table-cel colspan="1" header> <p @click="sortPerDollarSingle" class="sorting"></p><span class="unselectable mid" @click="sortPerDollarSingle">Single-score per $</span></table-cel>
+            <table-cel colspan="1" header> <p @click="sortPerDollarMulti" class="sorting"></p><span class="unselectable mid" @click="sortPerDollarMulti">Multi-score per $</span></table-cel>
           </table-row>
         </table-head>
       <table-body v-for="mac in tableItems" :key="mac.id">
@@ -241,7 +241,8 @@ export default {
       this.tableItems = sorted
     },
     sortPerDollarMulti () {
-      let sorted =  this.tableItems.sort((a, b) => {
+      
+      let sorted = this.tableItems.sort((a, b) => {
         let ratio1 = (a.multi_score !==0 && a.price !== 0) ? (a.multi_score / a.price ) : 0
         let ratio2 = (b.multi_score !==0 && b.price !== 0) ? (b.multi_score / b.price ) : 0
         return ((ratio1 < ratio2) ? -1 : ((ratio1 > ratio2) ? 1 : 0))
@@ -275,7 +276,6 @@ export default {
            return mac.price > 0
          })
       } else {
-        console.log("onmarket degil")
         availableMacs = this.macs.filter(mac => {
            return mac.price == 0
          })
@@ -299,7 +299,6 @@ export default {
       }
     },
     removed (value) {
-      console.log('aaaaaa');
       if(this.AddedItems.includes(value)){
         this.AddedItems.splice( this.AddedItems.indexOf(value), 1 );
       }
@@ -309,5 +308,11 @@ export default {
 </script>
 
 <style>
-
+.mid {
+  text-align: center;
+  font-size: small;
+}
+.center {
+  padding-left: 25%
+}
 </style>
