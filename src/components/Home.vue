@@ -77,13 +77,13 @@
             <table-cel colspan="2" class="unselectable"  header>Description</table-cel>
             <table-cel colspan="1" header> <p @click="sortSingle" class="sorting"></p><span class="unselectable mini" @click="sortSingle"> Single - Core Score </span></table-cel>
             <table-cel colspan="1" header> <p @click="sortMulti" class="sorting"></p><span class="unselectable mini" @click="sortMulti"> Multi - Core Score </span></table-cel>
-            <table-cel colspan="1" header> <p @click="sortPrice" class="sorting"></p><span class="unselectable" @click="sortPrice"> Price </span></table-cel>
+            <table-cel colspan="1" header> <p @click="sortPrice" class="sorting"></p><span class="unselectable" @click="sortPrice"> Stock-Price </span></table-cel>
             <table-cel colspan="1" header> <p @click="sortPerDollarSingle" class="sorting"></p><span class="unselectable mini" @click="sortPerDollarSingle">Single-score per $</span></table-cel>
             <table-cel colspan="1" header> <p @click="sortPerDollarMulti" class="sorting"></p><span class="unselectable mini" @click="sortPerDollarMulti">Multi-score per $</span></table-cel>
           </table-row>
         </table-head>
       <table-body v-for="mac in tableItems" :key="mac.id">
-          <MacItem :mac=mac v-on:clicked="clicked"  ></MacItem>
+          <MacItem :mac=mac v-on:added="added"  ></MacItem>
       </table-body>
     </t-table>
     </div>
@@ -285,7 +285,7 @@ export default {
     clone (src) {
       return Object.assign({}, src);
     },
-    clicked (value) {      
+    added (value) {      
       let item = this.clone(value)
       let flag = true
       this.AddedItems.forEach(mac => {
@@ -304,7 +304,7 @@ export default {
         this.AddedItems.splice( this.AddedItems.indexOf(value), 1 );
       }
     }
-  }  
+  }
 }
 </script>
 
