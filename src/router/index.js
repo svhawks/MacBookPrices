@@ -4,7 +4,7 @@ import Home from '../components/Home'
 import MacProfile from '../components/MacProfile'
 
 Vue.use(Router)
-Vue.config.productionTip = false
+
 export default new Router({
   routes: [
     {
@@ -18,5 +18,5 @@ export default new Router({
       component: MacProfile
     }
   ],
-  mode: 'history'
+  mode: 'hash'
 })
