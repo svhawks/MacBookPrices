@@ -8,6 +8,9 @@ Vue.config.productionTip = false
 export default new Router({
   routes: [
     {
+      base: '/docs/'
+    },
+    {
       path: '/',
       name: 'home',
       component: Home
