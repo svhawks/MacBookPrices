@@ -9,7 +9,7 @@
       "processor_cores": 6,
       "processor_threads": 6,
       "processor_count": 1,
-      "price": 1499.00,
+      "price": 1799.00,
       "multi_score": 20681,
       "single_score": 5220
     },
@@ -100,7 +100,7 @@
       "processor_cores": 2,
       "processor_threads": 4,
       "processor_count": 1,
-      "price": 0,
+      "price": 1199.00,
       "multi_score": 7406,
       "single_score": 4008
     },
@@ -113,7 +113,7 @@
       "processor_cores": 6,
       "processor_threads": 6,
       "processor_count": 1,
-      "price": 0,
+      "price": 1099.00,
       "multi_score": 20309,
       "single_score": 5156
     },
@@ -126,7 +126,7 @@
       "processor_cores": 4,
       "processor_threads": 4,
       "processor_count": 1,
-      "price": 0,
+      "price": 799.00,
       "multi_score": 13980,
       "single_score": 4684
     },
@@ -139,7 +139,7 @@
       "processor_cores": 6,
       "processor_threads": 12,
       "processor_count": 1,
-      "price": 0,
+      "price": 1099.00,
       "multi_score": 24291,
       "single_score": 5660
     },
@@ -178,7 +178,7 @@
       "processor_cores": 6,
       "processor_threads": 12,
       "processor_count": 1,
-      "price": 0,
+      "price": 2799.00,
       "multi_score": 22610,
       "single_score": 5346
     },
@@ -191,7 +191,7 @@
       "processor_cores": 6,
       "processor_threads": 12,
       "processor_count": 1,
-      "price": 0,
+      "price": 2799.00,
       "multi_score": 21459,
       "single_score": 5054
     },
@@ -204,7 +204,7 @@
       "processor_cores": 6,
       "processor_threads": 12,
       "processor_count": 1,
-      "price": 0,
+      "price": 2399.00,
       "multi_score": 21225,
       "single_score": 4925
     },
@@ -243,7 +243,7 @@
       "processor_cores": 8,
       "processor_threads": 16,
       "processor_count": 1,
-      "price": 10199.00,
+      "price": 4999.00,
       "multi_score": 31151,
       "single_score": 5061
     },
@@ -256,7 +256,7 @@
       "processor_cores": 10,
       "processor_threads": 20,
       "processor_count": 1,
-      "price": 10999.00,
+      "price": 5799.00,
       "multi_score": 35950,
       "single_score": 5324
     },
@@ -269,7 +269,7 @@
       "processor_cores": 2,
       "processor_threads": 4,
       "processor_count": 1,
-      "price": 0,
+      "price": 999.00,
       "multi_score": 6111,
       "single_score": 3345
     },
@@ -282,7 +282,7 @@
       "processor_cores": 2,
       "processor_threads": 4,
       "processor_count": 1,
-      "price": 0,
+      "price": 1299.00,
       "multi_score": 6976,
       "single_score": 3645
     },
@@ -295,7 +295,7 @@
       "processor_cores": 2,
       "processor_threads": 4,
       "processor_count": 1,
-      "price": 0,
+      "price": 1399.00,
       "multi_score": 7556,
       "single_score": 3932
     },
@@ -308,7 +308,7 @@
       "processor_cores": 4,
       "processor_threads": 8,
       "processor_count": 1,
-      "price": 0,
+      "price": 1699.00,
       "multi_score": 17860,
       "single_score": 5255
     },
@@ -321,7 +321,7 @@
       "processor_cores": 4,
       "processor_threads": 4,
       "processor_count": 1,
-      "price": 0,
+      "price": 1299.00,
       "multi_score": 12814,
       "single_score": 4449
     },
@@ -334,7 +334,7 @@
       "processor_cores": 4,
       "processor_threads": 8,
       "processor_count": 1,
-      "price": 0,
+      "price": 2699.00,
       "multi_score": 15539,
       "single_score": 4638
     },
@@ -347,7 +347,7 @@
       "processor_cores": 4,
       "processor_threads": 8,
       "processor_count": 1,
-      "price": 0,
+      "price": 2799.00,
       "multi_score": 15264,
       "single_score": 4490
     },
@@ -360,7 +360,7 @@
       "processor_cores": 4,
       "processor_threads": 8,
       "processor_count": 1,
-      "price": 0,
+      "price": 2399.00,
       "multi_score": 14401,
       "single_score": 4356
     },
@@ -373,7 +373,7 @@
       "processor_cores": 2,
       "processor_threads": 4,
       "processor_count": 1,
-      "price": 0,
+      "price": 2099.00,
       "multi_score": 9544,
       "single_score": 4627
     },
@@ -386,7 +386,7 @@
       "processor_cores": 2,
       "processor_threads": 4,
       "processor_count": 1,
-      "price": 0,
+      "price": 1799.00,
       "multi_score": 8834,
       "single_score": 4217
     },
@@ -399,7 +399,7 @@
       "processor_cores": 2,
       "processor_threads": 4,
       "processor_count": 1,
-      "price": 0,
+      "price": 2299.00,
       "multi_score": 9080,
       "single_score": 4333
     },
@@ -438,7 +438,7 @@
       "processor_cores": 4,
       "processor_threads": 4,
       "processor_count": 1,
-      "price": 0,
+      "price": 1499.00,
       "multi_score": 13759,
       "single_score": 4753
     },
@@ -451,7 +451,7 @@
       "processor_cores": 2,
       "processor_threads": 4,
       "processor_count": 1,
-      "price": 0,
+      "price": 1099.00,
       "multi_score": 9055,
       "single_score": 4433
     },
@@ -503,7 +503,7 @@
       "processor_cores": 4,
       "processor_threads": 4,
       "processor_count": 1,
-      "price": 0,
+      "price": 1999.00,
       "multi_score": 14856,
       "single_score": 5093
     },
@@ -529,7 +529,7 @@
       "processor_cores": 2,
       "processor_threads": 4,
       "processor_count": 1,
-      "price": 0,
+      "price": 2099.00,
       "multi_score": 7960,
       "single_score": 3966
     },
@@ -542,7 +542,7 @@
       "processor_cores": 2,
       "processor_threads": 4,
       "processor_count": 1,
-      "price": 0,
+      "price": 1799.00,
       "multi_score": 7657,
       "single_score": 3826
     },
@@ -568,7 +568,7 @@
       "processor_cores": 4,
       "processor_threads": 8,
       "processor_count": 1,
-      "price": 0,
+      "price": 2799.00,
       "multi_score": 13885,
       "single_score": 4158
     },
@@ -581,7 +581,7 @@
       "processor_cores": 4,
       "processor_threads": 8,
       "processor_count": 1,
-      "price": 0,
+      "price": 2399.00,
       "multi_score": 13138,
       "single_score": 4017
     },
@@ -802,7 +802,7 @@
       "processor_cores": 4,
       "processor_threads": 8,
       "processor_count": 1,
-      "price": 0,
+      "price": 1999.00,
       "multi_score": 13060,
       "single_score": 3801
     },
@@ -971,7 +971,7 @@
       "processor_cores": 2,
       "processor_threads": 4,
       "processor_count": 1,
-      "price": 0,
+      "price": 999.00,
       "multi_score": 7046,
       "single_score": 3701
     },
@@ -984,7 +984,7 @@
       "processor_cores": 2,
       "processor_threads": 4,
       "processor_count": 1,
-      "price": 0,
+      "price": 999.00,
       "multi_score": 6816,
       "single_score": 3584
     },
@@ -997,7 +997,7 @@
       "processor_cores": 2,
       "processor_threads": 4,
       "processor_count": 1,
-      "price": 0,
+      "price": 699.00,
       "multi_score": 6494,
       "single_score": 3412
     },
@@ -1010,7 +1010,7 @@
       "processor_cores": 2,
       "processor_threads": 4,
       "processor_count": 1,
-      "price": 0,
+      "price": 499.00,
       "multi_score": 5420,
       "single_score": 3027
     },
@@ -1140,7 +1140,7 @@
       "processor_cores": 12,
       "processor_threads": 24,
       "processor_count": 1,
-      "price": 0,
+      "price": 4999.00,
       "multi_score": 27332,
       "single_score": 3372
     },
@@ -1153,7 +1153,7 @@
       "processor_cores": 8,
       "processor_threads": 16,
       "processor_count": 1,
-      "price": 0,
+      "price": 3799.00,
       "multi_score": 23457,
       "single_score": 3850
     },
@@ -1179,7 +1179,7 @@
       "processor_cores": 6,
       "processor_threads": 12,
       "processor_count": 1,
-      "price": 0,
+      "price": 2999.00,
       "multi_score": 18179,
       "single_score": 3817
     },
