@@ -10,9 +10,9 @@
     <table-cel class="score" colspan="1" header>{{mac.multi_score}}</table-cel>
     <table-cel class="price dollar" colspan="1" header v-if="mac.price == -1">$<input type="number" class="form-control input" v-model="price"> </table-cel>
     <table-cel class="price" colspan="1" header v-else >${{mac.price}}</table-cel>
-    <table-cel class="score" colspan="1" v-if=" mac.price !== -1" header>{{ mac.multi_score / mac.price   == Number.POSITIVE_INFINITY ? 0 : ( mac.single_score / mac.price ).toFixed(2) }}</table-cel> 
+    <table-cel class="score" colspan="1" v-if=" mac.price !== -1" header>{{ mac.multi_score / mac.price   == Number.POSITIVE_INFINITY ? '' : ( mac.single_score / mac.price ).toFixed(2) }}</table-cel> 
     <table-cel class="score" colspan="1" v-else header>{{ singleRatio }}</table-cel> 
-    <table-cel class="score" colspan="3" v-if=" mac.price !== -1" header>{{  mac.multi_score / mac.price   == Number.POSITIVE_INFINITY ? 0 : ( mac.single_score / mac.price ).toFixed(2) }}</table-cel> 
+    <table-cel class="score" colspan="3" v-if=" mac.price !== -1" header>{{  mac.single_score / mac.price   == Number.POSITIVE_INFINITY ? '' : ( mac.single_score / mac.price ).toFixed(2) }}</table-cel> 
     <table-cel class="score" colspan="1" v-else header>{{ multiRatio }}</table-cel> 
   </table-row>
 </template>
@@ -39,22 +39,6 @@ export default {
   computed: {
     profileLink() {
       return `/macs/${this.mac._id}`
-    },
-    inputListeners () {
-      var vm = this
-      // `Object.assign` merges objects together to form a new object
-      return Object.assign({},
-        // We add all the listeners from the parent
-        this.$listeners,
-        // Then we can add custom listeners or override the
-        // behavior of some listeners.
-        {
-          // This ensures that the component works with v-model
-          input: function (event) {
-            vm.$emit('input', event.target.value)
-          }
-        }
-      )
     }
   },
   methods: {
@@ -65,8 +49,8 @@ export default {
       this.$emit("removed",this.mac)
     },
     calculate () {
-      this.multiRatio = this.mac.multi_score !== 0 || this.price !==  '' ? ( (this.mac.multi_score / this.price).toFixed(2) == Number.POSITIVE_INFINITY ? 0 : (this.mac.multi_score / this.price).toFixed(2) ) : 0
-      this.singleRatio = this.mac.single_score !== 0 || this.price !==  '' ? ( (this.mac.single_score / this.price).toFixed(2) == Number.POSITIVE_INFINITY ? 0 : (this.mac.single_score / this.price).toFixed(2) ) : 0
+      this.multiRatio = this.mac.multi_score !== 0 || this.price !==  '' ? ( (this.mac.multi_score / this.price).toFixed(2) == Number.POSITIVE_INFINITY ? '' : (this.mac.multi_score / this.price).toFixed(2) ) : ''
+      this.singleRatio = this.mac.single_score !== 0 || this.price !==  '' ? ( (this.mac.single_score / this.price).toFixed(2) == Number.POSITIVE_INFINITY ? '' : (this.mac.single_score / this.price).toFixed(2) ) : ''
     }
   }
 }

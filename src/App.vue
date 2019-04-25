@@ -29,6 +29,7 @@ export default {
   margin: 1%;
   position: fixed;
   z-index: 999;
+  width: 13%;
 }
 
 .clear {
@@ -38,10 +39,9 @@ export default {
 }
 
 .inputs {
-  padding: 5em;
+  padding: 3em;
   margin: auto;
-  margin-bottom: 4%;
-  width: 79%;
+  width: 67%;
 }
 
 thead {
@@ -79,16 +79,16 @@ p {
 }
 
 .homeTitle {
-  font-family:monospace;
+  font-family: monospace;
   font-style: oblique;
-  font-stretch:extra-expanded;
-  font-size: 4em;
+  font-stretch: extra-expanded;
+  font-size: 2.5em;
   text-align: center;
-  color:  cornflowerblue;
-  padding-top: 1em;
-  }
+  color: cornflowerblue;
+  padding-top: 0.5em;
+}
 .table {
-  width: 80% !important;  
+  width: 68% !important;  
   margin: auto;
   margin-top: 3em;
 }

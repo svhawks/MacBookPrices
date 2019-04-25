@@ -1,7 +1,36 @@
 <template>
 <div>
-  <a href="https://github.com/batin/MacScores"><button type="button" class="leftbar btn btn-github"><i class="fe fe-github"></i> Github</button></a>
-  
+  <div class="leftbar">
+      <div class="card github">
+        <div class="card-body">
+          <a href="https://github.com/svtek/MacScores"><img alt="GitHub" class="stars" src="https://img.shields.io/github/stars/svtek/MacScores.svg?style=social"></a>
+        </div>
+      </div>
+    <div class="card">
+      <div class="card-body   text-center">
+        <div class="h5">Best Mac</div>
+        <div class="display-4 font-weight-bold mb-2"></div>
+      </div>
+    </div>  
+    <div class="card">
+      <div class="card-body   text-center">
+        <div class="h5">Best iMac</div>
+        <div class="display-4 font-weight-bold mb-2"></div>
+      </div>
+    </div>  
+    <div class="card">
+      <div class="card-body   text-center">
+        <div class="h5">Best Mac mini</div>
+        <div class="display-4 font-weight-bold mb-2"></div>
+      </div>
+    </div>  
+    <div class="card">
+      <div class="card-body   text-center">
+        <div class="h5">Best Notebook</div>
+        <div class="display-4 font-weight-bold mb-2"></div>
+      </div>
+    </div>  
+  </div>
         <p class="homeTitle">Mac Scores</p>
     <div class="row">      
     <div class="card  inputs">
@@ -116,7 +145,8 @@ export default {
       priceFlag: true,  
       perDFlagM: true,  
       perDFlagS: true,  
-      onMarket: "true"
+      onMarket: "true",
+
     }
   },
   watch: {
@@ -314,5 +344,12 @@ export default {
 }
 .center {
   padding-left: 25%
+}
+.github {
+  padding-left: 15%;
+  padding-left: -15px;
+}
+.stars {
+  width: 65%;
 }
 </style>

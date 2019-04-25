@@ -59,6 +59,11 @@
         <table-cel class="score" colspan="1" v-if=" mac.price !== 0" header>{{ ( mac.multi_score / mac.price ).toFixed(2) }}</table-cel> 
         <table-cel class="score" colspan="1" v-else header>{{ parseInt(ratio) == Number.POSITIVE_INFINITY ? "" : ratio }}</table-cel> 
       </table-row>
+      <table-row class="t-row">
+        <table-cel class="score" colspan="1" header>Multi-score per $</table-cel>
+        <table-cel class="score" colspan="1" v-if=" mac.price !== 0" header>{{ ( mac.multi_score / mac.price ).toFixed(2) }}</table-cel> 
+        <table-cel class="score" colspan="1" v-else header>{{ parseInt(ratio) == Number.POSITIVE_INFINITY ? "" : ratio }}</table-cel> 
+      </table-row>
     </t-table>
     </div>
   </div>
