@@ -1,7 +1,5 @@
 <template>
   <table-row class="t-row">
-    <table-cel colspan="2" header v-if="mac.price == -1"> <button class="btn-sm btn-primary" @click="removed">-</button> </table-cel>
-    <table-cel colspan="2" header v-else> <button class="btn-sm btn-primary" @click="clicked">+</button> </table-cel>
     <table-cel colspan="2" header> <router-link :to="profileLink">{{mac.name}}</router-link> </table-cel>
     <table-cel colspan="2" header>
       {{ mac.processor + ' @ ' + (parseFloat(mac.processor_freq) / 1000).toFixed(1) + 'Ghz ('+mac.processor_cores+ (mac.processor_cores == 1 ? ' core) ' :' cores) ') }}
@@ -14,6 +12,7 @@
     <table-cel class="score" colspan="1" v-else header>{{ singleRatio }}</table-cel> 
     <table-cel class="score" colspan="3" v-if=" mac.price !== -1" header>{{  mac.single_score / mac.price   == Number.POSITIVE_INFINITY ? '' : ( mac.single_score / mac.price ).toFixed(2) }}</table-cel> 
     <table-cel class="score" colspan="1" v-else header>{{ multiRatio }}</table-cel> 
+    <table-cell class="score" colspan="1" ></table-cell>
   </table-row>
 </template>
 

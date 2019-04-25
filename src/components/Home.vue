@@ -52,7 +52,7 @@
                 </label>
                 <div class="input-group">
                   <input type="number" class="form-control" placeholder="Min" v-model="singleMinScore">
-                  <input type="number" class="form-control" placeholder="Max"v-model="singleMaxScore">
+                  <input type="number" class="form-control" placeholder="Max" v-model="singleMaxScore">
                 </div>
               </div>
             </div>
@@ -63,7 +63,7 @@
                 </label>
                 <div class="input-group">
                   <input type="number" class="form-control" placeholder="Min" v-model="multiMinScore">
-                  <input type="number" class="form-control" placeholder="Max"v-model="multiMaxScore">
+                  <input type="number" class="form-control" placeholder="Max" v-model="multiMaxScore">
                 </div>
               </div>
             </div>
@@ -95,29 +95,6 @@
         </div>
       </div>
     </div>
-    <div class="card table" v-show="AddedItems.length > 0">
-      <t-table
-        cards
-        vertical-align="center"
-        class="table-outline table-hover"
-        id="table2">
-        <table-head class="table card-table table-vcenter">
-          <table-row class="t-row">
-            <table-cel colspan="2" class="unselectable"  header>Remove</table-cel>
-            <table-cel colspan="2" class="unselectable"  header>Name</table-cel>
-            <table-cel colspan="2" class="unselectable"  header>Description</table-cel>
-            <table-cel colspan="1" header> <span class="unselectable mid"> Single - Core Score </span></table-cel>
-            <table-cel colspan="1" header> <span class="unselectable mid" > Multi - Core Score </span></table-cel>
-            <table-cel colspan="1" header> <span class="unselectable mid center" > Price </span></table-cel>
-            <table-cel colspan="1" header> <span class="unselectable mid" > Single-score per $ </span></table-cel>
-            <table-cel colspan="1" header> <span class="unselectable mid" > Multi-score per $ </span></table-cel>
-          </table-row>
-        </table-head>
-        <table-body v-for="mac in AddedItems" :key="mac.id">
-          <MacItem :mac=mac v-on:removed="removed"></MacItem>
-        </table-body>
-      </t-table>
-    </div>
     <div class="card table">
       <t-table
         cards
@@ -126,7 +103,6 @@
         id="table2">
         <table-head class="table card-table table-vcenter">
           <table-row class="t-row">
-            <table-cel colspan="2" class="unselectable"  header>Add</table-cel>
             <table-cel colspan="2" class="unselectable"  header>Name</table-cel>
             <table-cel colspan="2" class="unselectable"  header>Description</table-cel>
             <table-cel colspan="1" header> <p @click="sortSingle" class="sorting"></p><span class="unselectable mid" @click="sortSingle"> Single - Core Score </span></table-cel>
@@ -134,6 +110,8 @@
             <table-cel colspan="1" header> <p @click="sortPrice" class="sorting"></p><span class="unselectable mid" @click="sortPrice"> Stock-Price </span></table-cel>
             <table-cel colspan="1" header> <p @click="sortPerDollarSingle" class="sorting"></p><span class="unselectable mid" @click="sortPerDollarSingle">Single-score per $</span></table-cel>
             <table-cel colspan="1" header> <p @click="sortPerDollarMulti" class="sorting"></p><span class="unselectable mid" @click="sortPerDollarMulti">Multi-score per $</span></table-cel>
+            <table-cel colspan="2" class="unselectable" header>Buy</table-cel>
+            <table-cel colspan="2" class="unselectable"  header>Edit On Github</table-cel>
           </table-row>
         </table-head>
         <table-body v-for="mac in tableItems" :key="mac.id">
