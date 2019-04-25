@@ -31,9 +31,11 @@
       </div>
     </div>  
   </div>
-    <p class="homeTitle">Mac Scores</p>
     <div class="row row-cards">
-      <div class="card inputs">
+      <div class="card inputs mt-5" style="padding: unset!important">
+        <div class="card-header">
+          <h3 class="card-title"> Mac Scores </h3>
+        </div>
         <div class="card-body">
           <div class="form-group search">
             <p>Search</p>
@@ -86,7 +88,7 @@
                   <input type="checkbox" class="custom-switch-input" name="example-inline-radios" value="true" v-model="onMarket">
                   <span class="custom-switch-indicator"/>
                   <span class="custom-switch-description">
-                    Show the items are on market
+                    items on the market
                   </span>
                 </label>
               </div>
@@ -97,7 +99,6 @@
     </div>
     <div class="card table">
       <t-table
-        cards
         vertical-align="center"
         class="table-outline table-hover"
         id="table2">
@@ -148,7 +149,7 @@ export default {
       priceFlag: true,  
       perDFlagM: true,  
       perDFlagS: true,  
-      onMarket: "true",
+      onMarket: true,
 
     }
   },
@@ -304,7 +305,7 @@ export default {
     },
     showOnMarket () {
       let availableMacs
-      if(this.onMarket == "true") {
+      if(this.onMarket == true) {
         availableMacs = this.macs.filter(mac => {
           return mac.price > 0
         })
