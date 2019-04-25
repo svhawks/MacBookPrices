@@ -34,7 +34,7 @@
 
 # 💝 Contributing
 
-We are so grateful for all volunteers like you for contributions. And we are so exciting to welcome your contributions!🙏 Our 🔗[issue tracker](https://github.com/svtek/smart-emailing/issues) is the preferred channel for bug reports, features requests and submitting pull requests. After that, you can start to fork!
+We are so grateful for all volunteers like you for contributions. And we are so exciting to welcome your contributions!🙏 Our 🔗[issue tracker](https://github.com/svtek/MacScores/issues) is the preferred channel for bug reports, features requests and submitting pull requests. After that, you can start to fork!
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
