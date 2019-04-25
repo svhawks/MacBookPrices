@@ -1,6 +1,6 @@
 # 💻 Mac Scores 🖥
 
-## 🚻 For Whom?
+# 🚻 For Whom?
  🤔 If you need help to decide **which *Mac*** that you going to buy,<br>
  💻 If you need to find out **how powerful your *Mac*** is,<br>
  🖥 If you need to **compare *Macs* with yours**,<br>
@@ -11,25 +11,24 @@
  
    🎉 Then you're at the right place. **Mac Scores builded for you!**  🎉<br>
 
-## 👀  Code overview
+# 👀  Code overview
 🎈 Server-less Design<br>
 🎈 GH-Pages<br>
 🎈 Front-end framework 🔗[![VUE](img/vue.ico)](https://vuejs.org/) [Vue.js](https://vuejs.org/)<br>
  
-## 🆒 Features
+# 🆒 Features
 - ✅ Mobile UI<br>
 - ✅ Easy to use<br>
 - ✅ Interactive templates<br>
 - ✅ Reactive search & filtering<br>
 
-### Home Page
+# 🏡 Home Page
 
 ![HomePage](img/home.png)
 
   
 
-### Mac Profile Page
-
+# 🍀 Mac Profile Page
 ![ProfilePage](img/profile.png)
 
 
