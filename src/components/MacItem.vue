@@ -12,7 +12,7 @@
     <table-cel class="score" colspan="1" v-else header>{{ singleRatio }}</table-cel> 
     <table-cel class="score" colspan="1" v-if=" mac.price !== -1" header>{{  mac.single_score / mac.price   == Number.POSITIVE_INFINITY ? '' : ( mac.single_score / mac.price ).toFixed(2) }}</table-cel> 
     <table-cel class="score" colspan="1" v-else header>{{ multiRatio }}</table-cel> 
-    <table-cel class="score" colspan="1" header> <a :href="searchOnAmazonLink(mac.name)" target="_blank" rel="noopener noreferrer"><button class="btn"> <img src="../../docs/amazon.svg" alt=""></button></a> </table-cel>
+    <table-cel class="score" colspan="1" header> <a :href="searchOnAmazonLink(mac.name)" target="_blank" rel="noopener noreferrer"><button class="btn"> <img src="../../static/images/payments/amazon.svg" alt=""></button></a> </table-cel>
     <table-cel class="score" colspan="1" header> <a href= "https://github.com/svtek/MacScores/blob/master/db.json" target="_blank" rel="noopener noreferrer"><button class="btn"> <img src="https://i.ibb.co/MCYbxqK/Git-Hub-Mark-64px.png" alt=""></button></a> </table-cel>
   </table-row>
 </template>
