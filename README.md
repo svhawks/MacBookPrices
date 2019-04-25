@@ -1,26 +1,26 @@
 # 💻 Mac Scores 🖥
 
 ## 🚻 For Whom?
- 🤔 If you need help to decide **which *Mac*** that you going to buy,
- 💻 If you need to find out **how powerful your *Mac*** is,
- 🖥 If you need to **compare *Macs* with yours**,
- ⏳ If you want to see which ***Macs* are available on market**,
- ⌛️ And which ***Macs* not available on market**,
- 💰 If you want to find out **stock-prices of available *Macs***,
- 💯 And if you want to do all of this **easily**,
+ 🤔 If you need help to decide **which *Mac*** that you going to buy,<br>
+ 💻 If you need to find out **how powerful your *Mac*** is,<br>
+ 🖥 If you need to **compare *Macs* with yours**,<br>
+ ⏳ If you want to see which ***Macs* are available on market**,<br>
+ ⌛️ And which ***Macs* not available on market**,<br>
+ 💰 If you want to find out **stock-prices of available *Macs***,<br>
+ 💯 And if you want to do all of this **easily**,<br>
  
-   🎉 Then you're at the right place. **Mac Scores builded for you!**  🎉
+   🎉 Then you're at the right place. **Mac Scores builded for you!**  🎉<br>
 
 ## 👀  Code overview
-🎈 Server-less Design 
-🎈 GH-Pages
-🎈 Front-end framework 🔗[![VUE](img/vue.ico)](https://vuejs.org/) [Vue.js](https://vuejs.org/) 
+🎈 Server-less Design<br>
+🎈 GH-Pages<br>
+🎈 Front-end framework 🔗[![VUE](img/vue.ico)](https://vuejs.org/) [Vue.js](https://vuejs.org/)<br>
  
 ## 🆒 Features
-✅ Mobile UI
-✅ Easy to use
-✅ Interactive templates
-✅ Reactive search & filtering
+- ✅ Mobile UI<br>
+- ✅ Easy to use<br>
+- ✅ Interactive templates<br>
+- ✅ Reactive search & filtering<br>
 
 ### Home Page
 
