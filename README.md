@@ -9,7 +9,7 @@
  💰 If you want to find out **stock-prices of available *Macs***,<br>
  💯 And if you want to do all of this **easily**,<br>
  
-   🎉 Then you're at the right place. **Mac Scores builded for you!**  🎉<br>
+   🎉 Then you're at the right place. **Mac Scores is builded for you!**  🎉<br>
 
 # 👀  Code overview
 🎈 Server-less Design<br>
@@ -46,7 +46,7 @@ We are so grateful for all volunteers like you for contributions. And we are so 
 
 # :muscle: Team
 
-| [<img src="https://pbs.twimg.com/profile_images/508440350495485952/U1VH52UZ_200x200.jpeg" width="100px;"/>](https://twitter.com/sahinboydas) <br/> [Sahin Boydas](https://twitter.com/sahinboydas)<br/><sub>Idea By</sub><br/> [![LinkedIn][1.1]][1] | [<img src="https://avatars0.githubusercontent.com/u/34899913?s=460&v=4" width="100px;"/>](https://github.com/batin) <br/>[Batın](https://github.com/batin)<br/><sub>Developed By</sub><br/> [![Github][2.1]][2] | 
+| [<img src="https://pbs.twimg.com/profile_images/508440350495485952/U1VH52UZ_200x200.jpeg" width="100px;"/>](https://twitter.com/sahinboydas) <br/> [Sahin Boydas](https://twitter.com/sahinboydas)<br/><sub>Idea By</sub><br/> [![LinkedIn][1.1]][1] | [<img src="https://avatars0.githubusercontent.com/u/34899913?s=460&v=4" width="100px;"/>](https://github.com/batin) <br/>[Batın Eryılmaz](https://github.com/batin)<br/><sub>Developed By</sub><br/> [![Github][2.1]][2] | 
 | - | - |
 
 [1.1]: https://www.kingsfund.org.uk/themes/custom/kingsfund/dist/img/svg/sprite-icon-linkedin.svg (linkedin icon)
