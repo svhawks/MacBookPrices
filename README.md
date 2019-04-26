@@ -11,7 +11,7 @@
  
    🎉 Then you're at the right place. **Mac Scores is builded for you!**  🎉<br>
 
-🥇🏅🏆Big thanks to Geekbench.com🥇🏅🏆<br>
+🥇🏅🏆Big thanks to Geekbench.com🏆🏅🥇<br>
 
 # 👀  Code overview
 🎈 Server-less Design<br>
