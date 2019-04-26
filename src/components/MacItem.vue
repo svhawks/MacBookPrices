@@ -42,7 +42,7 @@ export default {
       this.singleRatio = this.mac.single_score !== 0 || this.price !==  '' ? ( (this.mac.single_score / this.price).toFixed(2) == Number.POSITIVE_INFINITY ? '' : (this.mac.single_score / this.price).toFixed(2) ) : ''
     },
     searchOnAmazonLink (name) {
-      return `https://www.amazon.com/s?k=${name}`
+      return `https://www.amazon.com/gp/search/ref=as_li_qf_sp_sr_tl?ie=UTF8&tag=sv032-20&keywords={${name}}&index=aps&camp=1789&creative=9325&linkCode=ur2&linkId=ad92dd39540fa28645193ae6416b6375`
     }
   }
 }

@@ -133,10 +133,13 @@
             </div>
           </div>
       </div>
-        <div class="col-12">
+        <div class="col-md-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Mac Prices</h3>
+              <button @click="filterBtn('all')" class="btn btn-primary">All</button> &nbsp
+              <button @click="filterBtn('macbook')" class="btn btn-primary">Macbook</button> &nbsp
+              <button @click="filterBtn('imac')" class="btn btn-primary">iMac</button> &nbsp
+              <button @click="filterBtn('mac mini')" class="btn btn-primary">Mac mini</button> &nbsp
             </div>
             <div class="table-responsive">
               <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
@@ -146,33 +149,33 @@
                 >
                 <thead>
                     <tr role="row">
-                      <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width: 45px;">Name</th>
-                      <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width: 71px;">Description</th>
-                      <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 50px;">
-                        <p @click="sortSingle" class="sorting"></p>
-                        <span class="unselectable mid" @click="sortSingle">Single - Core Score</span>
+                      <th class="sorting unselectable" tabindex="0" rowspan="1" colspan="1" style="width: 50px;">
+                        Name
                       </th>
-                      <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width: 50px;" >
-                        <p @click="sortMulti" class="sorting"></p>
-                        <span class="unselectable mid" @click="sortMulti">Multi - Core Score</span>
+                      <th class="sorting unselectable" tabindex="0" rowspan="1" colspan="1" style="width: 50px;">
+                        Description
                       </th>
-                      <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 50px;">
-                        <p @click="sortPrice" class="sorting"></p>
-                        <span class="unselectable mid" @click="sortPrice">Stock-Price</span>
+                      <th @click="sortSingle" class="sorting unselectable" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 50px;">
+                        Single - Core Score
                       </th>
-                      <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 50px;">
-                        <p @click="sortPerDollarSingle" class="sorting"></p>
-                        <span
-                          class="unselectable mid"
-                          @click="sortPerDollarSingle"
-                        >Single-score per $</span>
+                      <th @click="sortMulti" class="sorting unselectable" tabindex="0" rowspan="1" colspan="1" style="width: 50px;" >
+                        Multi - Core Score
                       </th>
-                      <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 50px;">
-                        <p @click="sortPerDollarMulti" class="sorting"></p>
-                        <span class="unselectable mid" @click="sortPerDollarMulti">Multi-score per $</span>
+                      <th @click="sortPrice" class="sorting unselectable" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 50px;">
+                        Stock-Price
                       </th>
-                      <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" >Buy</th>
-                      <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1">Edit On Github</th>
+                      <th @click="sortPerDollarSingle" class="sorting unselectable" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 50px;">
+                        Single-score per $
+                      </th>
+                      <th @click="sortPerDollarMulti" class="sorting unselectable" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 50px;">
+                        Multi-score per $
+                      </th>
+                      <th class="sorting unselectable" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1">
+                        Buy
+                      </th>
+                      <th class="sorting unselectable" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1">
+                        Edit On Github
+                      </th>
                     </tr>
                   </thead>
                   <tbody v-for="mac in tableItems" :key="mac.id">
@@ -382,16 +385,26 @@ export default {
         })
       }
       this.tableItems = availableMacs
+    },
+    filterBtn (filter) {
+      if (filter === 'all') {
+        this.nameFilter = ''
+      }
+      if (filter === 'macbook') {
+        this.nameFilter = 'macbook'
+      }
+      if (filter === 'imac') {
+        this.nameFilter = 'imac'
+      }
+      if (filter === 'mac mini') {
+        this.nameFilter = 'mac mini'
+      }
     }
   }
 }
 </script>
 
 <style>
-.mid {
-  text-align: center;
-  font-size: small;
-}
 .center {
   padding-left: 25%;
 }
