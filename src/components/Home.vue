@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div class="leftbar">
+    <div class="my-3 my-md-5">
+      <div class="container">
+        <!-- <div class="leftbar">
       <div class="card github">
         <div class="card-body">
           <a href="https://github.com/svtek/MacScores"><img alt="GitHub" class="stars" src="https://img.shields.io/github/stars/svtek/MacScores.svg?style=social"></a>
@@ -30,243 +32,308 @@
         <div class="display-4 font-weight-bold mb-2"></div>
       </div>
     </div>  
-  </div>
-    <div class="row row-cards">
-      <div class="card inputs mt-5" style="padding: unset!important">
-        <div class="card-header">
-          <h3 class="card-title"> Mac Scores </h3>
-        </div>
-        <div class="card-body">
-          <div class="form-group search">
-            <p>Search</p>
-            <div class="input-icon">
-              <input type="text" class="form-control" v-model="nameFilter" placeholder="Search for...">
-              <span class="input-icon-addon">
-                <i class="fe fe-search"></i>
-              </span>
+        </div>-->
+        <div class="col-12">
+          <div class="row row-cards">
+            <div class="card inputs mt-5" style="padding: unset!important">
+              <div class="card-header">
+                <h3 class="card-title">Mac Scores</h3>
+              </div>
+              <div class="card-body">
+                <div class="form-group search">
+                  <p>Search</p>
+                  <div class="input-icon">
+                    <input
+                      type="text"
+                      class="form-control"
+                      v-model="nameFilter"
+                      placeholder="Search for..."
+                    >
+                    <span class="input-icon-addon">
+                      <i class="fe fe-search"></i>
+                    </span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-3">
+                    <div class="form-group">
+                      <label class="text-center form-label">Single-Score</label>
+                      <div class="input-group">
+                        <input
+                          type="number"
+                          class="form-control"
+                          placeholder="Min"
+                          v-model="singleMinScore"
+                        >
+                        <input
+                          type="number"
+                          class="form-control"
+                          placeholder="Max"
+                          v-model="singleMaxScore"
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="form-group">
+                      <label class="text-center form-label">Multi Score</label>
+                      <div class="input-group">
+                        <input
+                          type="number"
+                          class="form-control"
+                          placeholder="Min"
+                          v-model="multiMinScore"
+                        >
+                        <input
+                          type="number"
+                          class="form-control"
+                          placeholder="Max"
+                          v-model="multiMaxScore"
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="form-group">
+                      <label class="text-center form-label">Price</label>
+                      <div class="input-group">
+                        <input
+                          type="number"
+                          class="form-control"
+                          placeholder="Min"
+                          v-model="minPrice"
+                        >
+                        <input
+                          type="number"
+                          class="form-control"
+                          placeholder="Max"
+                          v-model="maxPrice"
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="form-group">
+                      <label class="text-center form-label"></label>
+                      <label class="custom-switch mt-5">
+                        <input
+                          type="checkbox"
+                          class="custom-switch-input"
+                          name="example-inline-radios"
+                          value="true"
+                          v-model="onMarket"
+                        >
+                        <span class="custom-switch-indicator"/>
+                        <span class="custom-switch-description">items on the market</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-3">
-              <div class="form-group">
-                <label class="text-center form-label">
-                  Single-Score
-                </label>
-                <div class="input-group">
-                  <input type="number" class="form-control" placeholder="Min" v-model="singleMinScore">
-                  <input type="number" class="form-control" placeholder="Max" v-model="singleMaxScore">
-                </div>
-              </div>
+      </div>
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header">
+              <button @click="filterBtn('all')" class="btn btn-primary">All</button> &nbsp
+              <button @click="filterBtn('macbook')" class="btn btn-primary">Macbook</button> &nbsp
+              <button @click="filterBtn('imac')" class="btn btn-primary">iMac</button> &nbsp
+              <button @click="filterBtn('mac mini')" class="btn btn-primary">Mac mini</button> &nbsp
             </div>
-            <div class="col-3">
-              <div class="form-group">
-                <label class="text-center form-label">
-                  Multi Score
-                </label>
-                <div class="input-group">
-                  <input type="number" class="form-control" placeholder="Min" v-model="multiMinScore">
-                  <input type="number" class="form-control" placeholder="Max" v-model="multiMaxScore">
-                </div>
-              </div>
-            </div>
-            <div class="col-3">
-              <div class="form-group">
-                <label class="text-center form-label">
-                  Price
-                </label>
-                <div class="input-group">
-                  <input type="number" class="form-control" placeholder="Min" v-model="minPrice">
-                  <input type="number" class="form-control" placeholder="Max" v-model="maxPrice">
-                </div>
-              </div>
-            </div>
-            <div class="col-3">
-              <div class="form-group">
-                <label class="text-center form-label">
-                </label>
-                <label class="custom-switch mt-5">
-                  <input type="checkbox" class="custom-switch-input" name="example-inline-radios" value="true" v-model="onMarket">
-                  <span class="custom-switch-indicator"/>
-                  <span class="custom-switch-description">
-                    items on the market
-                  </span>
-                </label>
+            <div class="table-responsive">
+              <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+                <table
+                  id="DataTables_Table_0"
+                  class="table card-table table-vcenter text-nowrap datatable dataTable no-footer"
+                >
+                <thead>
+                    <tr role="row">
+                      <th class="sorting unselectable" tabindex="0" rowspan="1" colspan="1" style="width: 50px;">
+                        Name
+                      </th>
+                      <th class="sorting unselectable" tabindex="0" rowspan="1" colspan="1" style="width: 50px;">
+                        Description
+                      </th>
+                      <th @click="sortSingle" class="sorting unselectable" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 50px;">
+                        Single - Core Score
+                      </th>
+                      <th @click="sortMulti" class="sorting unselectable" tabindex="0" rowspan="1" colspan="1" style="width: 50px;" >
+                        Multi - Core Score
+                      </th>
+                      <th @click="sortPrice" class="sorting unselectable" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 50px;">
+                        Stock-Price
+                      </th>
+                      <th @click="sortPerDollarSingle" class="sorting unselectable" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 50px;">
+                        Single-score per $
+                      </th>
+                      <th @click="sortPerDollarMulti" class="sorting unselectable" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 50px;">
+                        Multi-score per $
+                      </th>
+                      <th class="sorting unselectable" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1">
+                        Buy
+                      </th>
+                      <th class="sorting unselectable" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1">
+                        Edit On Github
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody v-for="mac in tableItems" :key="mac.id">
+                    <MacItem :mac="mac"></MacItem>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="card table">
-      <t-table
-        vertical-align="center"
-        class="table-outline table-hover"
-        id="table2">
-        <table-head class="table card-table table-vcenter">
-          <table-row class="t-row">
-            <table-cel colspan="2" class="unselectable"  header>Name</table-cel>
-            <table-cel colspan="2" class="unselectable"  header>Description</table-cel>
-            <table-cel colspan="1" header> <p @click="sortSingle" class="sorting"></p><span class="unselectable mid" @click="sortSingle"> Single - Core Score </span></table-cel>
-            <table-cel colspan="1" header> <p @click="sortMulti" class="sorting"></p><span class="unselectable mid" @click="sortMulti"> Multi - Core Score </span></table-cel>
-            <table-cel colspan="1" header> <p @click="sortPrice" class="sorting"></p><span class="unselectable mid" @click="sortPrice"> Stock-Price </span></table-cel>
-            <table-cel colspan="1" header> <p @click="sortPerDollarSingle" class="sorting"></p><span class="unselectable mid" @click="sortPerDollarSingle">Single-score per $</span></table-cel>
-            <table-cel colspan="1" header> <p @click="sortPerDollarMulti" class="sorting"></p><span class="unselectable mid" @click="sortPerDollarMulti">Multi-score per $</span></table-cel>
-            <table-cel colspan="1" class="unselectable" header>Buy</table-cel>
-            <table-cel colspan="1" class="unselectable"  header>Edit On Github</table-cel>
-          </table-row>
-        </table-head>
-        <table-body v-for="mac in tableItems" :key="mac.id">
-          <MacItem :mac=mac v-on:clicked="clicked"  ></MacItem>
-        </table-body>
-      </t-table>
-    </div>
   </div>
 </template>
 
 <script>
-import  { Table, TableBody, TableCel, TableHead, TableRow } from './index.js'
-import MacItem from './MacItem.vue'
-import datas from '../../db.json'
-import { log } from 'util';
+import MacItem from "./MacItem.vue"
+import datas from "../../db.json"
+import { log } from "util"
 export default {
-  name: 'Home',
-  data () {
+  name: "Home",
+  data() {
     return {
       loading: false,
       tableItems: [],
       macs: [],
       filteredMacs: [],
       AddedItems: [],
-      nameFilter: '',
-      singleMinScore: '',
-      singleMaxScore: '',
-      minPrice: '',
-      maxPrice: '',
-      multiMinScore: '',
-      multiMaxScore: '',
-      singleFlag: true,  
-      multiFlag: true,  
-      priceFlag: true,  
-      perDFlagM: true,  
-      perDFlagS: true,  
-      onMarket: true,
-
-    }
+      nameFilter: "",
+      singleMinScore: "",
+      singleMaxScore: "",
+      minPrice: "",
+      maxPrice: "",
+      multiMinScore: "",
+      multiMaxScore: "",
+      singleFlag: true,
+      multiFlag: true,
+      priceFlag: true,
+      perDFlagM: true,
+      perDFlagS: true,
+      onMarket: true
+    };
   },
   watch: {
-    'nameFilter': 'filterFunc',
-    'singleMinScore': 'filterFunc',
-    'singleMaxScore': 'filterFunc',
-    'minPrice': 'filterFunc',
-    'maxPrice': 'filterFunc',
-    'multiMinScore': 'filterFunc',
-    'multiMaxScore': 'filterFunc',
-    'onMarket': 'showOnMarket'
+    nameFilter: "filterFunc",
+    singleMinScore: "filterFunc",
+    singleMaxScore: "filterFunc",
+    minPrice: "filterFunc",
+    maxPrice: "filterFunc",
+    multiMinScore: "filterFunc",
+    multiMaxScore: "filterFunc",
+    onMarket: "showOnMarket"
   },
-  created () {
-    this.loading = true
-    this.macs = datas.macs
-    this.tableItems = this.macs
-    this.showOnMarket()
-    this.loading = false
+  created() {
+    this.loading = true;
+    this.macs = datas.macs;
+    this.tableItems = this.macs;
+    this.showOnMarket();
+    this.loading = false;
   },
   components: {
-    Table,
-    TableBody,
-    TableCel,
-    TableHead,
-    TableRow,
     MacItem
   },
   methods: {
-    clear () {
+    clear() {
       this.loading = true
-      this.nameFilter = ''
-      this.singleMinScore = ''
-      this.singleMaxScore = ''
-      this.multiMaxScore = ''
-      this.multiMinScore = ''
-      this.minPrice = ''
-      this.maxPrice = ''
+      this.nameFilter = ""
+      this.singleMinScore = ""
+      this.singleMaxScore = ""
+      this.multiMaxScore = ""
+      this.multiMinScore = ""
+      this.minPrice = ""
+      this.maxPrice = ""
       this.loading = false
     },
-    filterFunc () {
+    filterFunc() {
       this.loading = true
       let tempMacArray = this.macs
-      if (this.nameFilter !== '') {
-        this.filteredMacs =  this.macs.filter(mac => {
+      if (this.nameFilter !== "") {
+        this.filteredMacs = this.macs.filter(mac => {
           return mac.name.toLowerCase().includes(this.nameFilter.toLowerCase())
         })
-        tempMacArray = this.findCommonItems (tempMacArray,this.filteredMacs)
+        tempMacArray = this.findCommonItems(tempMacArray, this.filteredMacs)
       }
-      if (this.singleMinScore != '') {
+      if (this.singleMinScore != "") {
         this.filteredMacs = this.macs.filter(mac => {
           return mac.single_score >= this.singleMinScore
         })
-        tempMacArray = this.findCommonItems (tempMacArray,this.filteredMacs)
+        tempMacArray = this.findCommonItems(tempMacArray, this.filteredMacs)
       }
-      if (this.singleMaxScore != '') {
+      if (this.singleMaxScore != "") {
         this.filteredMacs = this.macs.filter(mac => {
           return mac.single_score <= this.singleMaxScore
         })
-        tempMacArray = this.findCommonItems (tempMacArray,this.filteredMacs)
+        tempMacArray = this.findCommonItems(tempMacArray, this.filteredMacs)
       }
-      if (this.minPrice != '') {
+      if (this.minPrice != "") {
         this.filteredMacs = this.macs.filter(mac => {
           return mac.price >= this.minPrice
         })
-        tempMacArray = this.findCommonItems (tempMacArray,this.filteredMacs)
+        tempMacArray = this.findCommonItems(tempMacArray, this.filteredMacs)
       }
-      if (this.maxPrice != '') {
+      if (this.maxPrice != "") {
         this.filteredMacs = this.macs.filter(mac => {
           return mac.price <= this.maxPrice
         })
-        tempMacArray = this.findCommonItems (tempMacArray,this.filteredMacs)
+        tempMacArray = this.findCommonItems(tempMacArray, this.filteredMacs)
       }
-      if (this.multiMinScore != '') {
+      if (this.multiMinScore != "") {
         this.filteredMacs = this.macs.filter(mac => {
           return mac.multi_score >= this.multiMinScore
         })
-        tempMacArray = this.findCommonItems (tempMacArray,this.filteredMacs)
+        tempMacArray = this.findCommonItems(tempMacArray, this.filteredMacs)
       }
-      if (this.multiMaxScore != '') {
+      if (this.multiMaxScore != "") {
         this.filteredMacs = this.macs.filter(mac => {
           return mac.multi_score <= this.multiMaxScore
         })
-        tempMacArray = this.findCommonItems (tempMacArray,this.filteredMacs)
+        tempMacArray = this.findCommonItems(tempMacArray, this.filteredMacs)
       }
       this.tableItems = tempMacArray
       this.loading = false
     },
-    findCommonItems (array1,array2) {
+    findCommonItems(array1, array2) {
       return array1.filter(x => array2.includes(x))
     },
-    sortSingle () {
+    sortSingle() {
       let sorted
       if (this.singleFlag) {
-        sorted =  this.tableItems.sort((a, b) => {return (a.single_score < b.single_score) ? 1 : -1})
+        sorted = this.tableItems.sort((a, b) => {
+          return a.single_score < b.single_score ? 1 : -1
+        })
         this.singleFlag = false
       } else {
-        sorted =  this.tableItems.reverse()
+        sorted = this.tableItems.reverse()
         this.singleFlag = true
       }
       this.tableItems = sorted
     },
-    sortMulti () {
+    sortMulti() {
       let sorted
       if (this.multiFlag) {
-        sorted =  this.tableItems.sort((a, b) => {return (a.multi_score < b.multi_score) ? 1 : -1})
+        sorted = this.tableItems.sort((a, b) => {
+          return a.multi_score < b.multi_score ? 1 : -1
+        })
         this.multiFlag = false
       } else {
-        sorted =  this.tableItems.reverse()
+        sorted = this.tableItems.reverse()
         this.multiFlag = true
       }
       this.tableItems = sorted
     },
-    sortPrice () {
+    sortPrice() {
       let sorted
       if (this.priceFlag) {
-        sorted =  this.tableItems.sort((a, b) => {return (a.price < b.price) ? 1 : -1})
+        sorted = this.tableItems.sort((a, b) => {
+          return a.price < b.price ? 1 : -1
+        })
         this.priceFlag = false
       } else {
         sorted = this.tableItems.reverse()
@@ -274,12 +341,13 @@ export default {
       }
       this.tableItems = sorted
     },
-    sortPerDollarMulti () {
-
+    sortPerDollarMulti() {
       let sorted = this.tableItems.sort((a, b) => {
-        let ratio1 = (a.multi_score !==0 && a.price !== 0) ? (a.multi_score / a.price ) : 0
-        let ratio2 = (b.multi_score !==0 && b.price !== 0) ? (b.multi_score / b.price ) : 0
-        return ((ratio1 < ratio2) ? -1 : ((ratio1 > ratio2) ? 1 : 0))
+        let ratio1 =
+          a.multi_score !== 0 && a.price !== 0 ? a.multi_score / a.price : 0
+        let ratio2 =
+          b.multi_score !== 0 && b.price !== 0 ? b.multi_score / b.price : 0
+        return ratio1 < ratio2 ? -1 : ratio1 > ratio2 ? 1 : 0
       })
       if (this.perDFlagM) {
         this.perDFlagM = false
@@ -289,11 +357,13 @@ export default {
         this.tableItems = sorted.reverse()
       }
     },
-    sortPerDollarSingle () {
-      let sorted =  this.tableItems.sort((a, b) => {
-        let ratio1 = (a.single_score !==0 && a.price !== 0) ? (a.single_score / a.price ) : 0
-        let ratio2 = (b.single_score !==0 && b.price !== 0) ? (b.single_score / b.price ) : 0
-        return ((ratio1 < ratio2) ? -1 : ((ratio1 > ratio2) ? 1 : 0))
+    sortPerDollarSingle() {
+      let sorted = this.tableItems.sort((a, b) => {
+        let ratio1 =
+          a.single_score !== 0 && a.price !== 0 ? a.single_score / a.price : 0
+        let ratio2 =
+          b.single_score !== 0 && b.price !== 0 ? b.single_score / b.price : 0
+        return ratio1 < ratio2 ? -1 : ratio1 > ratio2 ? 1 : 0
       })
       if (this.perDFlagS) {
         this.perDFlagS = false
@@ -303,9 +373,9 @@ export default {
         this.tableItems = sorted.reverse()
       }
     },
-    showOnMarket () {
+    showOnMarket() {
       let availableMacs
-      if(this.onMarket == true) {
+      if (this.onMarket == true) {
         availableMacs = this.macs.filter(mac => {
           return mac.price > 0
         })
@@ -316,25 +386,18 @@ export default {
       }
       this.tableItems = availableMacs
     },
-    clone (src) {
-      return Object.assign({}, src);
-    },
-    clicked (value) {
-      let item = this.clone(value)
-      let flag = true
-      this.AddedItems.forEach(mac => {
-        if(mac._id === item._id){
-          flag = false
-        }
-      })
-      if(flag){
-        item.price = -1
-        this.AddedItems.push(item)
+    filterBtn (filter) {
+      if (filter === 'all') {
+        this.nameFilter = ''
       }
-    },
-    removed (value) {
-      if(this.AddedItems.includes(value)){
-        this.AddedItems.splice( this.AddedItems.indexOf(value), 1 );
+      if (filter === 'macbook') {
+        this.nameFilter = 'macbook'
+      }
+      if (filter === 'imac') {
+        this.nameFilter = 'imac'
+      }
+      if (filter === 'mac mini') {
+        this.nameFilter = 'mac mini'
       }
     }
   }
@@ -342,12 +405,8 @@ export default {
 </script>
 
 <style>
-.mid {
-  text-align: center;
-  font-size: small;
-}
 .center {
-  padding-left: 25%
+  padding-left: 25%;
 }
 .github {
   padding-left: 15%;

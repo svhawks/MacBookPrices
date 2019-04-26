@@ -11,60 +11,59 @@
     <div class="col"></div>
   <div class="Mytable" v-if="mac != undefined">
     <div class="card">
-    <t-table class="table">
-      <table-row class="t-row">
-        <table-cel class="score" colspan="1" header>Single-Core Score</table-cel>
-        <table-cel class="score" colspan="1" header>{{mac.single_score}}</table-cel> 
-      </table-row>
-      <table-row class="t-row">
-        <table-cel class="score" colspan="1" header>Multi-Core Score</table-cel>
-        <table-cel class="score" colspan="1" header>{{mac.multi_score}}</table-cel> 
-      </table-row>
-      <table-row class="t-row">
-        <table-cel class="score" colspan="1" header>Model Identifier</table-cel>
-        <table-cel class="score" colspan="1" header>{{mac.model_identifier}}</table-cel> 
-      </table-row>
-      <table-row class="t-row">
-        <table-cel class="score" colspan="1" header>Processor</table-cel>
-        <table-cel class="score" colspan="1" header>{{mac.processor}}</table-cel> 
-      </table-row>
-      <table-row class="t-row">
-        <table-cel class="score" colspan="1" header>Processor Frequency</table-cel>
-        <table-cel class="score" colspan="1" header>{{mac.processor_freq}}</table-cel> 
-      </table-row>
-      <table-row class="t-row">
-        <table-cel class="score" colspan="1" header>Processors</table-cel>
-        <table-cel class="score" colspan="1" header>{{mac.processor_count}}</table-cel> 
-      </table-row>
-      <table-row class="t-row">
-        <table-cel class="score" colspan="1" header>Processor Cores</table-cel>
-        <table-cel class="score" colspan="1" header>{{mac.processor_cores}}</table-cel> 
-      </table-row>
-      <table-row class="t-row">
-        <table-cel class="score" colspan="1" header>Processor Threads</table-cel>
-        <table-cel class="score" colspan="1" header>{{mac.processor_threads}}</table-cel> 
-      </table-row>
-      <table-row class="t-row">
-        <table-cel class="score" colspan="1" header>Price</table-cel>
-        <table-cel class="score" colspan="1" header v-if="mac.price !== 0" > $ {{mac.price}} </table-cel> 
-        <table-cel class="score" colspan="1" header v-else > $ <input type="number" class="form-control" v-model="price"> </table-cel> 
-      </table-row>
-      <table-row class="t-row">
-        <table-cel class="score" colspan="1" header>Sinle-score per $</table-cel>
-        <table-cel class="score" colspan="1" v-if=" mac.price !== 0" header>{{ ( mac.single_score / mac.price ).toFixed(2) }}</table-cel> 
-        <table-cel class="score" colspan="1" v-else header>{{ parseInt(ratio) == Number.POSITIVE_INFINITY ? "" : ratio }}</table-cel> 
-      </table-row>
-      <table-row class="t-row">
-        <table-cel class="score" colspan="1" header>Multi-score per $</table-cel>
-        <table-cel class="score" colspan="1" v-if=" mac.price !== 0" header>{{ ( mac.multi_score / mac.price ).toFixed(2) }}</table-cel> 
-        <table-cel class="score" colspan="1" v-else header>{{ parseInt(ratio) == Number.POSITIVE_INFINITY ? "" : ratio }}</table-cel> 
-      </table-row>
-      <table-row class="t-row">
-        <table-cel class="score" colspan="1" header>Multi-score per $</table-cel>
-        <table-cel class="score" colspan="1" v-if=" mac.price !== 0" header>{{ ( mac.multi_score / mac.price ).toFixed(2) }}</table-cel> 
-        <table-cel class="score" colspan="1" v-else header>{{ parseInt(ratio) == Number.POSITIVE_INFINITY ? "" : ratio }}</table-cel> 
-      </table-row>
-    </t-table>
+    <table class="table">
+      <tr class="t-row">
+        <td class="score" colspan="1" >Single-Core Score</td>
+        <td class="score" colspan="1" >{{mac.single_score}}</td> 
+      </tr>
+      <tr class="t-row">
+        <td class="score" colspan="1" >Multi-Core Score</td>
+        <td class="score" colspan="1" >{{mac.multi_score}}</td> 
+      </tr>
+      <tr class="t-row">
+        <td class="score" colspan="1" >Model Identifier</td>
+        <td class="score" colspan="1" >{{mac.model_identifier}}</td> 
+      </tr>
+      <tr class="t-row">
+        <td class="score" colspan="1" >Processor</td>
+        <td class="score" colspan="1" >{{mac.processor}}</td> 
+      </tr>
+      <tr class="t-row">
+        <td class="score" colspan="1" >Processor Frequency</td>
+        <td class="score" colspan="1" >{{mac.processor_freq}}</td> 
+      </tr>
+      <tr class="t-row">
+        <td class="score" colspan="1" >Processors</td>
+        <td class="score" colspan="1" >{{mac.processor_count}}</td> 
+      </tr>
+      <tr class="t-row">
+        <td class="score" colspan="1" >Processor Cores</td>
+        <td class="score" colspan="1" >{{mac.processor_cores}}</td> 
+      </tr>
+      <tr class="t-row">
+        <td class="score" colspan="1" >Processor Threads</td>
+        <td class="score" colspan="1" >{{mac.processor_threads}}</td> 
+      </tr>
+      <tr class="t-row">
+        <td class="score" colspan="1" >Price</td>
+        <td class="score" colspan="1"  v-if="mac.price !== 0" > $ {{mac.price}} </td> 
+        <td class="score" colspan="1"  v-else > $ <input type="number" class="form-control" v-model="price"> </td> 
+      </tr>
+      <tr class="t-row">
+        <td class="score" colspan="1" >Sinle-score per $</td>
+        <td class="score" colspan="1" v-if=" mac.price !== 0" >{{ ( mac.single_score / mac.price ).toFixed(2) }}</td> 
+        <td class="score" colspan="1" v-else >{{ parseInt(ratio) == Number.POSITIVE_INFINITY ? "" : ratio }}</td> 
+      </tr>
+      <tr class="t-row">
+        <td class="score" colspan="1" >Multi-score per $</td>
+        <td class="score" colspan="1" v-if=" mac.price !== 0" >{{ ( mac.multi_score / mac.price ).toFixed(2) }}</td> 
+        <td class="score" colspan="1" v-else >{{ parseInt(ratio) == Number.POSITIVE_INFINITY ? "" : ratio }}</td> 
+      </tr>
+      <tr class="t-row">
+        <td class="score" colspan="1" >Scores From</td>
+        <td class="score" colspan="1" > <a :href="geekBenchLink(mac._id)">GeekBenck.com</a></td>
+      </tr>
+    </table>
     </div>
   </div>
     
@@ -83,7 +82,6 @@
 </template>
 
 <script>
-import  { Table, TableBody, TableCel, TableHead, TableRow } from './index.js'
 import datas from '../../db.json'
 export default {
   name: 'MacProfile',
@@ -106,6 +104,9 @@ export default {
   methods: {
     homeLink () {
       this.$router.push({name: 'home'})
+    },
+    geekBenchLink (id) {
+      return `https://browser.geekbench.com/macs/${id}`
     },
     calculate () {
       this.ratio = (this.mac.multi_score !== 0 || this.price !== '') ? (this.mac.multi_score / this.price ).toFixed(2) : 0
