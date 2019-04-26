@@ -63,7 +63,7 @@
                     <label class="custom-switch">
                       <input type="checkbox" class="custom-switch-input" name="example-inline-radios" value="true" v-model="onMarket">
                         <span class="custom-switch-indicator"/>
-                          <span class="custom-switch-description">On market</span>
+                        <span class="custom-switch-description">On market</span>
                     </label>
                   </div>
                 </div>
@@ -82,13 +82,13 @@
                         <th class="sorting unselectable" tabindex="0" rowspan="1" colspan="1" style="width: 50px;">
                           Description
                         </th>
-                        <th @click="sortSingle" class="sorting unselectable" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 50px;">
+                        <th @click="sortGeneral('single_score')" class="sorting unselectable" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 50px;">
                           Single - Core Score
                         </th>
-                        <th @click="sortMulti" class="sorting unselectable" tabindex="0" rowspan="1" colspan="1" style="width: 50px;" >
+                        <th @click="sortGeneral('multi_score')" class="sorting unselectable" tabindex="0" rowspan="1" colspan="1" style="width: 50px;" >
                           Multi - Core Score
                         </th>
-                        <th @click="sortPrice" class="sorting unselectable" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 50px;">
+                        <th @click="sortGeneral('price')" class="sorting unselectable" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 50px;">
                           Stock-Price
                         </th>
                         <th @click="sortPerDollarSingle" class="sorting unselectable" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 50px;">
@@ -130,8 +130,6 @@ export default {
       tableItems: [],
       macs: [],
       selectedType: '',
-      filteredMacs: [],
-      AddedItems: [],
       nameFilter: "",
       singleMinScore: '',
       singleMaxScore: '',
@@ -139,6 +137,7 @@ export default {
       maxPrice: '',
       multiMinScore: '',
       multiMaxScore: '',
+      sortField: '',
       singleFlag: true,
       multiFlag: true,
       priceFlag: true,
@@ -179,16 +178,12 @@ export default {
     },
 
     filterByFieldInt(macs, compareField, low, high) {
-      if(!macs.length) {
-        console.log('ret', compareField);
-        return macs;
-      }
-      return macs.filter(item => { return low <= item[compareField] && item[compareField] <= high })
+      return macs.filter(item => { return (low || 0) <= item[compareField] && item[compareField] <= (high || 1000000) })
     },
 
     filterMacsAcrossFilters() {
       this.loading = true
-      let tempMacArray = this.macs //.filter(mac => { (this.onMarket ^ (mac.price > 0)) })
+      let tempMacArray = this.macs.filter(mac => { return ((this.onMarket && mac.price > 0) || (!this.onMarket && mac.price == 0)) })
       tempMacArray = this.filterByFieldInt(tempMacArray, 'single_score', this.singleMinScore, this.singleMaxScore)
       tempMacArray = this.filterByFieldInt(tempMacArray, 'price', this.minPrice, this.maxPrice)
       tempMacArray = this.filterByFieldInt(tempMacArray, 'multi_score', this.multiMinScore, this.multiMaxScore)
@@ -202,46 +197,13 @@ export default {
       this.loading = false
     },
 
-    sortSingle() {
-      let sorted
-      if (this.singleFlag) {
-        sorted = this.tableItems.sort((a, b) => {
-          return a.single_score < b.single_score ? 1 : -1
-        })
-        this.singleFlag = false
+    sortGeneral(sortField) { // use this whenever there is no money related issue
+      if(this.sortField == sortField) {
+        this.tableItems = this.tableItems.reverse();
       } else {
-        sorted = this.tableItems.reverse()
-        this.singleFlag = true
+        this.tableItems = this.tableItems.sort((a,b) => b[sortField] - a[sortField])
+        this.sortField = sortField
       }
-      this.tableItems = sorted
-    },
-
-    sortMulti() {
-      let sorted
-      if (this.multiFlag) {
-        sorted = this.tableItems.sort((a, b) => {
-          return a.multi_score < b.multi_score ? 1 : -1
-        })
-        this.multiFlag = false
-      } else {
-        sorted = this.tableItems.reverse()
-        this.multiFlag = true
-      }
-      this.tableItems = sorted
-    },
-
-    sortPrice() {
-      let sorted
-      if (this.priceFlag) {
-        sorted = this.tableItems.sort((a, b) => {
-          return a.price < b.price ? 1 : -1
-        })
-        this.priceFlag = false
-      } else {
-        sorted = this.tableItems.reverse()
-        this.priceFlag = true
-      }
-      this.tableItems = sorted
     },
 
     sortPerDollarMulti() {
@@ -259,6 +221,7 @@ export default {
         this.perDFlagM = true
         this.tableItems = sorted.reverse()
       }
+      this.sortField = 'multi_score_per_dolar'
     },
 
     sortPerDollarSingle() {
@@ -276,6 +239,7 @@ export default {
         this.perDFlagS = true
         this.tableItems = sorted.reverse()
       }
+      this.sortField = 'single_score_per_dolar'
     },
 
     filterBtn (selectedType) {
