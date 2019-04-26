@@ -1,4 +1,4 @@
-# 💻 MacBook Pro, Macbook Air, Mac Mini and iMac Price & CPU Scores 🖥
+# 💻 MacBook Pro, Macbook Air, Mac Mini and iMac Price & CPU Scores for geekbench.com 🖥
 
 # 🚻 For Whom?
  🤔 If you need help to decide **which *Mac*** that you going to buy,<br>
