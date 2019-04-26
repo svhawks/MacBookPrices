@@ -4,9 +4,12 @@
       <div class="container">
           <div class="col-12">
             <div class="row row-cards">
-              <div v-if="['macbook', 'all', 'imac', 'mac mini'].indexOf(selectedType) > -1" class="card inputs mt-5" style="padding: unset!important">
+              <div v-if="['macbook', 'all', 'imac', 'mac mini'].indexOf(selectedType) > -1" class="card mt-5">
                 <div class="card-header">
                   <h3 class="card-title">Filter</h3>
+                  <div class="card-options">
+                    <button class="btn btn-sm btn-primary" @click="selectedType = ''"> Close </button>
+                  </div>
                 </div>
                 <div class="card-body">
                   <div class="row">
