@@ -1,38 +1,52 @@
 <template>
   <div>
+    <div class="github">
+      <a href="https://github.com/svtek/MacScores"><img alt="GitHub" class="stars" src="https://img.shields.io/github/stars/svtek/MacScores.svg?style=social"></a>
+    </div>  
     <div class="my-3 my-md-5">
-      <div class="container">
-        <!-- <div class="leftbar">
-      <div class="card github">
-        <div class="card-body">
-          <a href="https://github.com/svtek/MacScores"><img alt="GitHub" class="stars" src="https://img.shields.io/github/stars/svtek/MacScores.svg?style=social"></a>
-        </div>
-      </div>
-    <div class="card">
-      <div class="card-body   text-center">
-        <div class="h5">Best Mac</div>
-        <div class="display-4 font-weight-bold mb-2"></div>
-      </div>
-    </div>  
-    <div class="card">
-      <div class="card-body   text-center">
-        <div class="h5">Best iMac</div>
-        <div class="display-4 font-weight-bold mb-2"></div>
-      </div>
-    </div>  
-    <div class="card">
-      <div class="card-body   text-center">
-        <div class="h5">Best Mac mini</div>
-        <div class="display-4 font-weight-bold mb-2"></div>
-      </div>
-    </div>  
-    <div class="card">
-      <div class="card-body   text-center">
-        <div class="h5">Best Notebook</div>
-        <div class="display-4 font-weight-bold mb-2"></div>
-      </div>
-    </div>  
-        </div>-->
+      <div class="container">  
+        <div class="row">
+                  <div class="col-sm-6 col-lg-3">
+                    <div class="card">
+                      <div class="card-body">
+                        <h3 class="mb-1">Best Product</h3>
+                        <a :href="profileLink(bestProduct.id)">{{bestProduct.name}}</a>
+                        <div class="text-muted">${{bestProduct.price}}</div>
+                      </div>
+                     
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-lg-3">
+                    <div class="card">
+                      <div class="card-body">
+                        <h3 class="mb-1">Best Macbook</h3>
+                        <a :href="profileLink(bestMacbook.id)">{{bestMacbook.name}}</a>
+                        <div class="text-muted">${{bestMacbook.price}}</div>
+                      </div>
+                     
+                    </div>
+                  </div>
+                  <d<div class="col-sm-6 col-lg-3">
+                    <div class="card">
+                      <div class="card-body">
+                        <h3 class="mb-1">Best iMac</h3>
+                        <a :href="profileLink(bestIMac.id)">{{bestIMac.name}}</a>
+                        <div class="text-muted">${{bestIMac.price}}</div>
+                      </div>
+                     
+                    </div>
+                  </div> 
+                  <div class="col-sm-6 col-lg-3">
+                    <div class="card">
+                      <div class="card-body">
+                        <h3 class="mb-1">Best Mac Mini</h3>
+                        <a :href="profileLink(bestMacMini.id)">{{bestMacMini.name}}</a>
+                        <div class="text-muted">${{bestMacMini.price}}</div>
+                      </div>
+                     
+                    </div>
+                  </div>
+                </div>
         <div class="col-12">
           <div class="row row-cards">
             <div class="card inputs mt-5" style="padding: unset!important">
@@ -216,8 +230,28 @@ export default {
       priceFlag: true,
       perDFlagM: true,
       perDFlagS: true,
-      onMarket: true
-    };
+      onMarket: true,
+      bestProduct: {
+        name: '',
+        id: '',
+        price: ''
+      },
+      bestMacbook:  {
+        name: '',
+        id: '',
+        price: ''
+      },
+      bestIMac:  {
+        name: '',
+        id: '',
+        price: ''
+      },
+      bestMacMini:  {
+        name: '',
+        id: '',
+        price: ''
+      },
+    }
   },
   watch: {
     nameFilter: "filterFunc",
@@ -234,6 +268,10 @@ export default {
     this.macs = datas.macs;
     this.tableItems = this.macs;
     this.showOnMarket();
+    this.bestProduct = this.findBest('')
+    this.bestMacbook = this.findBest('macbook')
+    this.bestIMac = this.findBest('imac')
+    this.bestMacMini = this.findBest('mac mini')
     this.loading = false;
   },
   components: {
@@ -359,10 +397,8 @@ export default {
     },
     sortPerDollarSingle() {
       let sorted = this.tableItems.sort((a, b) => {
-        let ratio1 =
-          a.single_score !== 0 && a.price !== 0 ? a.single_score / a.price : 0
-        let ratio2 =
-          b.single_score !== 0 && b.price !== 0 ? b.single_score / b.price : 0
+        let ratio1 = a.single_score !== 0 && a.price !== 0 ? a.single_score / a.price : 0
+        let ratio2 = b.single_score !== 0 && b.price !== 0 ? b.single_score / b.price : 0
         return ratio1 < ratio2 ? -1 : ratio1 > ratio2 ? 1 : 0
       })
       if (this.perDFlagS) {
@@ -399,20 +435,32 @@ export default {
       if (filter === 'mac mini') {
         this.nameFilter = 'mac mini'
       }
-    }
-  }
+    },
+    findBest (type) {
+      let macs = this.macs.filter(mac => {
+        return mac.name.toLowerCase().includes(type.toLowerCase())
+      })
+      macs = macs.sort((a, b) => {
+      let ratio1 = a.single_score !== 0 && a.price !== 0 ? a.single_score / a.price : 0
+      let ratio2 = b.single_score !== 0 && b.price !== 0 ? b.single_score / b.price : 0
+      return ratio1 > ratio2 ? -1 : ratio1 < ratio2 ? 1 : 0
+      })
+      return {name : macs[0].model_identifier, price: macs[0].price, id: macs[0]._id }
+      },
+      profileLink(id) {
+        return `/#/macs/${id}`
+      }
+    },
+    
 }
 </script>
 
 <style>
-.center {
-  padding-left: 25%;
-}
 .github {
-  padding-left: 15%;
+  margin: 1%;
+  width: 25%;
+  padding-left: 5%;
   padding-left: -15px;
-}
-.stars {
-  width: 65%;
+  position: absolute
 }
 </style>
