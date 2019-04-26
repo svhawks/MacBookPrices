@@ -1,4 +1,4 @@
-# 💻 Mac Scores 🖥
+# 💻 MacBook Pro, Macbook Air, Mac Mini and iMac Price & CPU Scores for geekbench.com 🖥
 
 # 🚻 For Whom?
  🤔 If you need help to decide **which *Mac*** that you going to buy,<br>
@@ -10,6 +10,8 @@
  💯 And if you want to do all of this **easily**,<br>
  
    🎉 Then you're at the right place. **Mac Scores is builded for you!**  🎉<br>
+
+🥇🏅🏆Big thanks to Geekbench.com🏆🏅🥇<br>
 
 # 👀  Code overview
 🎈 Server-less Design<br>

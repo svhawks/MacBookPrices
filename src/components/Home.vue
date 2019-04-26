@@ -111,8 +111,8 @@
             <table-cel colspan="1" header> <p @click="sortPrice" class="sorting"></p><span class="unselectable mid" @click="sortPrice"> Stock-Price </span></table-cel>
             <table-cel colspan="1" header> <p @click="sortPerDollarSingle" class="sorting"></p><span class="unselectable mid" @click="sortPerDollarSingle">Single-score per $</span></table-cel>
             <table-cel colspan="1" header> <p @click="sortPerDollarMulti" class="sorting"></p><span class="unselectable mid" @click="sortPerDollarMulti">Multi-score per $</span></table-cel>
-            <table-cel colspan="2" class="unselectable" header>Buy</table-cel>
-            <table-cel colspan="2" class="unselectable"  header>Edit On Github</table-cel>
+            <table-cel colspan="1" class="unselectable" header>Buy</table-cel>
+            <table-cel colspan="1" class="unselectable"  header>Edit On Github</table-cel>
           </table-row>
         </table-head>
         <table-body v-for="mac in tableItems" :key="mac.id">

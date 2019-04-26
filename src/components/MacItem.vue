@@ -10,9 +10,10 @@
     <table-cel class="price" colspan="1" header v-else >${{mac.price}}</table-cel>
     <table-cel class="score" colspan="1" v-if=" mac.price !== -1" header>{{ mac.multi_score / mac.price   == Number.POSITIVE_INFINITY ? '' : ( mac.single_score / mac.price ).toFixed(2) }}</table-cel> 
     <table-cel class="score" colspan="1" v-else header>{{ singleRatio }}</table-cel> 
-    <table-cel class="score" colspan="3" v-if=" mac.price !== -1" header>{{  mac.single_score / mac.price   == Number.POSITIVE_INFINITY ? '' : ( mac.single_score / mac.price ).toFixed(2) }}</table-cel> 
+    <table-cel class="score" colspan="1" v-if=" mac.price !== -1" header>{{  mac.single_score / mac.price   == Number.POSITIVE_INFINITY ? '' : ( mac.single_score / mac.price ).toFixed(2) }}</table-cel> 
     <table-cel class="score" colspan="1" v-else header>{{ multiRatio }}</table-cel> 
-    <table-cell class="score" colspan="1" ></table-cell>
+    <table-cel class="score" colspan="1" header> <a :href="searchOnAmazonLink(mac.name)" target="_blank" rel="noopener noreferrer"><button class="btn"> <img src="../../static/images/payments/amazon.svg" alt=""></button></a> </table-cel>
+    <table-cel class="score" colspan="1" header> <a href= "https://github.com/svtek/MacScores/blob/master/db.json" target="_blank" rel="noopener noreferrer"><button class="btn"> <img src="https://i.ibb.co/MCYbxqK/Git-Hub-Mark-64px.png" alt=""></button></a> </table-cel>
   </table-row>
 </template>
 
@@ -29,7 +30,8 @@ export default {
     return {
       price: '',
       multiRatio: '',
-      singleRatio: ''
+      singleRatio: '',
+      link: ''
     }
   },
   watch: {
@@ -50,6 +52,9 @@ export default {
     calculate () {
       this.multiRatio = this.mac.multi_score !== 0 || this.price !==  '' ? ( (this.mac.multi_score / this.price).toFixed(2) == Number.POSITIVE_INFINITY ? '' : (this.mac.multi_score / this.price).toFixed(2) ) : ''
       this.singleRatio = this.mac.single_score !== 0 || this.price !==  '' ? ( (this.mac.single_score / this.price).toFixed(2) == Number.POSITIVE_INFINITY ? '' : (this.mac.single_score / this.price).toFixed(2) ) : ''
+    },
+    searchOnAmazonLink (name) {
+      return `https://www.amazon.com/s?k=${name}`
     }
   }
 }
