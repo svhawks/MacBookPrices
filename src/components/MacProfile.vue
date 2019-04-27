@@ -47,17 +47,22 @@
       <tr class="t-row">
         <td class="score" colspan="1" >Price</td>
         <td class="score" colspan="1"  v-if="mac.price !== 0" > $ {{mac.price}} </td> 
-        <td class="score" colspan="1"  v-else > $ <input type="number" class="form-control" v-model="price"> </td> 
+        <td class="score" colspan="1"  v-else > <div class="input-group">
+                          <span class="input-group-prepend">
+                            <span class="input-group-text">$</span>
+                          </span>
+                          <input v-model="price" type="text" class="form-control text-right" style="max-width: 100px;" aria-label="Amount (to the nearest dollar)">
+                        </div> </td> 
       </tr>
       <tr class="t-row">
         <td class="score" colspan="1" >Sinle-score per $</td>
         <td class="score" colspan="1" v-if=" mac.price !== 0" >{{ ( mac.single_score / mac.price ).toFixed(2) }}</td> 
-        <td class="score" colspan="1" v-else >{{ parseInt(ratio) == Number.POSITIVE_INFINITY ? "" : ratio }}</td> 
+        <td class="score" colspan="1" v-else >{{ parseInt(singleRatio) == Number.POSITIVE_INFINITY ? "" : singleRatio }}</td> 
       </tr>
       <tr class="t-row">
         <td class="score" colspan="1" >Multi-score per $</td>
         <td class="score" colspan="1" v-if=" mac.price !== 0" >{{ ( mac.multi_score / mac.price ).toFixed(2) }}</td> 
-        <td class="score" colspan="1" v-else >{{ parseInt(ratio) == Number.POSITIVE_INFINITY ? "" : ratio }}</td> 
+        <td class="score" colspan="1" v-else >{{ parseInt(multiRatio) == Number.POSITIVE_INFINITY ? "" : multiRatio }}</td> 
       </tr>
       <tr class="t-row">
         <td class="score" colspan="1" >Scores From</td>
@@ -89,7 +94,8 @@ export default {
     return {
       mac: null,
       price: '',
-      ratio: ''
+      multiRatio: '',
+      singleRatio: '',
     }
   },
   watch: {
@@ -109,7 +115,8 @@ export default {
       return `https://browser.geekbench.com/macs/${id}`
     },
     calculate () {
-      this.ratio = (this.mac.multi_score !== 0 || this.price !== '') ? (this.mac.multi_score / this.price ).toFixed(2) : 0
+      this.singleRatio = this.mac.single_score !== 0 || this.price !==  0 ? ( (this.mac.single_score / this.price).toFixed(2) == Number.POSITIVE_INFINITY || (this.mac.single_score / this.price).toFixed(2) == Number.NAN ? '' : (this.mac.single_score / this.price ).toFixed(2) ) : ''
+      this.multiRatio = this.mac.multi_score !== 0 || this.price !==  0 ? ( (this.mac.multi_score / this.price).toFixed(2) == Number.POSITIVE_INFINITY || (this.mac.multi_score / this.price).toFixed(2) == Number.NAN ? '' : (this.mac.multi_score / this.price ).toFixed(2) ) : ''
     }
   }
 }

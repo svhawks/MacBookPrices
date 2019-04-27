@@ -122,9 +122,6 @@
                         <th class="sorting unselectable" tabindex="0" rowspan="1" colspan="1" style="width: 50px;">
                           Name
                         </th>
-                        <th class="sorting unselectable" tabindex="0" rowspan="1" colspan="1" style="width: 50px;">
-                          Description
-                        </th>
                         <th @click="sortGeneral('single_score')" class="sorting unselectable" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 50px;">
                           Single - Core Score
                         </th>
@@ -140,12 +137,7 @@
                         <th @click="sortPerDollarMulti" class="sorting unselectable" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 50px;">
                           Multi-score per $
                         </th>
-                        <th class="sorting unselectable" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1">
-                          Buy
-                        </th>
-                        <th class="sorting unselectable" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1">
-                          Edit On Github
-                        </th>
+                        <th class="w-1 sorting unselectable" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"/>
                       </tr>
                     </thead>
                     <tbody v-for="mac in tableItems" :key="mac.id">
@@ -219,30 +211,28 @@ export default {
 
   created() {
     this.loading = true;
-    this.macs = datas.macs;
+    this.macs = this.prepareRatios(datas.macs)
     this.tableItems = this.macs;
     this.bestProduct = this.findBest('')
     this.bestMacbook = this.findBest('macbook')
     this.bestIMac = this.findBest('imac')
     this.bestMacMini = this.findBest('mac mini')
     this.filterMacsAcrossFilters()
+    this.sortPerDollarSingle()
     this.loading = false;
   },
   components: {
     MacItem
   },
   methods: {
-    clear() { // is that needed?
-      this.nameFilter = ""
-      this.selectedType = ""
-      this.singleMinScore = ''
-      this.singleMaxScore = ''
-      this.multiMaxScore = ''
-      this.multiMinScore = ''
-      this.minPrice = ''
-      this.maxPrice = ''
+    prepareRatios(macs) {
+      macs.forEach(mac => {
+        mac.multiRatio = mac.multi_score !== 0 || mac.price !==  0 ? ( (mac.multi_score / mac.price).toFixed(2) == Number.POSITIVE_INFINITY || (mac.multi_score / mac.price).toFixed(2) == Number.NAN ? '' : (mac.multi_score / mac.price ).toFixed(2) ) : ''
+        mac.singleRatio = mac.single_score !== 0 || mac.price !==  0 ? ( (mac.single_score / mac.price).toFixed(2) == Number.POSITIVE_INFINITY || (mac.single_score / mac.price).toFixed(2) == Number.NAN ? '' : (mac.single_score / mac.price).toFixed(2) ) : ''
+      })
+      return macs
     },
-
+    
     filterByFieldInt(macs, compareField, low, high) {
       return macs.filter(item => { return (low || 0) <= item[compareField] && item[compareField] <= (high || 1000000) })
     },
@@ -298,17 +288,19 @@ export default {
       })
       if (this.perDFlagS) {
         this.perDFlagS = false
-        this.tableItems = sorted
+        this.tableItems = sorted.reverse()
       } else {
         this.perDFlagS = true
-        this.tableItems = sorted.reverse()
+        this.tableItems = sorted
       }
       this.sortField = 'single_score_per_dolar'
     },
 
     filterBtn (selectedType) {
-      this.selectedType = selectedType;
-      this.filterMacsAcrossFilters();
+      this.selectedType = selectedType
+      this.filterMacsAcrossFilters()
+      this.sortPerDollarSingle()
+      this.perDFlagS = true
     },
 
     findBest (type) {
