@@ -6,8 +6,8 @@
     <td class="text-center">  ${{mac.price}}</td>
     <td class="text-center">  {{ mac.singleRatio }} </td>
     <td class="text-center">  {{ mac.multiRatio }} </td>
-    <td>  <a :href="searchOnAmazonLink(mac.name)" target="_blank" title="Buy On Amazon" rel="noopener noreferrer"><img src="../../static/images/payments/amazon.svg" alt="" style="max-width: 70px"></a>
-      <a href= "https://github.com/svtek/MacScores/blob/master/db.json" target="_blank" title="Help Us To Improve Our Data" rel="noopener noreferrer"> <i class="fe fe-edit-2"></i></a> </td>
+    <td>  <a :href="searchOnAmazonLink(mac.name)" target="_blank" title="Buy On Amazon" rel="noopener noreferrer"><img src="https://ya-webdesign.com/images/buy-on-amazon-png-3.png" alt="" style="max-width: 100px"></a> &nbsp &nbsp
+      <a href= "https://github.com/svtek/MacScores/blob/master/db.json" target="_blank" title="Help Us To Improve Our Data" rel="noopener noreferrer"> Edit<i class="fe fe-edit-2"></i></a> </td>
   </tr>
 </template>
 

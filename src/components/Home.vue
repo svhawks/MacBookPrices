@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div> 
+    <a href="https://github.com/svtek/MacScores"><img style="position: absolute; top: -30px; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
     <div class="github">
       <a href="https://github.com/svtek/MacScores"><img alt="GitHub" class="stars" src="https://img.shields.io/github/stars/svtek/MacScores.svg?style=social"></a>
     </div>
@@ -9,7 +10,7 @@
           <div class="col-sm-6 col-lg-3">
             <div class="card">
               <div class="card-body">
-                <h3 class="mb-1">Best Product</h3>
+                <h3 class="mb-1">Best Product Per $</h3>
                 <a :href="profileLink(bestProduct.id)">{{bestProduct.name}}</a>
                 <div class="text-muted">{{bestProduct.description}}</div>
                 <div class="text-muted">${{bestProduct.price}}</div>
@@ -19,7 +20,7 @@
           <div class="col-sm-6 col-lg-3">
             <div class="card">
               <div class="card-body">
-                <h3 class="mb-1">Best Macbook</h3>
+                <h3 class="mb-1">Best Macbook Per $</h3>
                 <a :href="profileLink(bestMacbook.id)">{{bestMacbook.name}}</a>
                 <div class="text-muted">{{bestMacbook.description}}</div>
                 <div class="text-muted">${{bestMacbook.price}}</div>
@@ -29,7 +30,7 @@
           <div class="col-sm-6 col-lg-3">
             <div class="card">
               <div class="card-body">
-                <h3 class="mb-1">Best iMac</h3>
+                <h3 class="mb-1">Best iMac Per $</h3>
                 <a :href="profileLink(bestIMac.id)">{{bestIMac.name}}</a>
                 <div class="text-muted">{{bestIMac.description}}</div>
                 <div class="text-muted">${{bestIMac.price}}</div>
@@ -39,7 +40,7 @@
           <div class="col-sm-6 col-lg-3">
             <div class="card">
               <div class="card-body">
-                <h3 class="mb-1">Best Mac Mini</h3>
+                <h3 class="mb-1">Best Mac Mini Per $</h3>
                 <a :href="profileLink(bestMacMini.id)">{{bestMacMini.name}}</a>
                 <div class="text-muted">{{bestMacMini.description}}</div>
                 <div class="text-muted">${{bestMacMini.price}}</div>
@@ -101,13 +102,13 @@
                     </span>
                   </div>
                 </div>
+                <div class="ml-3">
+                  <button @click="filterBtn('all')" class="btn btn-secondary">All</button> 
+                  <button @click="filterBtn('macbook')" class="btn btn-secondary">Macbook</button>
+                  <button @click="filterBtn('imac')" class="btn btn-secondary">iMac</button>
+                  <button @click="filterBtn('mac mini')" class="btn btn-secondary">Mac mini</button>
+                </div>
                 <div class="card-options">
-                  <div class="mt-3">
-                    <button @click="filterBtn('all')" class="btn btn-secondary">All</button> 
-                    <button @click="filterBtn('macbook')" class="btn btn-secondary">Macbook</button>
-                    <button @click="filterBtn('imac')" class="btn btn-secondary">iMac</button>
-                    <button @click="filterBtn('mac mini')" class="btn btn-secondary">Mac mini</button>
-                  </div>
                   <div class="form-group mt-4 ml-1">
                     <label class="text-center form-label"></label>
                     <label class="custom-switch">
@@ -346,6 +347,7 @@ export default {
 <style>
 .github {
   position: absolute;
-  margin: 1%;
+  margin-left: 0.5%;
+  height: 25px;
 }
 </style>
