@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="my-3 my-md-5">
-      <div class="container">
+    <div class="my-3 my-md-5 mx-9">
+      <div class="container-fluid">
         <div class="row">
           <div class="col-sm-6 col-lg-3">
             <div class="card">
@@ -88,7 +88,7 @@
               <div class="card-header">
                 <div class="form-gruop">
                   <div class="input-icon">
-                    <input v-model="nameFilter" style="width: 700px!important" type="text" class="form-control" placeholder="Search for..." @keyup="filterMacsAcrossFilters">
+                    <input v-model="nameFilter" style="width: 300px!important" type="text" class="form-control" placeholder="Search for..." @keyup="filterMacsAcrossFilters">
                     <span class="input-icon-addon">
                       <i class="fe fe-search"></i>
                     </span>
@@ -96,10 +96,10 @@
                 </div>
                 <div class="card-options">
                   <div class="mt-3">
-                  <button @click="filterBtn('all')" class="btn btn-secondary">All</button> 
-                  <button @click="filterBtn('macbook')" class="btn btn-secondary">Macbook</button>
-                  <button @click="filterBtn('imac')" class="btn btn-secondary">iMac</button>
-                  <button @click="filterBtn('mac mini')" class="btn btn-secondary">Mac mini</button>
+                    <button @click="filterBtn('all')" class="btn btn-secondary">All</button> 
+                    <button @click="filterBtn('macbook')" class="btn btn-secondary">Macbook</button>
+                    <button @click="filterBtn('imac')" class="btn btn-secondary">iMac</button>
+                    <button @click="filterBtn('mac mini')" class="btn btn-secondary">Mac mini</button>
                   </div>
                   <div class="form-group mt-4 ml-1">
                     <label class="text-center form-label"></label>
@@ -182,9 +182,6 @@ export default {
       multiMinScore: '',
       multiMaxScore: '',
       sortField: '',
-      singleFlag: true,
-      multiFlag: true,
-      priceFlag: true,
       perDFlagM: true,
       perDFlagS: true,
       onMarket: true,
@@ -228,6 +225,7 @@ export default {
     this.bestMacbook = this.findBest('macbook')
     this.bestIMac = this.findBest('imac')
     this.bestMacMini = this.findBest('mac mini')
+    this.filterMacsAcrossFilters()
     this.loading = false;
   },
   components: {
