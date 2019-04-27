@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="my-3 my-md-5">
-      <div class="container">
+    <div class="my-3 my-md-5 mx-9">
+      <div class="container-fluid">
         <div class="row">
           <div class="col-sm-6 col-lg-3">
             <div class="card">
