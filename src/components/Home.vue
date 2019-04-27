@@ -347,7 +347,10 @@ export default {
 <style>
 .github {
   position: absolute;
-  margin-left: 0.5%;
-  height: 25px;
+  margin-top: 1%;
+  margin-left: 1%;
+}
+.stars {
+  width: 85px;
 }
 </style>
