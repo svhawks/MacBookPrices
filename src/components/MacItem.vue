@@ -1,20 +1,15 @@
 <template>
-  <table-row class="t-row">
-    <table-cel colspan="2" header> <router-link :to="profileLink">{{mac.name}}</router-link> </table-cel>
-    <table-cel colspan="2" header>
-      {{ mac.processor + ' @ ' + (parseFloat(mac.processor_freq) / 1000).toFixed(1) + 'Ghz ('+mac.processor_cores+ (mac.processor_cores == 1 ? ' core) ' :' cores) ') }}
-    </table-cel>
-    <table-cel class="score" colspan="1" header>{{mac.single_score}}</table-cel>
-    <table-cel class="score" colspan="1" header>{{mac.multi_score}}</table-cel>
-    <table-cel class="price dollar" colspan="1" header v-if="mac.price == -1">$<input type="number" class="form-control input" v-model="price"> </table-cel>
-    <table-cel class="price" colspan="1" header v-else >${{mac.price}}</table-cel>
-    <table-cel class="score" colspan="1" v-if=" mac.price !== -1" header>{{ mac.multi_score / mac.price   == Number.POSITIVE_INFINITY ? '' : ( mac.single_score / mac.price ).toFixed(2) }}</table-cel> 
-    <table-cel class="score" colspan="1" v-else header>{{ singleRatio }}</table-cel> 
-    <table-cel class="score" colspan="1" v-if=" mac.price !== -1" header>{{  mac.single_score / mac.price   == Number.POSITIVE_INFINITY ? '' : ( mac.single_score / mac.price ).toFixed(2) }}</table-cel> 
-    <table-cel class="score" colspan="1" v-else header>{{ multiRatio }}</table-cel> 
-    <table-cel class="score" colspan="1" header> <a :href="searchOnAmazonLink(mac.name)" target="_blank" rel="noopener noreferrer"><button class="btn"> <img src="../../static/images/payments/amazon.svg" alt=""></button></a> </table-cel>
-    <table-cel class="score" colspan="1" header> <a href= "https://github.com/svtek/MacScores/blob/master/db.json" target="_blank" rel="noopener noreferrer"><button class="btn"> <img src="https://i.ibb.co/MCYbxqK/Git-Hub-Mark-64px.png" alt=""></button></a> </table-cel>
-  </table-row>
+  <tr role="row" class="even">  
+    <td><router-link :to="profileLink">{{mac.name}}</router-link> </td>
+    <td>  {{ mac.processor + ' @ ' + (parseFloat(mac.processor_freq) / 1000).toFixed(1) + 'Ghz ('+mac.processor_cores+ (mac.processor_cores == 1 ? ' core) ' :' cores) ') }}</td>
+    <td>  {{mac.single_score}}</td>
+    <td>  {{mac.multi_score}}</td>
+    <td>  ${{mac.price}}</td>
+    <td>  {{ singleRatio }} </td>
+    <td>  {{ multiRatio }} </td>
+    <td>  <a :href="searchOnAmazonLink(mac.name)" target="_blank" rel="noopener noreferrer"><img src="../../static/images/payments/amazon.svg" alt="" style="min-width: 50px"></a> </td>
+    <td>  <a href= "https://github.com/svtek/MacScores/blob/master/db.json" target="_blank" rel="noopener noreferrer"><button class="btn"> <img src="https://i.ibb.co/MCYbxqK/Git-Hub-Mark-64px.png" alt=""></button></a> </td>
+  </tr>
 </template>
 
 <script>
@@ -28,8 +23,7 @@ export default {
   },
   data() {
     return {
-      price: '',
-      multiRatio: '',
+      multiRatio: '', 
       singleRatio: '',
       link: ''
     }
@@ -43,38 +37,17 @@ export default {
     }
   },
   methods: {
-    clicked (event) {
-      this.$emit("clicked",this.mac)
-    },
-    removed (event) {
-      this.$emit("removed",this.mac)
-    },
     calculate () {
       this.multiRatio = this.mac.multi_score !== 0 || this.price !==  '' ? ( (this.mac.multi_score / this.price).toFixed(2) == Number.POSITIVE_INFINITY ? '' : (this.mac.multi_score / this.price).toFixed(2) ) : ''
       this.singleRatio = this.mac.single_score !== 0 || this.price !==  '' ? ( (this.mac.single_score / this.price).toFixed(2) == Number.POSITIVE_INFINITY ? '' : (this.mac.single_score / this.price).toFixed(2) ) : ''
     },
     searchOnAmazonLink (name) {
-      return `https://www.amazon.com/s?k=${name}`
+      return `https://www.amazon.com/gp/search/ref=as_li_qf_sp_sr_tl?ie=UTF8&tag=sv032-20&keywords={${name}}&index=aps&camp=1789&creative=9325&linkCode=ur2&linkId=ad92dd39540fa28645193ae6416b6375`
     }
   }
 }
 </script>
 
-<style scoped >
-.score {
-  text-align: center;
-}
-.price {
-  text-align: center;
-}
-.dollar {
-  display: flex;
-  font-size: 130%;
-}
-.input {
-  position:inherit;
-  display: flex;
-  width: 60%;
-  height: 80%;
-}
+<style>
+
 </style>
