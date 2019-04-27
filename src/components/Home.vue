@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div class="github">
+      <a href="https://github.com/svtek/MacScores"><img alt="GitHub" class="stars" src="https://img.shields.io/github/stars/svtek/MacScores.svg?style=social"></a>
+    </div>
     <div class="my-3 my-md-5 mx-9">
       <div class="container-fluid">
         <div class="row">
@@ -8,6 +11,7 @@
               <div class="card-body">
                 <h3 class="mb-1">Best Product</h3>
                 <a :href="profileLink(bestProduct.id)">{{bestProduct.name}}</a>
+                <div class="text-muted">{{bestProduct.description}}</div>
                 <div class="text-muted">${{bestProduct.price}}</div>
               </div>
             </div>
@@ -17,6 +21,7 @@
               <div class="card-body">
                 <h3 class="mb-1">Best Macbook</h3>
                 <a :href="profileLink(bestMacbook.id)">{{bestMacbook.name}}</a>
+                <div class="text-muted">{{bestMacbook.description}}</div>
                 <div class="text-muted">${{bestMacbook.price}}</div>
               </div>
             </div>
@@ -26,6 +31,7 @@
               <div class="card-body">
                 <h3 class="mb-1">Best iMac</h3>
                 <a :href="profileLink(bestIMac.id)">{{bestIMac.name}}</a>
+                <div class="text-muted">{{bestIMac.description}}</div>
                 <div class="text-muted">${{bestIMac.price}}</div>
               </div>
             </div>
@@ -35,6 +41,7 @@
               <div class="card-body">
                 <h3 class="mb-1">Best Mac Mini</h3>
                 <a :href="profileLink(bestMacMini.id)">{{bestMacMini.name}}</a>
+                <div class="text-muted">{{bestMacMini.description}}</div>
                 <div class="text-muted">${{bestMacMini.price}}</div>
               </div>  
             </div>
@@ -184,21 +191,25 @@ export default {
       onMarket: true,
       bestProduct: {
         name: '',
+        description: '',
         id: '',
         price: ''
       },
       bestMacbook:  {
         name: '',
+        description: '',
         id: '',
         price: ''
       },
       bestIMac:  {
         name: '',
+        description: '',
         id: '',
         price: ''
       },
       bestMacMini:  {
         name: '',
+        description: '',
         id: '',
         price: ''
       },
@@ -303,6 +314,11 @@ export default {
 
     filterBtn (selectedType) {
       this.selectedType = selectedType
+      if(selectedType == 'all') {
+        this.nameFilter = ' '  
+      } else{
+        this.nameFilter = selectedType
+      }
       this.filterMacsAcrossFilters()
       this.sortPerDollarSingle()
       this.perDFlagS = true
@@ -317,7 +333,7 @@ export default {
         let ratio2 = b.single_score !== 0 && b.price !== 0 ? b.single_score / b.price : 0
         return ratio1 > ratio2 ? -1 : ratio1 < ratio2 ? 1 : 0
       })
-      return {name : macs[0].model_identifier, price: macs[0].price, id: macs[0]._id }
+      return {name : macs[0].name, description: macs[0].processor + ' @ ' + (parseFloat(macs[0].processor_freq) / 1000).toFixed(1) + 'Ghz ('+macs[0].processor_cores+ (macs[0].processor_cores == 1 ? ' core) ' :' cores) '), price: macs[0].price, id: macs[0]._id }
     },
 
     profileLink(id) {
@@ -329,10 +345,7 @@ export default {
 
 <style>
 .github {
+  position: absolute;
   margin: 1%;
-  width: 25%;
-  padding-left: 5%;
-  padding-left: -15px;
-  position: absolute
 }
 </style>
