@@ -140,9 +140,14 @@
                         <th class="w-1 sorting unselectable" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"/>
                       </tr>
                     </thead>
-                    <tbody v-for="mac in tableItems" :key="mac.id">
-                      <MacItem :mac="mac"></MacItem>
-                    </tbody>
+                    <div v-if="tableItems.length" style="display: contents;">
+                      <tbody v-for="mac in tableItems" :key="mac.id">
+                        <MacItem :mac="mac"></MacItem>
+                      </tbody>
+                    </div>
+                    <div v-else class="card-body">
+                       <span class="text-center d-inline"> <i class="fe fe-search"/>No Item Found </span>
+                    </div>
                   </table>
                 </div>
               </div>
