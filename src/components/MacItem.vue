@@ -7,7 +7,7 @@
     <td>  ${{mac.price}}</td>
     <td>  {{ singleRatio }} </td>
     <td>  {{ multiRatio }} </td>
-    <td>  <a :href="searchOnAmazonLink(mac.name)" target="_blank" rel="noopener noreferrer"><button class="btn"> <img src="../../static/images/payments/amazon.svg" alt=""></button></a> </td>
+    <td>  <a :href="searchOnAmazonLink(mac.name)" target="_blank" rel="noopener noreferrer"><img src="../../static/images/payments/amazon.svg" alt="" style="min-width: 50px"></a> </td>
     <td>  <a href= "https://github.com/svtek/MacScores/blob/master/db.json" target="_blank" rel="noopener noreferrer"><button class="btn"> <img src="https://i.ibb.co/MCYbxqK/Git-Hub-Mark-64px.png" alt=""></button></a> </td>
   </tr>
 </template>
