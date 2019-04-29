@@ -66,7 +66,7 @@
       </tr>
       <tr class="t-row">
         <td class="score" colspan="1" >Scores From</td>
-        <td class="score" colspan="1" > <a :href="geekBenchLink(mac._id)">GeekBenck.com</a></td>
+        <td class="score" colspan="1" > <a :href="geekBenchLink(mac._id)"> <img src="../../img/geekbench.png"  style="width: 25px;" > GeekBench.com</a></td>
       </tr>
     </table>
     </div>
