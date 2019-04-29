@@ -3,7 +3,7 @@
     <a href="https://github.com/svtek/MacScores"><img style="position: absolute; top: -30px; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
     
     <div class="my-3 my-md-5 mx-9">
-      <div class="container-fluid">
+      <div class="flex-fill">
         <div class="row">
           <div class="col-sm-6 col-lg-3">
             <div class="card geek">
@@ -118,33 +118,34 @@
                   </div>
                 </div>
               </div>
-              <div class="table table-responsive ">
+              <div class="table table-responsive">
                 <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
                   <table
                     id="DataTables_Table_0"
-                    class="table table-vcenter text-nowrap datatable dataTable no-footer"
+                    class="table table-vcenter datatable dataTable no-footer"
+                    role="grid"
                     >
                     <thead>
                       <tr role="row">
-                        <th class="sorting unselectable" tabindex="0" rowspan="1" colspan="1" style="width: 50px;">
+                        <th class="sorting unselectable" tabindex="0" rowspan="1" colspan="1" style="width: 10px;">
                           Name
                         </th>
-                        <th @click="sortGeneral('single_score')" class="sorting unselectable" tabindex="1" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 80px;">
-                          Single - Core Score
+                        <th @click="sortGeneral('single_score')" class="sorting unselectable text-center" tabindex="1" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 50px;">
+                          Single Core Score
                         </th>
-                        <th @click="sortGeneral('multi_score')" class="sorting unselectable" tabindex="2" rowspan="1" colspan="1" style="width: 80px;" >
-                          Multi - Core Score
+                        <th @click="sortGeneral('multi_score')" class="sorting unselectable text-center" tabindex="2" rowspan="1" colspan="1" style="width: 50px;" >
+                          Multi Core Score
                         </th>
-                        <th @click="sortGeneral('price')" class="sorting unselectable" tabindex="3" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 50px;">
-                          Stock-Price
+                        <th @click="sortGeneral('price')" class="sorting unselectable text-center" tabindex="3" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 50px;">
+                          Stock Price
                         </th>
-                        <th @click="sortPerDollarSingle" class="sorting unselectable" tabindex="4" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 80px;">
-                          Single-score per $
+                        <th @click="sortPerDollarSingle" class="sorting unselectable text-center" tabindex="4" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 50px;">
+                          Single Score per $
                         </th>
-                        <th @click="sortPerDollarMulti" class="sorting unselectable" tabindex="5" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 80px;">
-                          Multi-score per $
+                        <th @click="sortPerDollarMulti" class="sorting unselectable text-center" tabindex="5" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 50px;">
+                          Multi Score per $
                         </th>
-                        <th class="w-1 sorting unselectable" tabindex="6" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"/>
+                        <th class="w-1 sorting unselectable " tabindex="6" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"/>
                       </tr>
                     </thead>
                     <div v-if="tableItems.length" style="display: contents;">
