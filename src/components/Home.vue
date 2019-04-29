@@ -3,16 +3,16 @@
     <a href="https://github.com/svtek/MacScores"><img style="position: absolute; top: -30px; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
     
     <div class="my-3 my-md-5 mx-9">
-      <div class="flex-fill">
+      <div class="container-fluid">
         <div class="row">
           <div class="col-sm-6 col-lg-3">
             <div class="card geek">
               <div class="card-body text-center">
                 <div> <a :href="geekBenchLink()"><img src="../../img/geekbench.png"  style="max-height: 3em;" > </a></div>
                 <p></p>
-                <div> Scores From</div>
-                <p></p>
+                <div>Scores From</div>
                 <div> <a :href="geekBenchLink()"> Geekbench.com</a> </div>
+                <p></p>
               </div>
             </div>
           </div>
@@ -354,7 +354,7 @@ export default {
   margin-top: 1%;
   margin-left: 1%;
 }
-.card-body {
-  max-height: 15em;
+.geek {
+  height: 9.8em;
 }
 </style>
