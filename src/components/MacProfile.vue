@@ -102,8 +102,9 @@ export default {
     'price' : 'calculate'
   },
   created () {
+    let id = this.$route.params.id.split("-")
     datas.macs.forEach(mac => {
-      if(mac._id === this.$route.params.id)
+      if(mac._id === id[id.length-1])
       this.mac = mac
     });
   },

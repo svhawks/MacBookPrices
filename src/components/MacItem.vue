@@ -30,7 +30,9 @@ export default {
   },
   computed: {
     profileLink() {
-      return `/macs/${this.mac._id}`
+      let name = this.mac.name
+      name = name.toLowerCase().replace(/[^a-zA-Z0-9]+/g, "-")
+      return `/macs/${name}${this.mac._id}`
     }
   },
   methods: {

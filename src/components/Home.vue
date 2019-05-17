@@ -20,7 +20,7 @@
             <div class="card">
               <div class="card-body">
                 <h3 class="mb-1">Best Macbook Per $</h3>
-                <a :href="profileLink(bestMacbook.id)">{{bestMacbook.name}}</a>
+                <a :href="profileLink(bestMacbook.id,bestMacbook.name)">{{bestMacbook.name}}</a>
                 <div class="text-muted">{{bestMacbook.description}}</div>
                 <div class="text-muted">${{bestMacbook.price}}</div>
               </div>
@@ -30,7 +30,7 @@
             <div class="card">
               <div class="card-body">
                 <h3 class="mb-1">Best iMac Per $</h3>
-                <a :href="profileLink(bestIMac.id)">{{bestIMac.name}}</a>
+                <a :href="profileLink(bestIMac.id,bestIMac.name)">{{bestIMac.name}}</a>
                 <div class="text-muted">{{bestIMac.description}}</div>
                 <div class="text-muted">${{bestIMac.price}}</div>
               </div>
@@ -40,7 +40,7 @@
             <div class="card">
               <div class="card-body">
                 <h3 class="mb-1">Best Mac Mini Per $</h3>
-                <a :href="profileLink(bestMacMini.id)">{{bestMacMini.name}}</a>
+                <a :href="profileLink(bestMacMini.id,bestMacMini.name)">{{bestMacMini.name}}</a>
                 <div class="text-muted">{{bestMacMini.description}}</div>
                 <div class="text-muted">${{bestMacMini.price}}</div>
               </div>  
@@ -341,8 +341,9 @@ export default {
       return {name : macs[0].name, description: macs[0].processor + ' @ ' + (parseFloat(macs[0].processor_freq) / 1000).toFixed(1) + 'Ghz ('+macs[0].processor_cores+ (macs[0].processor_cores == 1 ? ' core) ' :' cores) '), price: macs[0].price, id: macs[0]._id }
     },
 
-    profileLink(id) {
-      return `/#/macs/${id}`
+    profileLink(id,name) {
+      name = name.toLowerCase().replace(/[^a-zA-Z0-9]+/g, "-")
+      return `/#/macs/${name}${id}`
     },
   },
 }
