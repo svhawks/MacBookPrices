@@ -6,7 +6,9 @@
     <td class="text-center">  ${{mac.price}}</td>
     <td class="text-center">  {{ mac.singleRatio }} </td>
     <td class="text-center">  {{ mac.multiRatio }} </td>
-    <td class="text-center">  <a :href="searchOnAmazonLink(mac.name)" target="_blank" title="Buy On Amazon" rel="noopener noreferrer"><img src="https://ya-webdesign.com/images/buy-on-amazon-png-3.png" alt="" style="max-width: 100px"></a> &nbsp &nbsp
+    <td class="text-center">  
+      <a target="_blank" :href="searchOnAmazonLink(mac.name)">Buy Now</a>
+      <img src="//ir-na.amazon-adsystem.com/e/ir?t=sv0f7-20&l=ur2&o=1" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
       <a href= "https://github.com/svtek/MacScores/blob/master/db.json" target="_blank" title="Help Us To Improve Our Data" rel="noopener noreferrer"> Edit<i class="fe fe-edit-2"></i></a> </td>
   </tr>
 </template>
@@ -42,7 +44,7 @@ export default {
     searchOnAmazonLink (name) {
       name = name.replace('(','')
       name = name.replace(')','')
-      return `https://www.amazon.com/gp/search/ref=as_li_qf_sp_sr_tl?ie=UTF8&tag=sv032-20&keywords=${name}&index=aps&camp=1789&creative=9325&linkCode=ur2&linkId=ad92dd39540fa28645193ae6416b6375`
+      return `https://www.amazon.com/gp/search?ie=UTF8&tag=sv0f7-20&linkCode=ur2&linkId=37c3e184b077b7359fcd3143e2deaaaa&camp=1789&creative=9325&index=pc-hardware&keywords=${name}`
     }
   }
 }

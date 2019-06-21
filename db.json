@@ -1036,7 +1036,7 @@
       "processor_cores": 2,
       "processor_threads": 4,
       "processor_count": 1,
-      "price": 999.00,
+      "price": 0,
       "multi_score": 7046,
       "single_score": 3701
     },
@@ -1049,7 +1049,7 @@
       "processor_cores": 2,
       "processor_threads": 4,
       "processor_count": 1,
-      "price": 999.00,
+      "price": 0,
       "multi_score": 6816,
       "single_score": 3584
     },
@@ -1062,7 +1062,7 @@
       "processor_cores": 2,
       "processor_threads": 4,
       "processor_count": 1,
-      "price": 699.00,
+      "price": 0,
       "multi_score": 6494,
       "single_score": 3412
     },
@@ -1075,7 +1075,7 @@
       "processor_cores": 2,
       "processor_threads": 4,
       "processor_count": 1,
-      "price": 499.00,
+      "price": 0,
       "multi_score": 5420,
       "single_score": 3027
     },
