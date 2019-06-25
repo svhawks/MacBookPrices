@@ -9,7 +9,10 @@
     <td class="text-center">  
       <a target="_blank" :href="searchOnAmazonLink(mac.name)">Buy Now</a>
       <img src="//ir-na.amazon-adsystem.com/e/ir?t=sv0f7-20&l=ur2&o=1" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
-      <a href= "https://github.com/svtek/MacScores/blob/master/db.json" target="_blank" title="Help Us To Improve Our Data" rel="noopener noreferrer"> Edit<i class="fe fe-edit-2"></i></a> </td>
+     </td>
+     <td  class="text-center">
+        <a href= "https://github.com/svtek/MacScores/blob/master/db.json" target="_blank" title="Help Us To Improve Our Data" rel="noopener noreferrer"> Edit<i class="fe fe-edit-2"></i></a> 
+     </td>
   </tr>
 </template>
 

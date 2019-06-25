@@ -1,6 +1,6 @@
 <template>
   <div> 
-    <a href="https://github.com/svtek/MacScores"><img style="position: absolute; top: -30px; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    <a href="https://github.com/svtek/MacScores" target="_blank"><img style="position: absolute; top: -30px; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
     
     <div class="my-3 my-md-5 mx-9">
       <div class="container-fluid">
@@ -145,7 +145,8 @@
                         <th @click="sortPerDollarMulti" class="sorting unselectable text-center" tabindex="5" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 50px;">
                           Multi Score per $
                         </th>
-                        <th class="w-1 sorting unselectable " tabindex="6" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"/>
+                        <th class="w-1 sorting unselectable " tabindex="1" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"/>
+                         <th class="w-1 sorting unselectable " tabindex="1" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 60px;"/>
                       </tr>
                     </thead>
                     <div v-if="tableItems.length" style="display: contents;">
@@ -164,7 +165,6 @@
         </div>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
