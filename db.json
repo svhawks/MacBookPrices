@@ -1,4 +1,5 @@
-[
+{
+  "macs": [
     {
         "id": "453",
         "name": "MacBook Pro (15-inch Mid 2019)",
@@ -5628,4 +5629,5 @@
         "multi_score": 375,
         "single_score": 201
     }
-]
+  ]
+}
