@@ -22,7 +22,7 @@
       </tr>
       <tr class="t-row">
         <td class="score" colspan="1" >Model Identifier</td>
-        <td class="score" colspan="1" >{{mac.model_identifier}}</td> 
+        <td class="score" colspan="1" >{{mac.modelidentifier}}</td> 
       </tr>
       <tr class="t-row">
         <td class="score" colspan="1" >Processor</td>
@@ -66,7 +66,7 @@
       </tr>
       <tr class="t-row">
         <td class="score" colspan="1" >Scores From</td>
-        <td class="score" colspan="1" > <a :href="geekBenchLink(mac._id)"> <img src="../../img/geekbench.png"  style="width: 25px;" > GeekBench.com</a></td>
+        <td class="score" colspan="1" > <a :href="geekBenchLink(mac.id)"> <img src="../../img/geekbench.png"  style="width: 25px;" > GeekBench.com</a></td>
       </tr>
     </table>
     </div>
@@ -104,7 +104,7 @@ export default {
   created () {
     let id = this.$route.params.id.split("-")
     datas.macs.forEach(mac => {
-      if(mac._id === id[id.length-1])
+      if(mac.id === id[id.length-1])
       this.mac = mac
     });
   },

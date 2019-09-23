@@ -37,7 +37,7 @@ export default {
     profileLink() {
       let name = this.mac.name
       name = name.toLowerCase().replace(/[^a-zA-Z0-9]+/g, "-")
-      return `/macs/${name}${this.mac._id}`
+      return `/macs/${name}${this.mac.id}`
     }
   },
   methods: {
