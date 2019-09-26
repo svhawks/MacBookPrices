@@ -338,7 +338,7 @@ export default {
         let ratio2 = b.single_score !== 0 && b.price !== 0 ? b.single_score / b.price : 0
         return ratio1 > ratio2 ? -1 : ratio1 < ratio2 ? 1 : 0
       })
-      return {name : macs[0].name, description: macs[0].processor + ' @ ' + (parseFloat(macs[0].processor_freq) / 1000).toFixed(1) + 'Ghz ('+macs[0].processor_cores+ (macs[0].processor_cores == 1 ? ' core) ' :' cores) '), price: macs[0].price, id: macs[0]._id }
+      return {name : macs[0].name, description: macs[0].processor + ' @ ' + (parseFloat(macs[0].processor_freq) / 1000).toFixed(1) + 'Ghz ('+macs[0].processor_cores+ (macs[0].processor_cores == 1 ? ' core) ' :' cores) '), price: macs[0].price, id: macs[0].id }
     },
 
     profileLink(id,name) {

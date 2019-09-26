@@ -1,8 +1,8 @@
 <template>
   <tr role="row" class="even">  
     <td class="text-pre"><router-link title="Info About This Mac" :to="profileLink">{{mac.name}}</router-link> <div class="text-muted">{{ mac.processor + ' @ ' + (parseFloat(mac.processor_freq) / 1000).toFixed(1) + 'Ghz ('+mac.processor_cores+ (mac.processor_cores == 1 ? ' core) ' :' cores) ')}} </div> </td>
-    <td class="text-center">  <a :href="geekBenchLink(mac._id)" target="_blank" title="GeekBench.com"> {{mac.single_score}} </a> </td>
-    <td class="text-center"> <a :href="geekBenchLink(mac._id)"  target="_blank" title="GeekBench.com"> {{mac.multi_score}} </a> </td>
+    <td class="text-center">  <a :href="geekBenchLink(mac.id)" target="_blank" title="GeekBench.com"> {{mac.single_score}} </a> </td>
+    <td class="text-center"> <a :href="geekBenchLink(mac.id)"  target="_blank" title="GeekBench.com"> {{mac.multi_score}} </a> </td>
     <td class="text-center">  ${{mac.price}}</td>
     <td class="text-center">  {{ mac.singleRatio }} </td>
     <td class="text-center">  {{ mac.multiRatio }} </td>
