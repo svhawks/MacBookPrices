@@ -1,4 +1,16 @@
 {
+    "buy": [
+    {
+      "macs_id": 453
+      "stores": [
+        "name": "bestbuy.com", 
+        "link": "",
+        "price": ""
+      ]
+    }
+  
+  ],
+  
   "macs": [
     {
         "id": "453",
